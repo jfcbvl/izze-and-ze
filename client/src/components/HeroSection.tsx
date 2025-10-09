@@ -44,14 +44,19 @@ export default function HeroSection({
           {coupleNames}
         </h1>
         
-        <p className="text-white text-lg md:text-xl tracking-widest uppercase mb-12 font-sans">
-          {location} · {date}
-        </p>
+        <div className="mb-12">
+          <p className="text-white text-lg md:text-xl tracking-widest uppercase font-sans mb-2">
+            {date}
+          </p>
+          <p className="text-white text-base md:text-lg tracking-widest uppercase font-sans">
+            {location}
+          </p>
+        </div>
         
         <button
           onClick={onCtaClick}
           data-testid="button-scroll-to-rsvp"
-          className="px-8 py-4 border-2 border-white/80 rounded-full text-white font-sans font-medium text-lg backdrop-blur-sm bg-white/10 hover-elevate active-elevate-2 transition-all"
+          className="px-8 py-4 rounded-full text-foreground bg-white font-sans font-medium text-lg hover-elevate active-elevate-2 transition-all"
         >
           {ctaText}
         </button>
