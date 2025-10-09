@@ -19,6 +19,7 @@ interface WeddingContent {
     locationLabel: string;
     location: string;
     additionalInfo: string;
+    rsvpDeadline?: string;
   };
 }
 
@@ -54,6 +55,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         locationLabel={content.details.locationLabel}
         location={content.details.location}
         additionalInfo={content.details.additionalInfo}
+        rsvpDeadline={content.details.rsvpDeadline}
       />
       
       <div ref={formRef}>
