@@ -19,10 +19,10 @@ export default function LanguageSwitcher() {
           onClick={() => setLocation(`/${lang.code}`)}
           data-testid={`button-lang-${lang.code}`}
           className={`
-            px-3 py-2 rounded-md font-sans text-sm font-medium transition-all
+            px-2 py-1 rounded-md font-sans text-sm font-medium transition-all
             ${currentLang === lang.code 
               ? 'bg-white/90 text-foreground border border-border' 
-              : 'bg-white/50 text-foreground/80 border border-white/30 hover-elevate active-elevate-2'
+              : 'bg-white/20 text-foreground/60 border border-white/20 hover-elevate active-elevate-2'
             }
           `}
         >

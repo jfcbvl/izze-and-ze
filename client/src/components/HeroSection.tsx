@@ -65,7 +65,7 @@ export default function HeroSection({
         </button>
         
         {rsvpDeadline && (
-          <p className="text-white/90 text-sm md:text-base font-sans mt-6">
+          <p className="text-black text-sm md:text-base font-sans mt-6">
             {rsvpDeadline}
           </p>
         )}
