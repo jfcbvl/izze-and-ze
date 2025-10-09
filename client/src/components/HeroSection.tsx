@@ -4,6 +4,7 @@ interface HeroSectionProps {
   location: string;
   date: string;
   ctaText: string;
+  rsvpDeadline?: string;
   onCtaClick: () => void;
   videoSrc?: string;
 }
@@ -14,6 +15,7 @@ export default function HeroSection({
   location,
   date,
   ctaText,
+  rsvpDeadline,
   onCtaClick,
   videoSrc,
 }: HeroSectionProps) {
@@ -60,6 +62,12 @@ export default function HeroSection({
         >
           {ctaText}
         </button>
+        
+        {rsvpDeadline && (
+          <p className="text-white/90 text-sm md:text-base font-sans mt-6">
+            {rsvpDeadline}
+          </p>
+        )}
       </div>
     </section>
   );

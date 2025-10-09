@@ -6,6 +6,7 @@ export const content = {
       location: 'ÉVORA · PORTUGAL',
       date: 'SEPTEMBER 5TH · 2026',
       ctaText: 'RSVP',
+      rsvpDeadline: 'Please RSVP by November 1st, 2026',
     },
     details: {
       title: 'Event Details',
@@ -14,7 +15,6 @@ export const content = {
       locationLabel: 'Location',
       location: 'Évora, Portugal',
       additionalInfo: 'Évora is about 1 hour and 30 minutes from Lisbon — more details will be shared after you RSVP ✈️',
-      rsvpDeadline: 'Please RSVP by November 1st, 2026',
     },
   },
   pt: {
@@ -24,6 +24,7 @@ export const content = {
       location: 'ÉVORA · PORTUGAL',
       date: '5 DE SETEMBRO · 2026',
       ctaText: 'Confirmar Presença',
+      rsvpDeadline: 'Por favor confirma até 1 de Novembro, 2026',
     },
     details: {
       title: 'Detalhes do Evento',
@@ -32,7 +33,6 @@ export const content = {
       locationLabel: 'Local',
       location: 'Évora, Portugal',
       additionalInfo: 'Évora fica a cerca de 1h30 de Lisboa — mais informações serão partilhadas depois de confirmares a tua presença ✈️',
-      rsvpDeadline: 'Por favor confirma até 1 de Novembro, 2026',
     },
   },
   mx: {
@@ -42,6 +42,7 @@ export const content = {
       location: 'ÉVORA · PORTUGAL',
       date: '5 DE SEPTIEMBRE · 2026',
       ctaText: 'Confirmar Asistencia',
+      rsvpDeadline: 'Por favor confirma antes del 1 de noviembre, 2026',
     },
     details: {
       title: 'Detalles del Evento',
@@ -50,7 +51,6 @@ export const content = {
       locationLabel: 'Lugar',
       location: 'Évora, Portugal',
       additionalInfo: 'Évora está a aproximadamente 1 hora y media de Lisboa — compartiremos más detalles después de que confirmes tu asistencia ✈️',
-      rsvpDeadline: 'Por favor confirma antes del 1 de noviembre, 2026',
     },
   },
 };
