@@ -1,4 +1,5 @@
 interface HeroSectionProps {
+  saveTheDate?: string;
   coupleNames: string;
   location: string;
   date: string;
@@ -8,6 +9,7 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({
+  saveTheDate,
   coupleNames,
   location,
   date,
@@ -32,6 +34,12 @@ export default function HeroSection({
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/60" />
       
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        {saveTheDate && (
+          <p className="text-white/90 text-sm md:text-base tracking-widest uppercase mb-6 font-sans font-medium">
+            {saveTheDate}
+          </p>
+        )}
+        
         <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-light text-white mb-8 tracking-tight">
           {coupleNames}
         </h1>

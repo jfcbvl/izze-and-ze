@@ -7,6 +7,7 @@ export default function HeroSectionExample() {
 
   return (
     <HeroSection
+      saveTheDate="Save The Date"
       coupleNames="Izzy & Zé"
       location="ÉVORA · PORTUGAL"
       date="05 · 09 · 2026"

@@ -6,6 +6,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 interface WeddingContent {
   hero: {
+    saveTheDate?: string;
     coupleNames: string;
     location: string;
     date: string;
@@ -38,6 +39,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
       <LanguageSwitcher />
       
       <HeroSection
+        saveTheDate={content.hero.saveTheDate}
         coupleNames={content.hero.coupleNames}
         location={content.hero.location}
         date={content.hero.date}
