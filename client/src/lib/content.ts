@@ -4,7 +4,7 @@ export const content = {
       saveTheDate: 'Save The Date',
       coupleNames: 'Izzy & Zé',
       location: 'ÉVORA · PORTUGAL',
-      date: '05 · 09 · 2026',
+      date: 'SEPTEMBER 5TH · 2026',
       ctaText: 'RSVP',
     },
     details: {
@@ -21,7 +21,7 @@ export const content = {
       saveTheDate: 'Guarda a Data',
       coupleNames: 'Izzy & Zé',
       location: 'ÉVORA · PORTUGAL',
-      date: '05 · 09 · 2026',
+      date: '5 DE SETEMBRO · 2026',
       ctaText: 'Confirmar Presença',
     },
     details: {
@@ -38,7 +38,7 @@ export const content = {
       saveTheDate: 'Guarda la Fecha',
       coupleNames: 'Izzy & Zé',
       location: 'ÉVORA · PORTUGAL',
-      date: '05 · 09 · 2026',
+      date: '5 DE SEPTIEMBRE · 2026',
       ctaText: 'Confirmar Asistencia',
     },
     details: {
