@@ -21,6 +21,7 @@ interface WeddingContent {
     location: string;
     additionalInfo: string;
   };
+  formUrl: string;
 }
 
 interface WeddingRSVPProps {
@@ -59,7 +60,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
       />
       
       <div ref={formRef}>
-        <RSVPForm iframeSrc="https://airtable.com/embed/app5BN54ZOQHHWwxj/pagyjHpr2QSBvfVEe/form" />
+        <RSVPForm iframeSrc={content.formUrl} />
       </div>
     </div>
   );

@@ -16,6 +16,7 @@ export const content = {
       location: 'Évora, Portugal',
       additionalInfo: 'Évora is about 1 hour and 30 minutes from Lisbon — more details will be shared after you RSVP ✈️',
     },
+    formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagyjHpr2QSBvfVEe/form',
   },
   pt: {
     hero: {
@@ -34,6 +35,7 @@ export const content = {
       location: 'Évora, Portugal',
       additionalInfo: 'Évora fica a cerca de 1h30 de Lisboa — mais informações serão partilhadas depois de confirmares a tua presença ✈️',
     },
+    formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagXknbKC6W9hN3gq/form',
   },
   mx: {
     hero: {
@@ -52,5 +54,6 @@ export const content = {
       location: 'Évora, Portugal',
       additionalInfo: 'Évora está a aproximadamente 1 hora y media de Lisboa — compartiremos más detalles después de que confirmes tu asistencia ✈️',
     },
+    formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagxd7qOUwNPh0M0N/form',
   },
 };
