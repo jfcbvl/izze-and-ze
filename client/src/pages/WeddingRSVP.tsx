@@ -48,6 +48,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         ctaText={content.hero.ctaText}
         rsvpDeadline={content.hero.rsvpDeadline}
         onCtaClick={scrollToForm}
+        videoSrc="/attached_assets/Sample_1759995691662.mp4"
       />
       
       <EventDetails
