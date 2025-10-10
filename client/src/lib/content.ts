@@ -20,12 +20,12 @@ export const content = {
   },
   pt: {
     hero: {
-      saveTheDate: 'Guarda a Data',
+      saveTheDate: 'Save The Date',
       coupleNames: 'Izzy & Zé',
       location: 'ÉVORA · PORTUGAL',
       date: '5 DE SETEMBRO · 2026',
       ctaText: 'Confirmar Presença',
-      rsvpDeadline: 'Por favor confirma até 1 de Novembro, 2026',
+      rsvpDeadline: 'Por favor confirme até 1 de Novembro, 2026',
     },
     details: {
       title: 'Detalhes do Evento',
@@ -33,13 +33,13 @@ export const content = {
       date: '5 de Setembro, 2026',
       locationLabel: 'Local',
       location: 'Évora, Portugal',
-      additionalInfo: 'Évora fica a cerca de 1h30 de Lisboa — mais informações serão partilhadas depois de confirmares a tua presença ✈️',
+      additionalInfo: 'Évora fica a cerca de 1h30 de Lisboa — mais informações serão partilhadas depois de confirmar a sua presença ✈️',
     },
     formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagXknbKC6W9hN3gq/form',
   },
   mx: {
     hero: {
-      saveTheDate: 'Guarda la Fecha',
+      saveTheDate: 'Save The Date',
       coupleNames: 'Izzy & Zé',
       location: 'ÉVORA · PORTUGAL',
       date: '5 DE SEPTIEMBRE · 2026',
