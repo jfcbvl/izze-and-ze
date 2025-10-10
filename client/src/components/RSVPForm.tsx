@@ -10,7 +10,7 @@ export default function RSVPForm({ iframeSrc }: RSVPFormProps) {
           className="w-full"
           src={iframeSrc}
           frameBorder="0"
-          height="533"
+          height="1200"
           style={{ background: 'transparent', border: '1px solid hsl(var(--border))' }}
           title="RSVP Form"
           data-testid="iframe-rsvp-form"
