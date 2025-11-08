@@ -1,9 +1,23 @@
 import { useRef } from 'react';
 import HeroSection from '@/components/HeroSection';
 import EventDetails from '@/components/EventDetails';
+import DaySchedule from '@/components/DaySchedule';
+import AboutLocation from '@/components/AboutLocation';
 import RSVPForm from '@/components/RSVPForm';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import videoSrc from '@assets/Sample_1759995691662.mp4';
+
+interface Event {
+  time: string;
+  name: string;
+  description: string;
+  location: string;
+}
+
+interface Highlight {
+  title: string;
+  description: string;
+}
 
 interface WeddingContent {
   hero: {
@@ -14,13 +28,28 @@ interface WeddingContent {
     ctaText: string;
     rsvpDeadline?: string;
   };
-  details: {
+  eventDetails: {
     title: string;
+    description: string;
     dateLabel: string;
     date: string;
     locationLabel: string;
     location: string;
-    additionalInfo: string;
+  };
+  day1: {
+    title: string;
+    subtitle: string;
+    events: Event[];
+  };
+  day2: {
+    title: string;
+    subtitle: string;
+    events: Event[];
+  };
+  aboutEvora: {
+    title: string;
+    description: string;
+    highlights: Highlight[];
   };
   formUrl: string;
 }
@@ -53,12 +82,32 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
       />
       
       <EventDetails
-        title={content.details.title}
-        dateLabel={content.details.dateLabel}
-        date={content.details.date}
-        locationLabel={content.details.locationLabel}
-        location={content.details.location}
-        additionalInfo={content.details.additionalInfo}
+        title={content.eventDetails.title}
+        description={content.eventDetails.description}
+        dateLabel={content.eventDetails.dateLabel}
+        date={content.eventDetails.date}
+        locationLabel={content.eventDetails.locationLabel}
+        location={content.eventDetails.location}
+      />
+      
+      <DaySchedule
+        title={content.day1.title}
+        subtitle={content.day1.subtitle}
+        events={content.day1.events}
+        variant="default"
+      />
+      
+      <DaySchedule
+        title={content.day2.title}
+        subtitle={content.day2.subtitle}
+        events={content.day2.events}
+        variant="alternate"
+      />
+      
+      <AboutLocation
+        title={content.aboutEvora.title}
+        description={content.aboutEvora.description}
+        highlights={content.aboutEvora.highlights}
       />
       
       <div ref={formRef}>
