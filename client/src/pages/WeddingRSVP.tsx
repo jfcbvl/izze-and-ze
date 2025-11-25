@@ -5,7 +5,7 @@ import DaySchedule from '@/components/DaySchedule';
 import AboutLocation from '@/components/AboutLocation';
 import RSVPForm from '@/components/RSVPForm';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import videoSrc from '@assets/Sample_1759995691662.mp4';
+import videoSrc from '@assets/Header_v2_1764030455102.mp4';
 
 interface Event {
   time: string;
