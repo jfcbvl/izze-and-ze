@@ -28,7 +28,7 @@ export default function HeroSection({
     const delay = setTimeout(() => {
       setShowScrollHint(true);
       
-      // Perform "attempted scroll" - scroll down a bit and back
+      // Perform "attempted scroll" - scroll down a bit and back, twice
       const scrollDown = () => {
         window.scrollTo({ top: 120, behavior: 'smooth' });
       };
@@ -36,8 +36,13 @@ export default function HeroSection({
         window.scrollTo({ top: 0, behavior: 'smooth' });
       };
       
+      // First attempt
       scrollDown();
-      setTimeout(scrollBack, 600);
+      setTimeout(scrollBack, 1200);
+      
+      // Second attempt
+      setTimeout(scrollDown, 2800);
+      setTimeout(scrollBack, 4000);
     }, 5500);
 
     return () => clearTimeout(delay);
