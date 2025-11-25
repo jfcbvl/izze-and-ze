@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { ChevronDown } from 'lucide-react';
+
 interface HeroSectionProps {
   saveTheDate?: string;
   coupleNames: string;
@@ -19,6 +22,15 @@ export default function HeroSection({
   onCtaClick,
   videoSrc,
 }: HeroSectionProps) {
+  const [showScrollHint, setShowScrollHint] = useState(false);
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      setShowScrollHint(true);
+    }, 5500);
+
+    return () => clearTimeout(delay);
+  }, []);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {videoSrc && (
@@ -71,6 +83,15 @@ export default function HeroSection({
           </p>
         )}
       </div>
+
+      {showScrollHint && (
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-hint" data-testid="scroll-hint">
+          <div className="scroll-hint-inner flex flex-col items-center gap-2">
+            <ChevronDown className="w-5 h-5 text-white/70" />
+            <ChevronDown className="w-5 h-5 text-white/50 -mt-3" />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
