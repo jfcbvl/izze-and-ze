@@ -25,8 +25,29 @@ export default function HeroSection({
   const [showScrollHint, setShowScrollHint] = useState(false);
 
   useEffect(() => {
-    const delay = setTimeout(() => {
+    let hasUserInteracted = false;
+    let timeoutId: ReturnType<typeof setTimeout>;
+    
+    const cancelAnimation = () => {
+      hasUserInteracted = true;
+      window.removeEventListener('scroll', cancelAnimation);
+      window.removeEventListener('click', cancelAnimation);
+      window.removeEventListener('touchstart', cancelAnimation);
+      window.removeEventListener('keydown', cancelAnimation);
+    };
+    
+    // Listen for any user interaction
+    window.addEventListener('scroll', cancelAnimation);
+    window.addEventListener('click', cancelAnimation);
+    window.addEventListener('touchstart', cancelAnimation);
+    window.addEventListener('keydown', cancelAnimation);
+    
+    timeoutId = setTimeout(() => {
+      // Only run animation if user hasn't interacted
+      if (hasUserInteracted) return;
+      
       setShowScrollHint(true);
+      cancelAnimation(); // Remove listeners after animation starts
       
       // Perform "attempted scroll" - scroll down a bit and back, twice
       const scrollDown = () => {
@@ -45,7 +66,10 @@ export default function HeroSection({
       setTimeout(scrollBack, 4000);
     }, 5500);
 
-    return () => clearTimeout(delay);
+    return () => {
+      clearTimeout(timeoutId);
+      cancelAnimation();
+    };
   }, []);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
