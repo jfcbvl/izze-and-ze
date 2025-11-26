@@ -31,7 +31,7 @@ export const content = {
     day2: {
       title: 'Day 2',
       subtitle: 'Saturday, September 5th, 2026',
-      location: "Zé's childhood home, Évora",
+      location: "Zé's family home, Évora",
       events: [
         {
           time: '5:00 PM',
@@ -45,7 +45,7 @@ export const content = {
         },
         {
           time: '7:00 PM',
-          name: 'Dinner & Party',
+          name: 'Dinner & Fiesta',
           description: 'Sit for dinner and taste the local Alentejo flavors, followed by music, dancing and celebration.',
         },
       ],
@@ -81,7 +81,7 @@ export const content = {
     },
     eventDetails: {
       title: 'Detalhes do Evento',
-      description: 'Junte-se a nós para um fim-de-semana de celebração na cidade histórica de Évora, Portugal. Estamos ansiosos por receber família e amigos de todo o mundo para conhecer a cidade natal do Zé e partilhar este dia especial convosco.',
+      description: 'Junte-se a nós para um fim-de-semana de celebração na cidade histórica de Évora, Portugal. Mal podemos esperar por receber família e amigos de todo o mundo e partilhar este dia especial.',
       dateLabel: 'Data',
       date: '4 e 5 de Setembro de 2026',
       locationLabel: 'Localização',
@@ -90,7 +90,7 @@ export const content = {
     day1: {
       title: 'Dia 1',
       subtitle: 'Sexta-feira, 4 de Setembro de 2026',
-      location: 'A definir, Évora',
+      location: 'Por definir, Évora',
       events: [
         {
           time: '19:00',
@@ -102,21 +102,21 @@ export const content = {
     day2: {
       title: 'Dia 2',
       subtitle: 'Sábado, 5 de Setembro de 2026',
-      location: 'Casa de infância do Zé, Évora',
+      location: 'Casa da familia do Zé, Évora',
       events: [
         {
           time: '17:00',
-          name: 'Cocktail Hour',
-          description: 'Beba um cocktail e cumprimente amigos e família enquanto nos preparamos para o grande momento.',
+          name: 'Cocktails',
+          description: 'Abra o apetite com cocktails e petiscos alentejanos enquanto nos preparamos para o grande momento.',
         },
         {
           time: '18:00',
           name: 'Cerimónia',
-          description: 'Acompanhe a nossa breve cerimónia enquanto oficializamos o casamento.',
+          description: 'Acompanhe a nossa breve cerimónia enquanto oficializamos o casamento perante amigos e família.',
         },
         {
           time: '19:00',
-          name: 'Jantar & Festa',
+          name: 'Jantar e Fiesta',
           description: 'Sente-se para jantar e prove os sabores locais do Alentejo, seguido de música, dança e celebração.',
         },
       ],
@@ -131,7 +131,7 @@ export const content = {
         },
         {
           title: 'Onde Ficar',
-          description: 'Recomendamos ficar dentro das muralhas da cidade por pelo menos 2 noites – sexta e sábado – para aproveitar a celebração e descobrir Évora em pleno. Embora existam muitos hotéis boutique, costumam esgotar com antecedência.',
+          description: 'Recomendamos ficar dentro das muralhas da cidade por pelo menos 2 noites – sexta e sábado – para aproveitar a celebração e descobrir Évora em pleno. Embora existam muitos pequnos hotéis na cidade, costumam esgotar com antecedência.',
         },
         {
           title: 'O Que Fazer',
