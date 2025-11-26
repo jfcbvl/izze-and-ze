@@ -19,13 +19,12 @@ export const content = {
     day1: {
       title: 'Day 1',
       subtitle: 'Friday, September 4th, 2026',
-      
+      location: 'TBD, Évora',
       events: [
         {
           time: '7:00 PM',
           name: 'Welcome Reception',
           description: 'Join us for drinks and light bites as we kick off the celebration. Meet fellow guests and explore the historic venue.',
-          location: 'TBD, Évora',
         },
       ],
     },
@@ -42,13 +41,11 @@ export const content = {
           time: '6:00 PM',
           name: 'Wedding Ceremony',
           description: 'Celebrate with champagne and Portuguese petiscos while we take photos.',
-          location: 'Garden Terrace',
         },
         {
           time: '7:00 PM',
           name: 'Reception & Dinner',
           description: 'Dinner, dancing, and celebration under the stars. The party continues until midnight!',
-          location: 'Grand Ballroom',
         },
       ],
     },
@@ -92,42 +89,39 @@ export const content = {
     day1: {
       title: 'Dia 1',
       subtitle: 'Sexta-feira, 5 de Setembro, 2026',
+      location: 'TBD, Évora',
       events: [
         {
           time: '16:00',
           name: 'Receção de Boas-vindas',
           description: 'Junta-te a nós para bebidas e petiscos enquanto damos início à celebração. Conhece os outros convidados e explora o local histórico.',
-          location: 'Pátio Histórico',
         },
         {
           time: '19:00',
           name: 'Jantar de Ensaio',
           description: 'Um encontro íntimo com família e amigos próximos. Será servida cozinha tradicional portuguesa e vinho.',
-          location: 'Sala de Jantar Privada',
         },
       ],
     },
     day2: {
       title: 'Dia 2',
       subtitle: 'Sábado, 6 de Setembro, 2026',
+      location: 'Casa de infância do Zé, Évora',
       events: [
         {
           time: '15:00',
           name: 'Cerimónia de Casamento',
           description: 'Trocamos os nossos votos rodeados pela beleza de Évora. Por favor chega 15 minutos mais cedo.',
-          location: 'Praça da Catedral',
         },
         {
           time: '17:00',
           name: 'Hora do Cocktail',
           description: 'Celebra com champanhe e petiscos portugueses enquanto tiramos fotografias.',
-          location: 'Terraço do Jardim',
         },
         {
           time: '19:00',
           name: 'Receção e Jantar',
           description: 'Jantar, dança e celebração sob as estrelas. A festa continua até à meia-noite!',
-          location: 'Salão Principal',
         },
       ],
     },
@@ -171,42 +165,39 @@ export const content = {
     day1: {
       title: 'Día 1',
       subtitle: 'Viernes, 5 de septiembre, 2026',
+      location: 'TBD, Évora',
       events: [
         {
           time: '16:00',
           name: 'Recepción de Bienvenida',
           description: 'Únete a nosotros para bebidas y aperitivos mientras comenzamos la celebración. Conoce a otros invitados y explora el lugar histórico.',
-          location: 'Patio Histórico',
         },
         {
           time: '19:00',
           name: 'Cena de Ensayo',
           description: 'Una reunión íntima con familia y amigos cercanos. Se servirá cocina tradicional portuguesa y vino.',
-          location: 'Comedor Privado',
         },
       ],
     },
     day2: {
       title: 'Día 2',
       subtitle: 'Sábado, 6 de septiembre, 2026',
+      location: 'Casa de la infancia de Zé, Évora',
       events: [
         {
           time: '15:00',
           name: 'Ceremonia de Boda',
           description: 'Intercambiamos nuestros votos rodeados por la belleza de Évora. Por favor llega 15 minutos antes.',
-          location: 'Plaza de la Catedral',
         },
         {
           time: '17:00',
           name: 'Hora de Cóctel',
           description: 'Celebra con champán y aperitivos portugueses mientras tomamos fotos.',
-          location: 'Terraza del Jardín',
         },
         {
           time: '19:00',
           name: 'Recepción y Cena',
           description: 'Cena, baile y celebración bajo las estrellas. ¡La fiesta continúa hasta medianoche!',
-          location: 'Salón Principal',
         },
       ],
     },
