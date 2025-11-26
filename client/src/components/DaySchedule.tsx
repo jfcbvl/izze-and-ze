@@ -10,6 +10,7 @@ interface Event {
 interface DayScheduleProps {
   title: string;
   subtitle: string;
+  location?: string;
   events: Event[];
   variant?: 'default' | 'alternate';
 }
@@ -17,6 +18,7 @@ interface DayScheduleProps {
 export default function DaySchedule({
   title,
   subtitle,
+  location,
   events,
   variant = 'default',
 }: DayScheduleProps) {
@@ -33,6 +35,12 @@ export default function DaySchedule({
           <p className="text-muted-foreground font-sans text-lg" data-testid={`text-${dayId}-subtitle`}>
             {subtitle}
           </p>
+          {location && (
+            <div className="flex items-center justify-center gap-2 text-muted-foreground mt-3">
+              <MapPin className="w-4 h-4" />
+              <span className="font-sans" data-testid={`text-${dayId}-location`}>{location}</span>
+            </div>
+          )}
         </div>
         
         <div className="space-y-12">

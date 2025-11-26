@@ -44,6 +44,7 @@ interface WeddingContent {
   day2: {
     title: string;
     subtitle: string;
+    location?: string;
     events: Event[];
   };
   aboutEvora: {
@@ -100,6 +101,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
       <DaySchedule
         title={content.day2.title}
         subtitle={content.day2.subtitle}
+        location={content.day2.location}
         events={content.day2.events}
         variant="alternate"
       />
