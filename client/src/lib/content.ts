@@ -68,7 +68,7 @@ export const content = {
         },
       ],
     },
-    formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagyjHpr2QSBvfVEe/form',
+    formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagDfEkcD13OzncWs/form',
   },
   pt: {
     hero: {
