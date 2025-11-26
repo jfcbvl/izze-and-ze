@@ -72,79 +72,74 @@ export const content = {
   },
   pt: {
     hero: {
-      saveTheDate: 'Guarda a Data',
+      saveTheDate: 'Save The Date',
       coupleNames: 'Izzy & Zé',
       location: 'ÉVORA · PORTUGAL',
       date: '5 DE SETEMBRO · 2026',
-      ctaText: 'Confirmar Presença',
-      rsvpDeadline: 'Por favor confirma até 1 de Novembro, 2026',
+      ctaText: 'RSVP',
+      rsvpDeadline: 'Por favor confirme presença até 31 de Dezembro para garantir o seu lugar!',
     },
     eventDetails: {
       title: 'Detalhes do Evento',
-      description: 'Junta-te a nós para um fim de semana de celebração na histórica cidade de Évora, Portugal. O nosso casamento terá lugar ao longo de dois dias inesquecíveis cheios de amor, alegria e tradições portuguesas.',
+      description: 'Junte-se a nós para um fim-de-semana de celebração na cidade histórica de Évora, Portugal. Estamos ansiosos por receber família e amigos de todo o mundo para conhecer a cidade natal do Zé e partilhar este dia especial convosco.',
       dateLabel: 'Data',
-      date: '5 - 6 de Setembro, 2026',
-      locationLabel: 'Local',
+      date: '4 e 5 de Setembro de 2026',
+      locationLabel: 'Localização',
       location: 'Évora, Portugal',
     },
     day1: {
       title: 'Dia 1',
-      subtitle: 'Sexta-feira, 5 de Setembro, 2026',
-      location: 'TBD, Évora',
+      subtitle: 'Sexta-feira, 4 de Setembro de 2026',
+      location: 'A definir, Évora',
       events: [
         {
-          time: '16:00',
-          name: 'Receção de Boas-vindas',
-          description: 'Junta-te a nós para bebidas e petiscos enquanto damos início à celebração. Conhece os outros convidados e explora o local histórico.',
-        },
-        {
           time: '19:00',
-          name: 'Jantar de Ensaio',
-          description: 'Um encontro íntimo com família e amigos próximos. Será servida cozinha tradicional portuguesa e vinho.',
+          name: 'Receção de Boas-Vindas',
+          description: 'Junte-se a nós para bebidas e petiscos enquanto iniciamos a celebração. Conheça outros convidados e explore o local histórico.',
         },
       ],
     },
     day2: {
       title: 'Dia 2',
-      subtitle: 'Sábado, 6 de Setembro, 2026',
+      subtitle: 'Sábado, 5 de Setembro de 2026',
       location: 'Casa de infância do Zé, Évora',
       events: [
         {
-          time: '15:00',
-          name: 'Cerimónia de Casamento',
-          description: 'Trocamos os nossos votos rodeados pela beleza de Évora. Por favor chega 15 minutos mais cedo.',
+          time: '17:00',
+          name: 'Cocktail Hour',
+          description: 'Beba um cocktail e cumprimente amigos e família enquanto nos preparamos para o grande momento.',
         },
         {
-          time: '17:00',
-          name: 'Hora do Cocktail',
-          description: 'Celebra com champanhe e petiscos portugueses enquanto tiramos fotografias.',
+          time: '18:00',
+          name: 'Cerimónia',
+          description: 'Acompanhe a nossa breve cerimónia enquanto oficializamos o casamento.',
         },
         {
           time: '19:00',
-          name: 'Receção e Jantar',
-          description: 'Jantar, dança e celebração sob as estrelas. A festa continua até à meia-noite!',
+          name: 'Jantar & Festa',
+          description: 'Sente-se para jantar e prove os sabores locais do Alentejo, seguido de música, dança e celebração.',
         },
       ],
     },
     aboutEvora: {
       title: 'Sobre Évora',
-      description: 'Évora é uma cidade Património Mundial da UNESCO no coração da região do Alentejo em Portugal. Conhecida pelo seu centro histórico bem preservado, ruínas romanas e arquitetura medieval, é um dos destinos mais encantadores de Portugal.',
+      description: 'Évora é uma cidade Património Mundial da UNESCO no coração da região do Alentejo. Conhecida pelo centro histórico bem preservado, ruínas romanas e arquitetura medieval, é um dos destinos mais encantadores de Portugal.',
       highlights: [
         {
           title: 'Como Chegar',
-          description: 'Évora fica a 1h30 de Lisboa de carro ou autocarro. Recomendamos voar para o Aeroporto de Lisboa (LIS) e alugar um carro ou apanhar o autocarro direto para Évora.',
+          description: 'Évora fica a 1h30 de Lisboa de carro, autocarro ou comboio. Recomendamos voar para o Aeroporto de Lisboa (LIS) e alugar um carro ou apanhar o comboio direto para Évora. Évora é uma cidade para percorrer a pé, sem necessidade de carro.',
         },
         {
           title: 'Onde Ficar',
-          description: 'Reservámos blocos de quartos em vários hotéis no centro histórico. As informações de reserva serão enviadas após confirmares a tua presença. Recomendamos ficar pelo menos 2 noites para aproveitar totalmente a cidade.',
+          description: 'Recomendamos ficar dentro das muralhas da cidade por pelo menos 2 noites – sexta e sábado – para aproveitar a celebração e descobrir Évora em pleno. Embora existam muitos hotéis boutique, costumam esgotar com antecedência.',
         },
         {
           title: 'O Que Fazer',
-          description: 'Explora o Templo Romano, visita a Capela dos Ossos, passeia pelas ruas medievais e desfruta dos vinhos e da gastronomia do Alentejo de classe mundial. A cidade é perfeita para caminhar e descobrir tesouros escondidos.',
+          description: 'Consegue ter uma boa noção da cidade em meio dia. Explore o Templo Romano, visite a Capela dos Ossos, percorra as ruas medievais e desfrute de vinhos e gastronomia alentejana de excelência. A cidade é perfeita para caminhar.',
         },
       ],
     },
-    formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagXknbKC6W9hN3gq/form',
+    formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagyjHpr2QSBvfVEe/form',
   },
   mx: {
     hero: {
