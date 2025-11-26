@@ -19,6 +19,7 @@ export const content = {
     day1: {
       title: 'Day 1',
       subtitle: 'Friday, September 4th, 2026',
+      location: 'TBD, Évora',
       events: [
         {
           time: '7:00 PM',

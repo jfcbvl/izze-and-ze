@@ -39,6 +39,7 @@ interface WeddingContent {
   day1: {
     title: string;
     subtitle: string;
+    location?: string;
     events: Event[];
   };
   day2: {
@@ -94,6 +95,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
       <DaySchedule
         title={content.day1.title}
         subtitle={content.day1.subtitle}
+        location={content.day1.location}
         events={content.day1.events}
         variant="default"
       />
