@@ -36,16 +36,17 @@ export const content = {
         {
           time: '5:00 PM',
           name: 'Cocktail Hour',
+          description: 'Grab a cocktail and say hi to friends and family as we get ready to exchange vows.'
         },
         {
           time: '6:00 PM',
           name: 'Wedding Ceremony',
-          description: 'Celebrate with champagne and Portuguese petiscos while we take photos.',
+          description: 'Witness our short ceremony as we officially tie the knot.',
         },
         {
           time: '7:00 PM',
-          name: 'Reception & Dinner',
-          description: 'Dinner, dancing, and celebration under the stars. The party continues until midnight!',
+          name: 'Dinner & Party',
+          description: 'Sit for dinner and taste the local Alentejo flavors, followed by music, dancing and celebration.',
         },
       ],
     },
@@ -55,15 +56,15 @@ export const content = {
       highlights: [
         {
           title: 'Getting There',
-          description: 'Évora is 1.5 hours from Lisbon by car or bus. We recommend flying into Lisbon Airport (LIS) and renting a car or taking the direct bus to Évora.',
+          description: 'Évora is 1.5 hours from Lisbon by car. bus or train. We recommend flying into Lisbon Airport (LIS) and renting a car or taking the direct train to Évora. Évora is a walking city, no need for cars to get around',
         },
         {
           title: 'Where to Stay',
-          description: 'We\'ve reserved room blocks at several hotels in the historic center. Booking information will be sent after you RSVP. We recommend staying at least 2 nights to fully enjoy the city.',
+          description: 'We recommend staying within the city walls for at least 2 nights - Friday and Saturday - to enjoy our celebration and discover Évora fully. Although there are plenty of small boutique hotels, they get booked far in advance.',
         },
         {
           title: 'What to Do',
-          description: 'Explore the Roman Temple, visit the Chapel of Bones, wander the medieval streets, and enjoy world-class Alentejo wines and cuisine. The city is perfect for walking and discovering hidden gems.',
+          description: 'You can get a sense of the city in half a day. Explore the Roman Temple, visit the Chapel of Bones, wander the medieval streets, and enjoy world-class Alentejo wines and cuisine. The city is perfect for walking.',
         },
       ],
     },
