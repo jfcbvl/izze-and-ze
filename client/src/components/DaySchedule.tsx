@@ -3,8 +3,7 @@ import { Clock, MapPin } from 'lucide-react';
 interface Event {
   time: string;
   name: string;
-  description: string;
-  location: string;
+  description?: string;
 }
 
 interface DayScheduleProps {
@@ -64,14 +63,11 @@ export default function DaySchedule({
                     {event.name}
                   </h3>
                   
-                  <p className="text-muted-foreground font-sans leading-relaxed" data-testid={`text-${dayId}-${eventId}-description`}>
-                    {event.description}
-                  </p>
-                  
-                  <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                    <MapPin className="w-4 h-4" />
-                    <span className="font-sans" data-testid={`text-${dayId}-${eventId}-location`}>{event.location}</span>
-                  </div>
+                  {event.description && (
+                    <p className="text-muted-foreground font-sans leading-relaxed" data-testid={`text-${dayId}-${eventId}-description`}>
+                      {event.description}
+                    </p>
+                  )}
                 </div>
               </div>
             );
