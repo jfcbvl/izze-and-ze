@@ -10,7 +10,7 @@ export const content = {
     },
     eventDetails: {
       title: 'Event Details',
-      description: "Join us for a weekend celebration in the historic city of Évora, Portugal. We can't wait to welcome family and friends from around the world to experience Zé's hometown and share this special day with us.",
+      description: "Join us for a weekend celebration in the historic city of Évora, Portugal. We can't wait to welcome family and friends from around the world to experience Zé's hometown and share this special day with you.",
       dateLabel: 'Date',
       date: 'September 4th and 5th, 2026',
       locationLabel: 'Location',
@@ -30,17 +30,16 @@ export const content = {
     },
     day2: {
       title: 'Day 2',
-      subtitle: 'Saturday, September 6th, 2026',
+      subtitle: 'Saturday, September 5th, 2026',
+      location: "Zé's childhood home, Évora",
       events: [
-        {
-          time: '3:00 PM',
-          name: 'Wedding Ceremony',
-          description: 'We exchange our vows surrounded by the beauty of Évora. Please arrive 15 minutes early.',
-          location: 'Cathedral Square',
-        },
         {
           time: '5:00 PM',
           name: 'Cocktail Hour',
+        },
+        {
+          time: '6:00 PM',
+          name: 'Wedding Ceremony',
           description: 'Celebrate with champagne and Portuguese petiscos while we take photos.',
           location: 'Garden Terrace',
         },
