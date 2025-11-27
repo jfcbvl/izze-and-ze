@@ -79,7 +79,7 @@ export default function HeroSection({
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-contain md:object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-center scale-110 md:scale-100"
         >
           <source src={videoSrc} type="video/mp4" />
         </video>
