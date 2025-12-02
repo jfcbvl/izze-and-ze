@@ -6,7 +6,7 @@ import AboutLocation from '@/components/AboutLocation';
 import RSVPForm from '@/components/RSVPForm';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import videoSrc from '@assets/Header_v2_1764030455102.mp4';
-import videoSrcMobile from '@assets/Fiesta_-_Vertical_-_POC_2_1764707520718.mp4';
+import videoSrcMobile from '@assets/Fiesta_-_Vertical_1764711210042.mp4';
 
 interface Event {
   time: string;
