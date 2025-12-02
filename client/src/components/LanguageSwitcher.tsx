@@ -33,7 +33,7 @@ export default function LanguageSwitcher() {
         ))}
       </div>
       
-      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-white border-t border-black/10 py-[6px]">
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-gray-100/90 border-t border-black/10 py-[6px]">
         <div className="flex justify-center gap-2">
           {languages.map((lang) => (
             <button

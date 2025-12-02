@@ -21,7 +21,7 @@ export default function EventDetails({
     <section className="py-24 px-6 bg-background" data-testid="section-event-details">
       <div className="max-w-3xl mx-auto text-center space-y-8">
         {rsvpDeadline && (
-          <p className="text-foreground text-sm font-sans md:hidden -mt-[50px]" data-testid="text-rsvp-deadline-mobile">
+          <p className="text-foreground text-sm font-sans md:hidden -mt-[60px]" data-testid="text-rsvp-deadline-mobile">
             {rsvpDeadline}
           </p>
         )}
