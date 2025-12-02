@@ -138,7 +138,7 @@ export default function HeroSection({
       </div>
 
       {showScrollHint && (
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 scroll-hint" data-testid="scroll-hint">
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 scroll-hint hidden md:block" data-testid="scroll-hint">
           <div className="scroll-hint-inner flex flex-col items-center">
             <ChevronDown className="w-8 h-8 text-black" />
             <ChevronDown className="w-8 h-8 text-black/70 -mt-5" />
