@@ -122,6 +122,16 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
       <div ref={formRef}>
         <RSVPForm iframeSrc={content.formUrl} />
       </div>
+      
+      <div className="pb-20 md:pb-8 text-center">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          data-testid="button-back-to-top"
+          className="text-muted-foreground hover:text-foreground font-sans text-sm underline underline-offset-4 transition-colors"
+        >
+          Back to top
+        </button>
+      </div>
     </div>
   );
 }
