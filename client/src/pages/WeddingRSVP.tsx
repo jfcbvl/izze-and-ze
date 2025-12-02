@@ -97,6 +97,10 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         />
       </div>
       
+      <div className="max-w-xs mx-auto">
+        <hr className="border-t border-black/10" />
+      </div>
+      
       <DaySchedule
         title={content.day1.title}
         subtitle={content.day1.subtitle}
