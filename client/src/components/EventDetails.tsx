@@ -5,6 +5,7 @@ interface EventDetailsProps {
   date: string;
   locationLabel: string;
   location: string;
+  rsvpDeadline?: string;
 }
 
 export default function EventDetails({
@@ -14,10 +15,16 @@ export default function EventDetails({
   date,
   locationLabel,
   location,
+  rsvpDeadline,
 }: EventDetailsProps) {
   return (
     <section className="py-24 px-6 bg-background" data-testid="section-event-details">
       <div className="max-w-3xl mx-auto text-center space-y-8">
+        {rsvpDeadline && (
+          <p className="text-foreground text-sm font-sans md:hidden" data-testid="text-rsvp-deadline-mobile">
+            {rsvpDeadline}
+          </p>
+        )}
         <h2 className="font-serif text-4xl md:text-5xl font-medium text-foreground" data-testid="heading-event-details">
           {title}
         </h2>

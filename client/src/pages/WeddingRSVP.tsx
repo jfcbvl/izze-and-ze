@@ -93,6 +93,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
           date={content.eventDetails.date}
           locationLabel={content.eventDetails.locationLabel}
           location={content.eventDetails.location}
+          rsvpDeadline={content.hero.rsvpDeadline}
         />
       </div>
       
