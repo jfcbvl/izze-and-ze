@@ -10,6 +10,7 @@ interface HeroSectionProps {
   rsvpDeadline?: string;
   onCtaClick: () => void;
   videoSrc?: string;
+  videoSrcMobile?: string;
 }
 
 export default function HeroSection({
@@ -21,6 +22,7 @@ export default function HeroSection({
   rsvpDeadline,
   onCtaClick,
   videoSrc,
+  videoSrcMobile,
 }: HeroSectionProps) {
   const [showScrollHint, setShowScrollHint] = useState(false);
 
@@ -73,13 +75,24 @@ export default function HeroSection({
   }, []);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {videoSrcMobile && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
+        >
+          <source src={videoSrcMobile} type="video/mp4" />
+        </video>
+      )}
       {videoSrc && (
         <video
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
         >
           <source src={videoSrc} type="video/mp4" />
         </video>

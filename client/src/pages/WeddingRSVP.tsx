@@ -6,6 +6,7 @@ import AboutLocation from '@/components/AboutLocation';
 import RSVPForm from '@/components/RSVPForm';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import videoSrc from '@assets/Header_v2_1764030455102.mp4';
+import videoSrcMobile from '@assets/Fiesta_-_Vertical_-_POC_1764706290728.mp4';
 
 interface Event {
   time: string;
@@ -81,6 +82,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         rsvpDeadline={content.hero.rsvpDeadline}
         onCtaClick={scrollToForm}
         videoSrc={videoSrc}
+        videoSrcMobile={videoSrcMobile}
       />
       
       <EventDetails
