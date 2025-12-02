@@ -27,6 +27,10 @@ export default function HeroSection({
   const [showScrollHint, setShowScrollHint] = useState(false);
 
   useEffect(() => {
+    // Only run scroll animation on desktop (768px and above)
+    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+    if (!isDesktop) return;
+
     let hasUserInteracted = false;
     let timeoutId: ReturnType<typeof setTimeout>;
     
