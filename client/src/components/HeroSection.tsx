@@ -100,7 +100,7 @@ export default function HeroSection({
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/20 to-black/10" />
       <div className="absolute inset-0 shadow-[inset_0_0_100px_40px_rgba(0,0,0,0.3)]" />
-      <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-transparent via-white/30 via-white/60 to-white" />
+      <div className="absolute bottom-0 left-0 right-0 h-[50vh] md:h-96 bg-gradient-to-b from-transparent via-white/20 via-40% via-white/50 via-70% to-white" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         {saveTheDate && (

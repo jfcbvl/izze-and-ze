@@ -85,7 +85,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         videoSrcMobile={videoSrcMobile}
       />
       
-      <div className="-mt-[15vh] md:mt-0 relative z-10">
+      <div className="-mt-[20vh] md:mt-0 relative z-10">
         <EventDetails
           title={content.eventDetails.title}
           description={content.eventDetails.description}
