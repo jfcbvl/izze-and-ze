@@ -56,7 +56,7 @@ export const content = {
       highlights: [
         {
           title: 'Getting There',
-          description: 'Évora is 1.5 hours from Lisbon by car. bus or train. We recommend flying into Lisbon Airport (LIS) and renting a car or taking the direct train to Évora. Évora is a walking city, no need for cars to get around',
+          description: 'Évora is 1.5 hours from Lisbon by car. bus or train. We recommend flying into Lisbon Airport (LIS) and renting a car or taking the direct train to Évora. Évora is a walking city, no need for cars to get around.',
         },
         {
           title: 'Where to Stay',
@@ -198,7 +198,7 @@ export const content = {
       highlights: [
         {
           title: 'Cómo Llegar',
-          description: 'Évora está a 1.5 horas de Lisboa en coche, autobús o tren. Recomendamos volar al Aeropuerto de Lisboa (LIS) y rentar un auto o tomar el tren directo a Évora. Es una ciudad perfecta para caminar, no necesitarás coche para moverte.',
+          description: 'Évora está a 1.5 horas de Lisboa manejando, en autobús o en tren. Recomendamos volar al Aeropuerto de Lisboa (LIS) y rentar un auto o tomar el tren directo a Évora. Es una ciudad perfecta para caminar, no necesitarás carro para moverte.',
         },
         {
           title: 'Dónde Hospedarse',
