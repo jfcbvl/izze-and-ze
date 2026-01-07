@@ -4,7 +4,7 @@ interface RSVPFormProps {
 
 export default function RSVPForm({ iframeSrc }: RSVPFormProps) {
   return (
-    <section id="rsvp-form" className="pt-24 -mb-16 px-0 md:px-6 bg-background">
+    <section id="rsvp-form" className="pt-24 pb-8 px-0 md:px-6 bg-background">
       <div className="max-w-none md:max-w-4xl mx-auto">
         <iframe
           className="w-full h-[2400px] md:h-[1850px]"
