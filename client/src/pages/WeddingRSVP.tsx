@@ -127,7 +127,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         <RSVPForm iframeSrc={content.formUrl} />
       </div>
       
-      <div className="pb-20 md:pb-8 text-center">
+      <div className="-mt-16 pb-20 md:pb-8 text-center">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           data-testid="button-back-to-top"
