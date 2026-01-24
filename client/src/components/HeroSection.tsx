@@ -122,9 +122,15 @@ export default function HeroSection({
           <p className="text-white text-lg md:text-xl tracking-widest uppercase font-sans mb-2">
             {date}
           </p>
-          <p className="text-white text-base md:text-lg tracking-widest uppercase font-sans">
+          <a 
+            href="https://www.google.com/maps/place/Évora,+Portugal"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-base md:text-lg tracking-widest uppercase font-sans hover:underline underline-offset-4 transition-all"
+            data-testid="link-hero-location"
+          >
             {location}
-          </p>
+          </a>
         </div>
 
         <button
