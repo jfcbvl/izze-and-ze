@@ -46,7 +46,7 @@ export const content = {
         {
           time: '7:00 PM',
           name: 'Dinner & Fiesta',
-          description: 'Sit for dinner and taste the local Alentejo flavors, followed by music, dancing and celebration.',
+          description: 'Sit for dinner and taste the local Alentejo flavors, followed by music, dancing, and celebration.',
         },
       ],
     },

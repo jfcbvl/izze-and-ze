@@ -47,9 +47,15 @@ export default function EventDetails({
             <p className="text-sm font-sans font-medium text-muted-foreground uppercase tracking-wide mb-2" data-testid="label-event-location">
               {locationLabel}
             </p>
-            <p className="text-foreground font-serif text-xl" data-testid="text-event-location">
+            <a 
+              href="https://www.google.com/maps/place/Évora,+Portugal"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground font-serif text-xl hover:underline underline-offset-4 transition-all"
+              data-testid="link-event-location"
+            >
               {location}
-            </p>
+            </a>
           </div>
         </div>
       </div>
