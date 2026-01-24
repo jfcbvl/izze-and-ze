@@ -1,3 +1,5 @@
+import LinkifyEvora from './LinkifyEvora';
+
 interface Highlight {
   title: string;
   description: string;
@@ -21,10 +23,10 @@ export default function AboutLocation({
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-medium text-foreground mb-6" data-testid={`heading-${sectionId}`}>
-            {title}
+            <LinkifyEvora text={title} />
           </h2>
           <p className="text-muted-foreground font-sans text-lg leading-relaxed max-w-2xl mx-auto" data-testid={`text-${sectionId}-description`}>
-            {description}
+            <LinkifyEvora text={description} />
           </p>
         </div>
         
@@ -37,7 +39,7 @@ export default function AboutLocation({
                   {highlight.title}
                 </h3>
                 <p className="text-muted-foreground font-sans leading-relaxed" data-testid={`text-${sectionId}-${highlightId}-description`}>
-                  {highlight.description}
+                  <LinkifyEvora text={highlight.description} />
                 </p>
               </div>
             );

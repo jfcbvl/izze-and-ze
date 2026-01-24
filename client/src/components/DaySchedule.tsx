@@ -1,4 +1,5 @@
 import { Clock, MapPin } from 'lucide-react';
+import LinkifyEvora from './LinkifyEvora';
 
 interface Event {
   time: string;
@@ -37,7 +38,9 @@ export default function DaySchedule({
           {location && (
             <div className="flex items-center justify-center gap-2 text-muted-foreground mt-3">
               <MapPin className="w-4 h-4" />
-              <span className="font-sans" data-testid={`text-${dayId}-location`}>{location}</span>
+              <span className="font-sans" data-testid={`text-${dayId}-location`}>
+                <LinkifyEvora text={location} />
+              </span>
             </div>
           )}
         </div>

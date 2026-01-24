@@ -6,7 +6,7 @@ export const content = {
       location: 'ÉVORA · PORTUGAL',
       date: 'SEPTEMBER 5TH · 2026',
       ctaText: 'RSVP',
-      rsvpDeadline: 'Please RSVP by March 1st, 2026 to secure a seat!',
+      rsvpDeadline: 'Please RSVP and secure a seat by March 1st, 2026!',
     },
     eventDetails: {
       title: 'Event Details',

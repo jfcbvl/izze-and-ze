@@ -1,3 +1,5 @@
+import LinkifyEvora from './LinkifyEvora';
+
 interface EventDetailsProps {
   title: string;
   description: string;
@@ -30,7 +32,7 @@ export default function EventDetails({
         </h2>
         
         <p className="text-muted-foreground font-sans text-lg leading-relaxed" data-testid="text-event-description">
-          {description}
+          <LinkifyEvora text={description} />
         </p>
         
         <div className="flex flex-wrap justify-center gap-8 pt-6">
