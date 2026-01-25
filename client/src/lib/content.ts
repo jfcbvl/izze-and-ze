@@ -22,7 +22,7 @@ export const content = {
       location: 'TBD, Évora',
       events: [
         {
-          time: '7:00 PM',
+          time: '5:00 PM',
           name: 'Welcome Reception',
           description: 'Join us for drinks and light bites as we kick off the celebration. Meet fellow guests and explore the historic venue.',
         },
@@ -93,7 +93,7 @@ export const content = {
       location: 'Por definir, Évora',
       events: [
         {
-          time: '19:00',
+          time: '17:00',
           name: 'Receção de Boas-Vindas',
           description: 'Junte-se a nós para bebidas e petiscos enquanto iniciamos a celebração. Conheça outros convidados e explore o local histórico.',
         },
@@ -164,7 +164,7 @@ export const content = {
       location: 'Por definir, Évora',
       events: [
         {
-          time: '19:00',
+          time: '17:00',
           name: 'Recepción de Bienvenida',
           description: 'Acompáñanos para tomar unos drinks y botanas mientras arrancamos la celebración. Conoce a otros invitados y explora este increíble lugar histórico.',
         },
