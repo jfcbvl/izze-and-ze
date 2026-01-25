@@ -148,7 +148,7 @@ export const content = {
       location: 'ÉVORA · PORTUGAL',
       date: '5 DE SEPTIEMBRE · 2026',
       ctaText: 'RSVP',
-      rsvpDeadline: 'Por favor confirma tu asistencia antes del 1 de marzo de 2026 para asegurar tu lugar.',
+      rsvpDeadline: '¡Por favor confirma tu asistencia antes del 1 de marzo de 2026 para asegurar tu lugar!',
     },
     eventDetails: {
       title: 'Detalles del Evento',
