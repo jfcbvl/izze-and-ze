@@ -72,7 +72,7 @@ export const content = {
   },
   pt: {
     hero: {
-      saveTheDate: 'Save The Date',
+      saveTheDate: ' ',
       coupleNames: 'Izzy & Zé',
       location: 'ÉVORA · PORTUGAL',
       date: '5 DE SETEMBRO · 2026',
@@ -143,7 +143,7 @@ export const content = {
   },
   mx: {
     hero: {
-      saveTheDate: 'Save The Date',
+      saveTheDate: ' ',
       coupleNames: 'Izzy & Zé',
       location: 'ÉVORA · PORTUGAL',
       date: '5 DE SEPTIEMBRE · 2026',
