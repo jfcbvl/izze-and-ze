@@ -1,7 +1,7 @@
 export const content = {
   en: {
     hero: {
-      saveTheDate: 'Save The Date',
+      saveTheDate: 'Join our fiesta',
       coupleNames: 'Izzy & Zé',
       location: 'ÉVORA · PORTUGAL',
       date: 'SEPTEMBER 5TH · 2026',
