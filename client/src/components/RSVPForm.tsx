@@ -7,7 +7,7 @@ export default function RSVPForm({ iframeSrc }: RSVPFormProps) {
     <section id="rsvp-form" className="pt-24 pb-8 px-0 md:px-6 bg-background">
       <div className="max-w-none md:max-w-4xl mx-auto">
         <iframe
-          className="w-full h-[2800px] md:h-[1850px]"
+          className="w-full h-[2450px] md:h-[1850px]"
           src={iframeSrc}
           frameBorder="0"
           style={{ background: 'transparent', border: 'none' }}
