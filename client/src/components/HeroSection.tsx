@@ -31,6 +31,10 @@ export default function HeroSection({
   const tryPlay = useCallback((video: HTMLVideoElement | null) => {
     if (!video) return;
     video.muted = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    video.removeAttribute('controls');
     const playPromise = video.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
@@ -43,6 +47,20 @@ export default function HeroSection({
   useEffect(() => {
     tryPlay(mobileVideoRef.current);
     tryPlay(desktopVideoRef.current);
+
+    const handleInteraction = () => {
+      tryPlay(mobileVideoRef.current);
+      tryPlay(desktopVideoRef.current);
+      document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('click', handleInteraction);
+    };
+    document.addEventListener('touchstart', handleInteraction, { once: true });
+    document.addEventListener('click', handleInteraction, { once: true });
+
+    return () => {
+      document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('click', handleInteraction);
+    };
   }, [tryPlay]);
 
   useEffect(() => {
@@ -105,6 +123,8 @@ export default function HeroSection({
           muted
           loop
           playsInline
+          preload="auto"
+          controls={false}
           src={videoSrcMobile}
           className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
         />
@@ -116,6 +136,8 @@ export default function HeroSection({
           muted
           loop
           playsInline
+          preload="auto"
+          controls={false}
           src={videoSrc}
           className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
         />
