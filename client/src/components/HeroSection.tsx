@@ -74,6 +74,13 @@ export default function HeroSection({
     document.addEventListener('click', handleInteraction, { once: true });
     document.addEventListener('scroll', handleInteraction, { once: true });
 
+    setTimeout(() => {
+      window.scrollTo({ top: 1 });
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: 0 });
+      });
+    }, 300);
+
     return () => {
       document.removeEventListener('touchstart', handleInteraction);
       document.removeEventListener('click', handleInteraction);
