@@ -35,31 +35,49 @@ export default function HeroSection({
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', '');
     video.removeAttribute('controls');
+    video.controls = false;
     const playPromise = video.play();
     if (playPromise !== undefined) {
       playPromise.catch(() => {
         video.muted = true;
+        video.controls = false;
         video.play().catch(() => {});
       });
     }
   }, []);
 
   useEffect(() => {
-    tryPlay(mobileVideoRef.current);
-    tryPlay(desktopVideoRef.current);
+    const videos = [mobileVideoRef.current, desktopVideoRef.current];
+    
+    videos.forEach((video) => {
+      if (!video) return;
+      video.load();
+      tryPlay(video);
+      
+      const onCanPlay = () => {
+        tryPlay(video);
+        video.removeEventListener('canplay', onCanPlay);
+      };
+      video.addEventListener('canplay', onCanPlay);
+      
+      const onLoadedData = () => {
+        tryPlay(video);
+        video.removeEventListener('loadeddata', onLoadedData);
+      };
+      video.addEventListener('loadeddata', onLoadedData);
+    });
 
     const handleInteraction = () => {
-      tryPlay(mobileVideoRef.current);
-      tryPlay(desktopVideoRef.current);
-      document.removeEventListener('touchstart', handleInteraction);
-      document.removeEventListener('click', handleInteraction);
+      videos.forEach(tryPlay);
     };
     document.addEventListener('touchstart', handleInteraction, { once: true });
     document.addEventListener('click', handleInteraction, { once: true });
+    document.addEventListener('scroll', handleInteraction, { once: true });
 
     return () => {
       document.removeEventListener('touchstart', handleInteraction);
       document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('scroll', handleInteraction);
     };
   }, [tryPlay]);
 
@@ -126,7 +144,7 @@ export default function HeroSection({
           preload="auto"
           controls={false}
           src={videoSrcMobile}
-          className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
+          className="hero-video absolute inset-0 w-full h-full object-cover object-center md:hidden pointer-events-none"
         />
       )}
       {videoSrc && (
@@ -139,7 +157,7 @@ export default function HeroSection({
           preload="auto"
           controls={false}
           src={videoSrc}
-          className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
+          className="hero-video absolute inset-0 w-full h-full object-cover object-center hidden md:block pointer-events-none"
         />
       )}
 
