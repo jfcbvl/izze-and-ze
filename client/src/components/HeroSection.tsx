@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -25,6 +25,25 @@ export default function HeroSection({
   videoSrcMobile,
 }: HeroSectionProps) {
   const [showScrollHint, setShowScrollHint] = useState(false);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
+  const desktopVideoRef = useRef<HTMLVideoElement>(null);
+
+  const tryPlay = useCallback((video: HTMLVideoElement | null) => {
+    if (!video) return;
+    video.muted = true;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        video.muted = true;
+        video.play().catch(() => {});
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    tryPlay(mobileVideoRef.current);
+    tryPlay(desktopVideoRef.current);
+  }, [tryPlay]);
 
   useEffect(() => {
     // Only run scroll animation on desktop (768px and above)
@@ -81,25 +100,25 @@ export default function HeroSection({
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {videoSrcMobile && (
         <video
+          ref={mobileVideoRef}
           autoPlay
           muted
           loop
           playsInline
+          src={videoSrcMobile}
           className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
-        >
-          <source src={videoSrcMobile} type="video/mp4" />
-        </video>
+        />
       )}
       {videoSrc && (
         <video
+          ref={desktopVideoRef}
           autoPlay
           muted
           loop
           playsInline
+          src={videoSrc}
           className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+        />
       )}
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/20 to-black/10" />
