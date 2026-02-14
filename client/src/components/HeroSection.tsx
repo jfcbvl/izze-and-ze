@@ -25,8 +25,6 @@ export default function HeroSection({
   videoSrcMobile,
 }: HeroSectionProps) {
   const [showScrollHint, setShowScrollHint] = useState(false);
-  const [mobileVideoPlaying, setMobileVideoPlaying] = useState(false);
-  const [desktopVideoPlaying, setDesktopVideoPlaying] = useState(false);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
 
@@ -49,27 +47,25 @@ export default function HeroSection({
   }, []);
 
   useEffect(() => {
-    const mobileVideo = mobileVideoRef.current;
-    const desktopVideo = desktopVideoRef.current;
-    const videos = [mobileVideo, desktopVideo];
-
-    const onMobilePlaying = () => setMobileVideoPlaying(true);
-    const onDesktopPlaying = () => setDesktopVideoPlaying(true);
-
-    if (mobileVideo) {
-      mobileVideo.addEventListener('playing', onMobilePlaying);
-      mobileVideo.load();
-      tryPlay(mobileVideo);
-      mobileVideo.addEventListener('canplay', () => tryPlay(mobileVideo), { once: true });
-      mobileVideo.addEventListener('loadeddata', () => tryPlay(mobileVideo), { once: true });
-    }
-    if (desktopVideo) {
-      desktopVideo.addEventListener('playing', onDesktopPlaying);
-      desktopVideo.load();
-      tryPlay(desktopVideo);
-      desktopVideo.addEventListener('canplay', () => tryPlay(desktopVideo), { once: true });
-      desktopVideo.addEventListener('loadeddata', () => tryPlay(desktopVideo), { once: true });
-    }
+    const videos = [mobileVideoRef.current, desktopVideoRef.current];
+    
+    videos.forEach((video) => {
+      if (!video) return;
+      video.load();
+      tryPlay(video);
+      
+      const onCanPlay = () => {
+        tryPlay(video);
+        video.removeEventListener('canplay', onCanPlay);
+      };
+      video.addEventListener('canplay', onCanPlay);
+      
+      const onLoadedData = () => {
+        tryPlay(video);
+        video.removeEventListener('loadeddata', onLoadedData);
+      };
+      video.addEventListener('loadeddata', onLoadedData);
+    });
 
     const handleInteraction = () => {
       videos.forEach(tryPlay);
@@ -82,8 +78,6 @@ export default function HeroSection({
       document.removeEventListener('touchstart', handleInteraction);
       document.removeEventListener('click', handleInteraction);
       document.removeEventListener('scroll', handleInteraction);
-      if (mobileVideo) mobileVideo.removeEventListener('playing', onMobilePlaying);
-      if (desktopVideo) desktopVideo.removeEventListener('playing', onDesktopPlaying);
     };
   }, [tryPlay]);
 
@@ -150,7 +144,7 @@ export default function HeroSection({
           preload="auto"
           controls={false}
           src={videoSrcMobile}
-          className={`hero-video absolute inset-0 w-full h-full object-cover object-center md:hidden pointer-events-none transition-opacity duration-700 ${mobileVideoPlaying ? 'opacity-100' : 'opacity-0'}`}
+          className="hero-video absolute inset-0 w-full h-full object-cover object-center md:hidden pointer-events-none"
         />
       )}
       {videoSrc && (
@@ -163,7 +157,7 @@ export default function HeroSection({
           preload="auto"
           controls={false}
           src={videoSrc}
-          className={`hero-video absolute inset-0 w-full h-full object-cover object-center hidden md:block pointer-events-none transition-opacity duration-700 ${desktopVideoPlaying ? 'opacity-100' : 'opacity-0'}`}
+          className="hero-video absolute inset-0 w-full h-full object-cover object-center hidden md:block pointer-events-none"
         />
       )}
 
