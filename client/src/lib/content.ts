@@ -6,7 +6,6 @@ export const content = {
       location: 'ÉVORA · PORTUGAL',
       date: 'SEPTEMBER 5TH · 2026',
       ctaText: 'RSVP',
-      rsvpDeadline: 'Please RSVP and secure a seat by March 1st, 2026!',
     },
     eventDetails: {
       title: 'Event Details',
@@ -77,7 +76,6 @@ export const content = {
       location: 'ÉVORA · PORTUGAL',
       date: '5 DE SETEMBRO · 2026',
       ctaText: 'RSVP',
-      rsvpDeadline: 'Por favor confirme presença até 1 de Março de 2026 para garantir o seu lugar!',
     },
     eventDetails: {
       title: 'Detalhes do Evento',
@@ -148,7 +146,6 @@ export const content = {
       location: 'ÉVORA · PORTUGAL',
       date: '5 DE SEPTIEMBRE · 2026',
       ctaText: 'RSVP',
-      rsvpDeadline: '¡Por favor confirma tu asistencia antes del 1 de marzo de 2026 para asegurar tu lugar!',
     },
     eventDetails: {
       title: 'Detalles del Evento',

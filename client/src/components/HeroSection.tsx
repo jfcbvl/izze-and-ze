@@ -7,7 +7,6 @@ interface HeroSectionProps {
   location: string;
   date: string;
   ctaText: string;
-  rsvpDeadline?: string;
   onCtaClick: () => void;
   videoSrc?: string;
   videoSrcMobile?: string;
@@ -19,7 +18,6 @@ export default function HeroSection({
   location,
   date,
   ctaText,
-  rsvpDeadline,
   onCtaClick,
   videoSrc,
   videoSrcMobile,
@@ -200,11 +198,6 @@ export default function HeroSection({
           {ctaText}
         </button>
 
-        {rsvpDeadline && (
-          <p className="text-black text-sm md:text-base font-sans mt-6 hidden md:block">
-            {rsvpDeadline}
-          </p>
-        )}
       </div>
 
       {showScrollHint && (

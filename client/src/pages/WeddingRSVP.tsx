@@ -27,7 +27,6 @@ interface WeddingContent {
     location: string;
     date: string;
     ctaText: string;
-    rsvpDeadline?: string;
   };
   eventDetails: {
     title: string;
@@ -79,7 +78,6 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         location={content.hero.location}
         date={content.hero.date}
         ctaText={content.hero.ctaText}
-        rsvpDeadline={content.hero.rsvpDeadline}
         onCtaClick={scrollToForm}
         videoSrc={videoSrc}
         videoSrcMobile={videoSrcMobile}
@@ -93,7 +91,6 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
           date={content.eventDetails.date}
           locationLabel={content.eventDetails.locationLabel}
           location={content.eventDetails.location}
-          rsvpDeadline={content.hero.rsvpDeadline}
         />
       </div>
       
