@@ -31,10 +31,7 @@ function AddressRow({ address, mapUrl }: { address: string; mapUrl: string }) {
   };
 
   return (
-    <div className="flex items-center gap-3 pt-2">
-      <span className="font-sans text-muted-foreground text-sm leading-relaxed flex-1">
-        {address}
-      </span>
+    <div className="flex items-center gap-2 pt-2">
       <a
         href={mapUrl}
         target="_blank"
@@ -44,6 +41,15 @@ function AddressRow({ address, mapUrl }: { address: string; mapUrl: string }) {
         title="Open in Google Maps"
       >
         <MapPin className="w-4 h-4" />
+      </a>
+      <a
+        href={mapUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="font-sans text-muted-foreground text-sm leading-relaxed hover:underline underline-offset-4 transition-all"
+        data-testid="link-address-text"
+      >
+        {address}
       </a>
       <button
         onClick={handleCopy}
