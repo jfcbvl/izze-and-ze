@@ -164,7 +164,7 @@ export const content = {
         subsections: [
           {
             title: 'Sobre Évora',
-            content: 'Évora é uma cidade Património Mundial da UNESCO no coração do Alentejo, conhecida pelas suas ruínas romanas, ruas medievais e excelente gastronomia e vinhos.',
+            content: 'Évora é uma cidade Património Mundial da UNESCO no coração da região do Alentejo, conhecida pelas suas ruínas romanas, ruas medievais e excelente gastronomia e vinhos.',
           },
           {
             title: 'Como Chegar',
@@ -172,17 +172,17 @@ export const content = {
           },
           {
             title: 'Onde Ficar',
-            content: 'Recomendamos ficar dentro das muralhas da cidade na sexta e no sábado. Os hotéis boutique e casas de hóspedes esgotam rapidamente, por isso encorajamos a reservar com antecedência.',
+            content: 'Recomendamos ficar dentro das muralhas da cidade na sexta e no sábado. Os hotéis boutique e alojamentos locais esgotam rapidamente, por isso encorajamos a reservar com antecedência.',
           },
           {
             title: 'O Que Fazer',
-            content: 'Visite o Templo Romano, a Capela dos Ossos e a Catedral, percorra as ruas históricas e desfrute da gastronomia e vinhos alentejanos. A cidade é compacta, fácil de percorrer a pé e de explorar em poucas horas.',
+            content: 'Visite o Templo Romano, a Capela dos Ossos, percorra as ruas históricas e coma bem e beba bem. A cidade é pequena, fácil de percorrer a pé e de explorar em poucas horas.',
           },
         ],
       },
       {
-        title: 'Explore Portugal além de Évora — As Nossas Recomendações',
-        preview: 'De Lisboa e Porto ao Algarve e além — os nossos lugares favoritos por Portugal.',
+        title: 'Portugal além de Évora — O que Recomendamos',
+        preview: 'De Lisboa e Porto aos Algarves e além — os nossos lugares favoritos por Portugal.',
         subsections: [
           {
             title: 'Perto de Lisboa — o aeroporto mais próximo de Évora (1h30 de carro ou comboio)',
@@ -194,21 +194,21 @@ export const content = {
           },
           {
             title: 'Rumo ao Sul — Algarve (3h de Évora e de Lisboa)',
-            content: 'O Algarve é conhecido pelas suas falésias douradas, enseadas escondidas e algumas das melhores praias da Europa. Recomendamos ficar perto de Lagos, Tavira ou Albufeira. Os nossos favoritos incluem a Praia da Arrifana, o Cabo de Sagres e as extensas praias da Ilha de Tavira.',
+            content: 'O Algarve é conhecido pelas suas praias com falésias, algumas das melhores da Europa. Recomendamos ficar perto de Lagos, Tavira ou Albufeira. Os nossos favoritos incluem a Praia da Arrifana, Sagres e as extensas praias da Ilha de Tavira.',
           },
           {
             title: 'Para os verdadeiros aventureiros',
-            content: 'Pode conduzir até Sevilha, Espanha (3h de Évora), descobrir a costa sul de Espanha — Marbella, Málaga… (4–5h de Évora) ou fazer um voo de 1h30 até Marrocos. Já fizemos tudo isso!',
+            content: 'Pode conduzir até Sevilha (3h de Évora), descobrir a costa sul de Espanha — Marbella, Málaga… (4–5h de Évora) ou fazer um voo de 1h30 até Marrocos. Já fizemos tudo isso!',
           },
         ],
       },
       {
-        title: 'Sobre o Local',
-        preview: 'A casa de infância do Zé no coração de Évora — um lugar repleto de memórias de família.',
+        title: 'Sobre o Local da Festa',
+        preview: 'A casa onde cresceu o Zé no centro de Évora — um lugar cheio de memórias de família.',
         subsections: [
           {
-            title: 'O Local',
-            content: 'O nosso casamento realizará na casa de infância do Zé, um lugar repleto de memórias de família e onde muitos dos seus momentos favoritos da infância aconteceram. Estamos entusiasmados por vos receber num espaço que nos é profundamente pessoal e significativo.',
+            title: 'O Local da Festa',
+            content: 'O nosso casamento realizará na casa onde o Zé cresceu, um lugar cheio de memórias de família. Mal podemos esperar por vos receber num espaço que nos é profundamente pessoal e significativo.',
           },
         ],
       },
@@ -267,24 +267,24 @@ export const content = {
     },
     infoSections: [
       {
-        title: 'Viaje y Alojamiento — Évora, Portugal',
-        preview: 'Estancia recomendada: 2 noches (viernes y sábado). Évora puede explorarse en uno o dos días y se disfruta mejor como parte de un viaje más largo por Portugal.',
+        title: 'Viaje y Hospedaje — Évora, Portugal',
+        preview: 'Duración recomendada: 2 noches (viernes y sábado). Évora puede explorarse en uno o dos días y se disfruta mejor como parte de un viaje más largo por Portugal.',
         subsections: [
           {
             title: 'Sobre Évora',
-            content: 'Évora es una ciudad Patrimonio Mundial de la UNESCO en el corazón del Alentejo, conocida por sus ruinas romanas, calles medievales y su excelente gastronomía y vinos.',
+            content: 'Évora es una ciudad Patrimonio Mundial de la UNESCO en el centro de Alentejo, conocida por sus ruinas romanas, calles medievales y su excelente gastronomía y vinos.',
           },
           {
             title: 'Cómo Llegar',
-            content: 'Évora está a 1.5 horas de Lisboa manejando, en autobús o en tren. Recomendamos volar al Aeropuerto de Lisboa (LIS) y rentar un auto o tomar el tren directo.',
+            content: 'Évora está a una hora y media de Lisboa manejando, en autobús o en tren. Recomendamos volar al Aeropuerto de Lisboa (LIS) y rentar un auto (si viajas por el país) o tomar el tren directo.',
           },
           {
             title: 'Dónde Hospedarse',
-            content: 'Recomendamos hospedarse dentro de las murallas de la ciudad el viernes y sábado. Los hoteles boutique y casas de huéspedes se llenan rápido, por lo que te animamos a reservar con anticipación.',
+            content: 'Recomendamos hospedarse dentro de las murallas de la ciudad el viernes y sábado. Los hoteles boutique y Airbnbs se llenan rápido, por lo que te animamos a reservar con anticipación.',
           },
           {
             title: 'Qué Hacer',
-            content: 'Visita el Templo Romano, la Capilla de los Huesos y la Catedral, recorre las calles históricas y disfruta de la gastronomía y vinos del Alentejo. La ciudad es compacta, perfecta para caminar y fácil de recorrer en pocas horas.',
+            content: 'Visita el Templo Romano, la Capilla de los Huesos, recorre las calles históricas y disfruta de la gastronomía y vinos del Alentejo. La ciudad es compacta, perfecta para caminar y fácil de recorrer en pocas horas.',
           },
         ],
       },
@@ -293,7 +293,7 @@ export const content = {
         preview: 'De Lisboa y Porto al Algarve y más allá — nuestros lugares favoritos en Portugal.',
         subsections: [
           {
-            title: 'Cerca de Lisboa — el aeropuerto más cercano a Évora (1.5h en auto o tren)',
+            title: 'Cerca de Lisboa — el aeropuerto más cercano a Évora (1.5h en carro o tren)',
             content: 'Visita los pueblos de Cascais y Sintra, y explora los barrios de Campo de Ourique, Mouraria y Alfama en Lisboa. Para playas, recomendamos manejar al sur: Costa da Caparica, el Parque Natural de Arrábida o Praia da Comporta.',
           },
           {
@@ -315,8 +315,8 @@ export const content = {
         preview: 'La casa de la infancia de Zé en el corazón de Évora — un lugar lleno de recuerdos familiares.',
         subsections: [
           {
-            title: 'El Lugar',
-            content: 'Nuestra boda se celebrará en la casa de la infancia de Zé, un lugar lleno de recuerdos familiares y donde vivió muchos de sus momentos favoritos mientras crecía. Nos emociona recibirlos en un espacio que es profundamente personal y significativo para nosotros.',
+            title: 'El Lugar de La Fiesta',
+            content: 'Nuestra boda se celebrará en la casa en donde creció Zé, un lugar lleno de recuerdos familiares. Nos emociona recibirlos en un espacio que tanto disfrutamos y que significa mucho para nosotros.',
           },
         ],
       },
