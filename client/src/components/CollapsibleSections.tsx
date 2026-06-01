@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, MapPin, Copy, Check } from 'lucide-react';
 
 interface SubSection {
   title: string;
@@ -12,10 +12,66 @@ export interface CollapsibleSection {
   subsections: SubSection[];
   image?: string;
   imageOrientation?: 'vertical' | 'horizontal';
+  address?: string;
+  addressMapUrl?: string;
 }
 
 interface CollapsibleSectionsProps {
   sections: CollapsibleSection[];
+}
+
+function AddressRow({ address, mapUrl }: { address: string; mapUrl: string }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(address).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
+
+  return (
+    <div className="flex items-center gap-3 pt-2">
+      <span className="font-sans text-muted-foreground text-sm leading-relaxed flex-1">
+        {address}
+      </span>
+      <a
+        href={mapUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-shrink-0 text-muted-foreground hover:text-foreground transition-colors"
+        data-testid="link-address-maps"
+        title="Open in Google Maps"
+      >
+        <MapPin className="w-4 h-4" />
+      </a>
+      <button
+        onClick={handleCopy}
+        className="flex-shrink-0 text-muted-foreground hover:text-foreground transition-colors"
+        data-testid="button-copy-address"
+        title="Copy address"
+      >
+        {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+      </button>
+    </div>
+  );
+}
+
+function SubSectionList({ subsections }: { subsections: SubSection[] }) {
+  return (
+    <div className="space-y-6">
+      {subsections.map((sub, i) => (
+        <div key={i} data-testid={`subsection-${sub.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}>
+          <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest mb-2">
+            {sub.title}
+          </h4>
+          <p className="font-sans text-muted-foreground leading-relaxed">
+            {sub.content}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isLast: boolean }) {
@@ -51,9 +107,9 @@ function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isL
         className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}
       >
         <div className="px-6 pb-8 md:px-10 md:pb-10">
-          <div className="border-t border-black/10 pt-6">
+          <div className="border-t border-black/10 pt-6 space-y-6">
             {section.image && section.imageOrientation === 'horizontal' ? (
-              <div className="space-y-6">
+              <>
                 <div className="w-full h-56 md:h-72 overflow-hidden rounded-sm">
                   <img
                     src={section.image}
@@ -62,19 +118,8 @@ function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isL
                     data-testid="img-section-photo"
                   />
                 </div>
-                <div className="space-y-6">
-                  {section.subsections.map((sub, i) => (
-                    <div key={i} data-testid={`subsection-${sub.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}>
-                      <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest mb-2">
-                        {sub.title}
-                      </h4>
-                      <p className="font-sans text-muted-foreground leading-relaxed">
-                        {sub.content}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+                {section.subsections.length > 0 && <SubSectionList subsections={section.subsections} />}
+              </>
             ) : section.image ? (
               <div className="flex flex-col md:flex-row gap-8 md:gap-10">
                 <div className="flex-shrink-0 md:w-56 lg:w-64">
@@ -85,38 +130,30 @@ function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isL
                     data-testid="img-section-photo"
                   />
                 </div>
-                <div className="flex-1 space-y-6">
-                  {section.subsections.map((sub, i) => (
-                    <div key={i} data-testid={`subsection-${sub.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}>
-                      <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest mb-2">
-                        {sub.title}
-                      </h4>
-                      <p className="font-sans text-muted-foreground leading-relaxed">
-                        {sub.content}
-                      </p>
-                    </div>
-                  ))}
+                <div className="flex-1">
+                  {section.subsections.length > 0 && <SubSectionList subsections={section.subsections} />}
+                  {section.address && section.addressMapUrl && (
+                    <AddressRow address={section.address} mapUrl={section.addressMapUrl} />
+                  )}
                 </div>
               </div>
             ) : (
-              <div className="space-y-6">
+              <>
                 {section.subsections.length > 0 ? (
-                  section.subsections.map((sub, i) => (
-                    <div key={i} data-testid={`subsection-${sub.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}>
-                      <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest mb-2">
-                        {sub.title}
-                      </h4>
-                      <p className="font-sans text-muted-foreground leading-relaxed">
-                        {sub.content}
-                      </p>
-                    </div>
-                  ))
+                  <SubSectionList subsections={section.subsections} />
                 ) : (
                   <p className="font-sans text-muted-foreground leading-relaxed italic">
                     {section.preview}
                   </p>
                 )}
-              </div>
+              </>
+            )}
+
+            {section.address && section.addressMapUrl && section.imageOrientation === 'horizontal' && (
+              <AddressRow address={section.address} mapUrl={section.addressMapUrl} />
+            )}
+            {section.address && section.addressMapUrl && !section.image && (
+              <AddressRow address={section.address} mapUrl={section.addressMapUrl} />
             )}
           </div>
         </div>

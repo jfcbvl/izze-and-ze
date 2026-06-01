@@ -73,7 +73,7 @@ export const content = {
         ],
       },
       {
-        title: 'Explore Portugal beyond Évora — Our Recommendations',
+        title: 'Explore Portugal — Our Recommendations',
         preview: 'From Lisbon and Porto to the Algarve and beyond — here are our favorite spots across Portugal.',
         subsections: [
           {
@@ -96,8 +96,13 @@ export const content = {
       },
       {
         title: 'About the Venue',
-        preview: 'More details about the venue coming soon.',
-        subsections: [],
+        preview: "Zé's childhood home in the heart of Évora — a place filled with family memories.",
+        subsections: [
+          {
+            title: 'The Venue',
+            content: "Our wedding will be held at Zé's childhood home, a place filled with family memories and where many of his favorite moments growing up took place. We're excited to welcome you to a setting that feels deeply personal and meaningful to us.",
+          },
+        ],
       },
     ],
     formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagDfEkcD13OzncWs/form',
@@ -199,8 +204,13 @@ export const content = {
       },
       {
         title: 'Sobre o Local',
-        preview: 'Mais detalhes sobre o local em breve.',
-        subsections: [],
+        preview: 'A casa de infância do Zé no coração de Évora — um lugar repleto de memórias de família.',
+        subsections: [
+          {
+            title: 'O Local',
+            content: 'O nosso casamento realizará na casa de infância do Zé, um lugar repleto de memórias de família e onde muitos dos seus momentos favoritos da infância aconteceram. Estamos entusiasmados por vos receber num espaço que nos é profundamente pessoal e significativo.',
+          },
+        ],
       },
     ],
     formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagdYGXk73y6gUS4f/form',
@@ -302,8 +312,13 @@ export const content = {
       },
       {
         title: 'Sobre el Lugar',
-        preview: 'Más detalles sobre el lugar próximamente.',
-        subsections: [],
+        preview: 'La casa de la infancia de Zé en el corazón de Évora — un lugar lleno de recuerdos familiares.',
+        subsections: [
+          {
+            title: 'El Lugar',
+            content: 'Nuestra boda se celebrará en la casa de la infancia de Zé, un lugar lleno de recuerdos familiares y donde vivió muchos de sus momentos favoritos mientras crecía. Nos emociona recibirlos en un espacio que es profundamente personal y significativo para nosotros.',
+          },
+        ],
       },
     ],
     formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagxz6LH6mvTX7cKm/form',
