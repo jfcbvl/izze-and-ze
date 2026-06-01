@@ -74,7 +74,7 @@ export const content = {
       },
       {
         title: 'Explore Portugal — Our Recommendations',
-        preview: 'From Lisbon and Porto to the Algarve and beyond — here are our favorite spots across Portugal.',
+        preview: 'From Lisbon and Porto to the Algarve and beyond — our favorite spots and must dos.',
         subsections: [
           {
             title: 'Near Lisbon — the closest airport to Évora (1.5h by car or train)',
@@ -100,7 +100,7 @@ export const content = {
         subsections: [
           {
             title: 'The Venue',
-            content: "Our wedding will be held at Zé's childhood home, a place filled with family memories and where many of his favorite moments growing up took place. We're excited to welcome you to a setting that feels deeply personal and meaningful to us.",
+            content: "Our wedding will be held at Zé's childhood home, a place filled with family memories and where many of his favorite moments growing up took place. We're excited to welcome you to a setting we've spent countless memories together with both our families over the years.",
           },
         ],
       },

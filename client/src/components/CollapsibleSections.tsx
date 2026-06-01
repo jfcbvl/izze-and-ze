@@ -90,16 +90,16 @@ function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isL
     >
       <button
         onClick={() => setOpen((o) => !o)}
-        className="w-full text-left px-6 py-6 md:px-10 md:py-8 flex items-start justify-between gap-6 group"
+        className="w-full text-left px-5 py-5 md:px-10 md:py-8 flex items-start justify-between gap-4 md:gap-6 group"
         data-testid={`button-toggle-${section.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}
         aria-expanded={open}
       >
         <div className="flex-1 min-w-0">
-          <h3 className="font-serif text-2xl md:text-3xl font-medium text-foreground leading-snug">
+          <h3 className="font-serif text-xl md:text-3xl font-medium text-foreground leading-snug">
             {section.title}
           </h3>
           {section.preview && (
-            <p className="text-muted-foreground font-sans text-sm md:text-base leading-relaxed mt-2 line-clamp-2">
+            <p className="text-muted-foreground font-sans text-sm md:text-base leading-relaxed mt-1 line-clamp-1 md:line-clamp-2">
               {section.preview}
             </p>
           )}
