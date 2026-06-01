@@ -49,24 +49,57 @@ export const content = {
         },
       ],
     },
-    aboutEvora: {
-      title: 'About Évora',
-      description: 'Évora is a UNESCO World Heritage city in the heart of Portugal\'s Alentejo region. Known for its well-preserved old town center, Roman ruins, and medieval architecture, it\'s one of Portugal\'s most charming destinations.',
-      highlights: [
-        {
-          title: 'Getting There',
-          description: 'Évora is 1.5 hours from Lisbon by car. bus or train. We recommend flying into Lisbon Airport (LIS) and renting a car or taking the direct train to Évora. Évora is a walking city, no need for cars to get around.',
-        },
-        {
-          title: 'Where to Stay',
-          description: 'We recommend staying within the city walls for at least 2 nights - Friday and Saturday - to enjoy our celebration and discover Évora fully. Although there are plenty of small boutique hotels, they get booked far in advance.',
-        },
-        {
-          title: 'What to Do',
-          description: 'You can get a sense of the city in half a day. Explore the Roman Temple, visit the Chapel of Bones, wander the medieval streets, and enjoy world-class Alentejo wines and cuisine. The city is perfect for walking.',
-        },
-      ],
-    },
+    infoSections: [
+      {
+        title: 'Travel & Stay — Évora, Portugal',
+        preview: 'Recommended stay: 2 nights (Friday and Saturday). Évora can be explored in a day or two and is best enjoyed as part of a longer trip through Portugal.',
+        subsections: [
+          {
+            title: 'About Évora',
+            content: 'Évora is a UNESCO World Heritage city in the heart of the Alentejo region, known for its Roman ruins, medieval streets, and excellent food and wine.',
+          },
+          {
+            title: 'Getting There',
+            content: 'Évora is 1.5 hours from Lisbon by car, bus, or train. We recommend flying into Lisbon Airport (LIS) and either renting a car or taking the direct train.',
+          },
+          {
+            title: 'Where to Stay',
+            content: 'We recommend staying within the city walls for Friday and Saturday. Boutique hotels and guesthouses fill up quickly, so we encourage booking early.',
+          },
+          {
+            title: 'What to Do',
+            content: 'Visit the Roman Temple, Chapel of Bones, and Cathedral, wander the historic streets, and enjoy Alentejo cuisine and wines. The city is compact, walkable, and easy to experience in just a few hours.',
+          },
+        ],
+      },
+      {
+        title: 'Explore Portugal beyond Évora — Our Recommendations',
+        preview: 'From Lisbon and Porto to the Algarve and beyond — here are our favorite spots across Portugal.',
+        subsections: [
+          {
+            title: 'Near Lisbon — the closest airport to Évora (1.5h by car or train)',
+            content: 'Visit the towns of Cascais and Sintra, and explore Lisbon\'s neighborhoods of Campo de Ourique, Mouraria, and Alfama. For beaches, we recommend driving south to any of the following: Costa da Caparica, Arrábida Natural Park, or Praia da Comporta.',
+          },
+          {
+            title: 'Venture North — Porto (4h from Évora and 3h from Lisbon)',
+            content: 'Visit the city of Porto, stroll along the Ribeira waterfront, and explore the famous wine cellars across the river in Vila Nova de Gaia. For wine lovers, spend a day in the stunning Douro Valley, one of the world\'s oldest wine regions. Nearby, we also recommend visiting the charming towns of Braga and Guimarães.',
+          },
+          {
+            title: 'Venture South — Algarve Region (3h from Évora and Lisbon)',
+            content: 'The Algarve is known for its golden cliffs, hidden coves, and some of Europe\'s best beaches. We recommend staying near Lagos, Tavira, or Albufeira depending on your preferred pace. Our favorites include Praia da Arrifana, the Sagres cape, and the long sandy stretches around Ilha de Tavira.',
+          },
+          {
+            title: 'For the true adventurers',
+            content: 'You can drive to Sevilla, Spain (3h from Évora), discover the southern coast of Spain — Marbella, Málaga… (4–5h from Évora) OR take a 1.5h flight to Morocco. We\'ve done all that!',
+          },
+        ],
+      },
+      {
+        title: 'About the Venue',
+        preview: 'More details about the venue coming soon.',
+        subsections: [],
+      },
+    ],
     formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagDfEkcD13OzncWs/form',
   },
   pt: {
@@ -119,24 +152,57 @@ export const content = {
         },
       ],
     },
-    aboutEvora: {
-      title: 'Sobre Évora',
-      description: 'Évora é uma cidade Património Mundial da UNESCO no coração da região do Alentejo. Conhecida pelo centro histórico bem preservado, ruínas romanas e arquitetura medieval, é um dos destinos mais encantadores de Portugal.',
-      highlights: [
-        {
-          title: 'Como Chegar',
-          description: 'Évora fica a 1h30 de Lisboa de carro, autocarro ou comboio. Recomendamos voar para o Aeroporto de Lisboa (LIS) e alugar um carro ou apanhar o comboio direto para Évora. Évora é uma cidade para percorrer a pé, sem necessidade de carro.',
-        },
-        {
-          title: 'Onde Ficar',
-          description: 'Recomendamos ficar dentro das muralhas da cidade por pelo menos 2 noites – sexta e sábado – para aproveitar a celebração e descobrir Évora em pleno. Embora existam muitos pequnos hotéis na cidade, costumam esgotar com antecedência.',
-        },
-        {
-          title: 'O Que Fazer',
-          description: 'Consegue ter uma boa noção da cidade em meio dia. Explore o Templo Romano, visite a Capela dos Ossos, percorra as ruas medievais e desfrute de vinhos e gastronomia alentejana de excelência. A cidade é perfeita para caminhar.',
-        },
-      ],
-    },
+    infoSections: [
+      {
+        title: 'Viagem & Alojamento — Évora, Portugal',
+        preview: 'Estadia recomendada: 2 noites (sexta e sábado). Évora pode ser explorada num dia ou dois e é melhor aproveitada como parte de uma viagem mais longa por Portugal.',
+        subsections: [
+          {
+            title: 'Sobre Évora',
+            content: 'Évora é uma cidade Património Mundial da UNESCO no coração do Alentejo, conhecida pelas suas ruínas romanas, ruas medievais e excelente gastronomia e vinhos.',
+          },
+          {
+            title: 'Como Chegar',
+            content: 'Évora fica a 1h30 de Lisboa de carro, autocarro ou comboio. Recomendamos voar para o Aeroporto de Lisboa (LIS) e alugar um carro ou apanhar o comboio direto.',
+          },
+          {
+            title: 'Onde Ficar',
+            content: 'Recomendamos ficar dentro das muralhas da cidade na sexta e no sábado. Os hotéis boutique e casas de hóspedes esgotam rapidamente, por isso encorajamos a reservar com antecedência.',
+          },
+          {
+            title: 'O Que Fazer',
+            content: 'Visite o Templo Romano, a Capela dos Ossos e a Catedral, percorra as ruas históricas e desfrute da gastronomia e vinhos alentejanos. A cidade é compacta, fácil de percorrer a pé e de explorar em poucas horas.',
+          },
+        ],
+      },
+      {
+        title: 'Explore Portugal além de Évora — As Nossas Recomendações',
+        preview: 'De Lisboa e Porto ao Algarve e além — os nossos lugares favoritos por Portugal.',
+        subsections: [
+          {
+            title: 'Perto de Lisboa — o aeroporto mais próximo de Évora (1h30 de carro ou comboio)',
+            content: 'Visite as vilas de Cascais e Sintra, e explore os bairros de Campo de Ourique, Mouraria e Alfama em Lisboa. Para praias, recomendamos a Costa da Caparica, o Parque Natural da Arrábida ou a Praia da Comporta.',
+          },
+          {
+            title: 'Rumo ao Norte — Porto (4h de Évora e 3h de Lisboa)',
+            content: 'Visite a cidade do Porto, passeie pela Ribeira e explore as famosas caves de vinho em Vila Nova de Gaia. Para os amantes de vinho, passe um dia no deslumbrante Vale do Douro. Perto, recomendamos também as encantadoras cidades de Braga e Guimarães.',
+          },
+          {
+            title: 'Rumo ao Sul — Algarve (3h de Évora e de Lisboa)',
+            content: 'O Algarve é conhecido pelas suas falésias douradas, enseadas escondidas e algumas das melhores praias da Europa. Recomendamos ficar perto de Lagos, Tavira ou Albufeira. Os nossos favoritos incluem a Praia da Arrifana, o Cabo de Sagres e as extensas praias da Ilha de Tavira.',
+          },
+          {
+            title: 'Para os verdadeiros aventureiros',
+            content: 'Pode conduzir até Sevilha, Espanha (3h de Évora), descobrir a costa sul de Espanha — Marbella, Málaga… (4–5h de Évora) ou fazer um voo de 1h30 até Marrocos. Já fizemos tudo isso!',
+          },
+        ],
+      },
+      {
+        title: 'Sobre o Local',
+        preview: 'Mais detalhes sobre o local em breve.',
+        subsections: [],
+      },
+    ],
     formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagdYGXk73y6gUS4f/form',
   },
   mx: {
@@ -189,24 +255,57 @@ export const content = {
         },
       ],
     },
-    aboutEvora: {
-      title: 'Sobre Évora',
-      description: 'Évora es una ciudad Patrimonio Mundial de la UNESCO en el corazón de la región del Alentejo. Conocida por su centro histórico bien conservado, ruinas romanas y arquitectura medieval, es uno de los destinos más encantadores de Portugal.',
-      highlights: [
-        {
-          title: 'Cómo Llegar',
-          description: 'Évora está a 1.5 horas de Lisboa manejando, en autobús o en tren. Recomendamos volar al Aeropuerto de Lisboa (LIS) y rentar un auto o tomar el tren directo a Évora. Es una ciudad perfecta para caminar, no necesitarás carro para moverte.',
-        },
-        {
-          title: 'Dónde Hospedarse',
-          description: 'Recomendamos hospedarse dentro de las murallas de la ciudad por lo menos 2 noches – viernes y sábado – para disfrutar de la celebración y descubrir Évora por completo. Aunque hay muchos hoteles boutique, suelen llenarse con anticipación.',
-        },
-        {
-          title: 'Qué Hacer',
-          description: 'Puedes conocer lo esencial de la ciudad en medio día. Explora el Templo Romano, visita la Capilla de los Huesos, recorre las calles medievales y disfruta de vinos y gastronomía alentejana de primer nivel. La ciudad es perfecta para caminar.',
-        },
-      ],
-    },
+    infoSections: [
+      {
+        title: 'Viaje y Alojamiento — Évora, Portugal',
+        preview: 'Estancia recomendada: 2 noches (viernes y sábado). Évora puede explorarse en uno o dos días y se disfruta mejor como parte de un viaje más largo por Portugal.',
+        subsections: [
+          {
+            title: 'Sobre Évora',
+            content: 'Évora es una ciudad Patrimonio Mundial de la UNESCO en el corazón del Alentejo, conocida por sus ruinas romanas, calles medievales y su excelente gastronomía y vinos.',
+          },
+          {
+            title: 'Cómo Llegar',
+            content: 'Évora está a 1.5 horas de Lisboa manejando, en autobús o en tren. Recomendamos volar al Aeropuerto de Lisboa (LIS) y rentar un auto o tomar el tren directo.',
+          },
+          {
+            title: 'Dónde Hospedarse',
+            content: 'Recomendamos hospedarse dentro de las murallas de la ciudad el viernes y sábado. Los hoteles boutique y casas de huéspedes se llenan rápido, por lo que te animamos a reservar con anticipación.',
+          },
+          {
+            title: 'Qué Hacer',
+            content: 'Visita el Templo Romano, la Capilla de los Huesos y la Catedral, recorre las calles históricas y disfruta de la gastronomía y vinos del Alentejo. La ciudad es compacta, perfecta para caminar y fácil de recorrer en pocas horas.',
+          },
+        ],
+      },
+      {
+        title: 'Explora Portugal más allá de Évora — Nuestras Recomendaciones',
+        preview: 'De Lisboa y Porto al Algarve y más allá — nuestros lugares favoritos en Portugal.',
+        subsections: [
+          {
+            title: 'Cerca de Lisboa — el aeropuerto más cercano a Évora (1.5h en auto o tren)',
+            content: 'Visita los pueblos de Cascais y Sintra, y explora los barrios de Campo de Ourique, Mouraria y Alfama en Lisboa. Para playas, recomendamos manejar al sur: Costa da Caparica, el Parque Natural de Arrábida o Praia da Comporta.',
+          },
+          {
+            title: 'Rumbo al Norte — Porto (4h de Évora y 3h de Lisboa)',
+            content: 'Visita la ciudad de Porto, pasea por el malecón de la Ribeira y explora las famosas bodegas de vino en Vila Nova de Gaia. Para los amantes del vino, pasa un día en el impresionante Valle del Duero. Cerca, también recomendamos los encantadores pueblos de Braga y Guimarães.',
+          },
+          {
+            title: 'Rumbo al Sur — Región del Algarve (3h de Évora y Lisboa)',
+            content: 'El Algarve es conocido por sus acantilados dorados, calas escondidas y algunas de las mejores playas de Europa. Recomendamos hospedarse cerca de Lagos, Tavira o Albufeira. Nuestras favoritas incluyen Praia da Arrifana, el Cabo de Sagres y las largas playas de Ilha de Tavira.',
+          },
+          {
+            title: 'Para los verdaderos aventureros',
+            content: 'Puedes manejar a Sevilla, España (3h de Évora), descubrir la costa sur de España — Marbella, Málaga… (4–5h de Évora) o tomar un vuelo de 1.5h a Marruecos. ¡Hemos hecho todo eso!',
+          },
+        ],
+      },
+      {
+        title: 'Sobre el Lugar',
+        preview: 'Más detalles sobre el lugar próximamente.',
+        subsections: [],
+      },
+    ],
     formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagxz6LH6mvTX7cKm/form',
   },
 };

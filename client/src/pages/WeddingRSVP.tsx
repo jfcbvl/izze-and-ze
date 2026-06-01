@@ -1,7 +1,7 @@
 import HeroSection from '@/components/HeroSection';
 import EventDetails from '@/components/EventDetails';
 import DaySchedule from '@/components/DaySchedule';
-import AboutLocation from '@/components/AboutLocation';
+import CollapsibleSections, { CollapsibleSection } from '@/components/CollapsibleSections';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import videoSrc from '@assets/Fiesta_-_Horizontal_1766433192319.mp4';
 import videoSrcMobile from '@assets/Fiesta_-_Vertical_1766433192320.mp4';
@@ -11,11 +11,6 @@ interface Event {
   name: string;
   description: string;
   location: string;
-}
-
-interface Highlight {
-  title: string;
-  description: string;
 }
 
 interface WeddingContent {
@@ -46,11 +41,7 @@ interface WeddingContent {
     location?: string;
     events: Event[];
   };
-  aboutEvora: {
-    title: string;
-    description: string;
-    highlights: Highlight[];
-  };
+  infoSections: CollapsibleSection[];
   formUrl: string;
 }
 
@@ -110,11 +101,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         variant="alternate"
       />
       
-      <AboutLocation
-        title={content.aboutEvora.title}
-        description={content.aboutEvora.description}
-        highlights={content.aboutEvora.highlights}
-      />
+      <CollapsibleSections sections={content.infoSections} />
       
       <div className="pb-20 md:pb-8 text-center">
         <button
