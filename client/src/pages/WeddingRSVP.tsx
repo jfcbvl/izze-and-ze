@@ -1,9 +1,7 @@
-import { useRef } from 'react';
 import HeroSection from '@/components/HeroSection';
 import EventDetails from '@/components/EventDetails';
 import DaySchedule from '@/components/DaySchedule';
 import AboutLocation from '@/components/AboutLocation';
-import RSVPForm from '@/components/RSVPForm';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import videoSrc from '@assets/Fiesta_-_Horizontal_1766433192319.mp4';
 import videoSrcMobile from '@assets/Fiesta_-_Vertical_1766433192320.mp4';
@@ -62,10 +60,8 @@ interface WeddingRSVPProps {
 }
 
 export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
-  const formRef = useRef<HTMLDivElement>(null);
-
-  const scrollToForm = () => {
-    formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const openForm = () => {
+    window.open(content.formUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -78,7 +74,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         location={content.hero.location}
         date={content.hero.date}
         ctaText={content.hero.ctaText}
-        onCtaClick={scrollToForm}
+        onCtaClick={openForm}
         videoSrc={videoSrc}
         videoSrcMobile={videoSrcMobile}
       />
@@ -119,10 +115,6 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         description={content.aboutEvora.description}
         highlights={content.aboutEvora.highlights}
       />
-      
-      <div ref={formRef}>
-        <RSVPForm iframeSrc={content.formUrl} />
-      </div>
       
       <div className="pb-20 md:pb-8 text-center">
         <button

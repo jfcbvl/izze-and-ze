@@ -1,5 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { useEffect, useRef, useCallback } from 'react';
 
 interface HeroSectionProps {
   saveTheDate?: string;
@@ -22,7 +21,6 @@ export default function HeroSection({
   videoSrc,
   videoSrcMobile,
 }: HeroSectionProps) {
-  const [showScrollHint, setShowScrollHint] = useState(false);
   const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const desktopVideoRef = useRef<HTMLVideoElement>(null);
 
@@ -79,57 +77,6 @@ export default function HeroSection({
     };
   }, [tryPlay]);
 
-  useEffect(() => {
-    // Only run scroll animation on desktop (768px and above)
-    const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-    if (!isDesktop) return;
-
-    let hasUserInteracted = false;
-    let timeoutId: ReturnType<typeof setTimeout>;
-    
-    const cancelAnimation = () => {
-      hasUserInteracted = true;
-      window.removeEventListener('scroll', cancelAnimation);
-      window.removeEventListener('click', cancelAnimation);
-      window.removeEventListener('touchstart', cancelAnimation);
-      window.removeEventListener('keydown', cancelAnimation);
-    };
-    
-    // Listen for any user interaction
-    window.addEventListener('scroll', cancelAnimation);
-    window.addEventListener('click', cancelAnimation);
-    window.addEventListener('touchstart', cancelAnimation);
-    window.addEventListener('keydown', cancelAnimation);
-    
-    timeoutId = setTimeout(() => {
-      // Only run animation if user hasn't interacted
-      if (hasUserInteracted) return;
-      
-      setShowScrollHint(true);
-      cancelAnimation(); // Remove listeners after animation starts
-      
-      // Perform "attempted scroll" - scroll down a bit and back, twice
-      const scrollDown = () => {
-        window.scrollTo({ top: 120, behavior: 'smooth' });
-      };
-      const scrollBack = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      };
-      
-      // First attempt
-      scrollDown();
-      setTimeout(scrollBack, 1200);
-      
-      // Second attempt
-      setTimeout(scrollDown, 2800);
-      setTimeout(scrollBack, 4000);
-    }, 5500);
-
-    return () => {
-      clearTimeout(timeoutId);
-      cancelAnimation();
-    };
-  }, []);
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
       {videoSrcMobile && (
@@ -200,14 +147,6 @@ export default function HeroSection({
 
       </div>
 
-      {showScrollHint && (
-        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 scroll-hint hidden md:block" data-testid="scroll-hint">
-          <div className="scroll-hint-inner flex flex-col items-center">
-            <ChevronDown className="w-8 h-8 text-black" />
-            <ChevronDown className="w-8 h-8 text-black/70 -mt-5" />
-          </div>
-        </div>
-      )}
     </section>
   );
 }
