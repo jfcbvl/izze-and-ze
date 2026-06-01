@@ -6,6 +6,7 @@ import LanguageSwitcher from '@/components/LanguageSwitcher';
 import videoSrc from '@assets/Fiesta_-_Horizontal_1766433192319.mp4';
 import videoSrcMobile from '@assets/Fiesta_-_Vertical_1766433192320.mp4';
 import evoraPhoto from '@assets/evora-photo.png';
+import explorePortugalPhoto from '@assets/explore-portugal.jpg';
 
 interface Event {
   time: string;
@@ -103,9 +104,11 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
       />
       
       <CollapsibleSections
-        sections={content.infoSections.map((section, i) =>
-          i === 0 ? { ...section, image: evoraPhoto } : section
-        )}
+        sections={content.infoSections.map((section, i) => {
+          if (i === 0) return { ...section, image: evoraPhoto, imageOrientation: 'vertical' as const };
+          if (i === 1) return { ...section, image: explorePortugalPhoto, imageOrientation: 'horizontal' as const };
+          return section;
+        })}
       />
       
       <div className="pb-20 md:pb-8 text-center">

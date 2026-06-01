@@ -11,6 +11,7 @@ export interface CollapsibleSection {
   preview: string;
   subsections: SubSection[];
   image?: string;
+  imageOrientation?: 'vertical' | 'horizontal';
 }
 
 interface CollapsibleSectionsProps {
@@ -51,7 +52,30 @@ function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isL
       >
         <div className="px-6 pb-8 md:px-10 md:pb-10">
           <div className="border-t border-black/10 pt-6">
-            {section.image ? (
+            {section.image && section.imageOrientation === 'horizontal' ? (
+              <div className="space-y-6">
+                <div className="w-full h-56 md:h-72 overflow-hidden rounded-sm">
+                  <img
+                    src={section.image}
+                    alt=""
+                    className="w-full h-full object-cover object-center"
+                    data-testid="img-section-photo"
+                  />
+                </div>
+                <div className="space-y-6">
+                  {section.subsections.map((sub, i) => (
+                    <div key={i} data-testid={`subsection-${sub.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}>
+                      <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest mb-2">
+                        {sub.title}
+                      </h4>
+                      <p className="font-sans text-muted-foreground leading-relaxed">
+                        {sub.content}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) : section.image ? (
               <div className="flex flex-col md:flex-row gap-8 md:gap-10">
                 <div className="flex-shrink-0 md:w-56 lg:w-64">
                   <img
