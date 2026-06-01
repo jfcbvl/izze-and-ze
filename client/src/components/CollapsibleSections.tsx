@@ -10,6 +10,7 @@ export interface CollapsibleSection {
   title: string;
   preview: string;
   subsections: SubSection[];
+  image?: string;
 }
 
 interface CollapsibleSectionsProps {
@@ -46,25 +47,52 @@ function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isL
       </button>
 
       <div
-        className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'}`}
+        className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}
       >
-        <div className="px-6 pb-8 md:px-10 md:pb-10 space-y-6">
-          <div className="border-t border-black/10 pt-6 space-y-6">
-            {section.subsections.length > 0 ? (
-              section.subsections.map((sub, i) => (
-                <div key={i} data-testid={`subsection-${sub.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}>
-                  <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest mb-2">
-                    {sub.title}
-                  </h4>
-                  <p className="font-sans text-muted-foreground leading-relaxed">
-                    {sub.content}
-                  </p>
+        <div className="px-6 pb-8 md:px-10 md:pb-10">
+          <div className="border-t border-black/10 pt-6">
+            {section.image ? (
+              <div className="flex flex-col md:flex-row gap-8 md:gap-10">
+                <div className="flex-shrink-0 md:w-56 lg:w-64">
+                  <img
+                    src={section.image}
+                    alt=""
+                    className="w-full md:h-full object-cover rounded-sm max-h-80 md:max-h-none"
+                    data-testid="img-section-photo"
+                  />
                 </div>
-              ))
+                <div className="flex-1 space-y-6">
+                  {section.subsections.map((sub, i) => (
+                    <div key={i} data-testid={`subsection-${sub.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}>
+                      <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest mb-2">
+                        {sub.title}
+                      </h4>
+                      <p className="font-sans text-muted-foreground leading-relaxed">
+                        {sub.content}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
             ) : (
-              <p className="font-sans text-muted-foreground leading-relaxed italic">
-                {section.preview}
-              </p>
+              <div className="space-y-6">
+                {section.subsections.length > 0 ? (
+                  section.subsections.map((sub, i) => (
+                    <div key={i} data-testid={`subsection-${sub.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}>
+                      <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest mb-2">
+                        {sub.title}
+                      </h4>
+                      <p className="font-sans text-muted-foreground leading-relaxed">
+                        {sub.content}
+                      </p>
+                    </div>
+                  ))
+                ) : (
+                  <p className="font-sans text-muted-foreground leading-relaxed italic">
+                    {section.preview}
+                  </p>
+                )}
+              </div>
             )}
           </div>
         </div>

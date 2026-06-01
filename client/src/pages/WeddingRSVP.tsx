@@ -5,6 +5,7 @@ import CollapsibleSections, { CollapsibleSection } from '@/components/Collapsibl
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import videoSrc from '@assets/Fiesta_-_Horizontal_1766433192319.mp4';
 import videoSrcMobile from '@assets/Fiesta_-_Vertical_1766433192320.mp4';
+import evoraPhoto from '@assets/evora-photo.png';
 
 interface Event {
   time: string;
@@ -101,7 +102,11 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         variant="alternate"
       />
       
-      <CollapsibleSections sections={content.infoSections} />
+      <CollapsibleSections
+        sections={content.infoSections.map((section, i) =>
+          i === 0 ? { ...section, image: evoraPhoto } : section
+        )}
+      />
       
       <div className="pb-20 md:pb-8 text-center">
         <button
