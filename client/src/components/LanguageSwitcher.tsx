@@ -8,8 +8,11 @@ const languages = [
 
 export default function LanguageSwitcher() {
   const [location, setLocation] = useLocation();
-  
-  const currentLang = location.substring(1) || 'en';
+
+  const segments = location.split('/').filter(Boolean);
+  const currentLang = segments[0] || 'en';
+  const rest = segments.slice(1).join('/');
+  const pathFor = (code: string) => `/${code}${rest ? `/${rest}` : ''}`;
 
   return (
     <>
@@ -17,7 +20,7 @@ export default function LanguageSwitcher() {
         {languages.map((lang) => (
           <button
             key={lang.code}
-            onClick={() => setLocation(`/${lang.code}`)}
+            onClick={() => setLocation(pathFor(lang.code))}
             data-testid={`button-lang-${lang.code}`}
             className={`
               px-2 py-1 rounded-md font-sans text-sm font-medium transition-all
@@ -38,7 +41,7 @@ export default function LanguageSwitcher() {
           {languages.map((lang) => (
             <button
               key={lang.code}
-              onClick={() => setLocation(`/${lang.code}`)}
+              onClick={() => setLocation(pathFor(lang.code))}
               data-testid={`button-lang-mobile-${lang.code}`}
               className={`
                 px-3 py-1 rounded-md font-sans text-sm font-medium transition-all

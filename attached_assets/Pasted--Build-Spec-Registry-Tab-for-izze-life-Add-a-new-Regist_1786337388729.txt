@@ -1,0 +1,1057 @@
+# Build Spec — Registry Tab for izze.life
+
+Add a new **Registry** tab/page to the existing izze.life wedding website.
+
+Before implementing anything, inspect the existing izze.life codebase and reuse its current design system, navigation, typography, colors, spacing, responsive behavior, components, and interaction patterns wherever possible.
+
+The Registry should feel completely native to izze.life.
+
+It should **not** look or feel like:
+
+* a third-party wedding registry
+* an online store
+* a checkout
+* a crowdfunding campaign
+* a fintech product
+
+The experience should be warm, personal, editorial, minimal, and slightly playful.
+
+There is no backend, database, gift tracking, payment tracking, reconciliation, or payment verification.
+
+---
+
+# 1. Core Concept
+
+The Registry has two parts:
+
+### Primary request: Bring us a book
+
+We want every guest, if they can, to bring a book for either Izzy or Zé that will eventually become part of our home library.
+
+### Optional monetary gift: Help us decide our next step
+
+Guests who still want to give us something beyond the book can make a monetary gift.
+
+Instead of funding traditional wedding-registry categories such as a honeymoon or a house, the monetary gift becomes a playful **vote for where Izzy & Zé should live next**.
+
+There are exactly four options:
+
+**🌲 Plant roots in Seattle**
+
+**🇵🇹 Move back to Portugal**
+
+**🇲🇽 Move back to Mexico**
+
+**🗽 Move back to New York**
+
+The amount a guest chooses does not need to be recorded or actually counted as a vote.
+
+There is no leaderboard or voting backend.
+
+“Voting” is simply the framing of the gift experience.
+
+---
+
+# 2. Overall Flow
+
+The Registry should use a focused, multi-step experience.
+
+The flow is:
+
+**Registry Home**
+
+→ **Gift / Vote**
+
+→ **Amount**
+
+→ **Payment**
+
+→ **Payment Details**
+
+If Bank Transfer is selected:
+
+**Registry Home**
+
+→ **Gift / Vote**
+
+→ **Amount**
+
+→ **Payment**
+
+→ **Bank Transfer**
+
+→ **USA / Portugal / International**
+
+Each step should **replace the previous view**.
+
+Do not use accordions.
+
+Do not reveal the next step underneath the current step.
+
+Do not create one long page where each selection expands additional content below it.
+
+---
+
+# 3. Registry Home
+
+When someone first opens the Registry tab, show **no monetary gift options**.
+
+The initial page should feel like a personal note rather than a registry checkout.
+
+## Header
+
+**Our Registry**
+
+Supporting copy:
+
+“We have one small favor before anything else.”
+
+---
+
+# 4. Book Request
+
+The book request should be the emotional centerpiece of the Registry Home.
+
+Create a prominent but elegant card or editorial section.
+
+A tasteful book/library icon such as 📚 can be used, provided it fits the existing izze.life visual language.
+
+Small eyebrow:
+
+**First things first**
+
+Heading:
+
+## Bring us a book
+
+Copy:
+
+“We'd love for each guest to bring a book for either Izzy or Zé — something you love, something that made you think, or something you think belongs on our shelf.
+
+One day, when we finally settle down somewhere, we'll use them to build our home library — with a little piece of all of you in it.”
+
+The tone should feel sentimental and personal.
+
+This is the primary registry request.
+
+---
+
+# 5. “Your Presence Is the Gift” Section
+
+Below the book request, create a second section.
+
+Heading:
+
+## And yes, your presence really is the gift.
+
+Copy:
+
+“We know that's what every wedding registry says. But in our defense, some of you are crossing an ocean to get to Évora, so this time we actually mean it.
+
+If you'd still like to give us something beyond a book, we'd be incredibly grateful.”
+
+Then show one primary CTA:
+
+**I'd also like to give a gift**
+
+This button is the gateway to the monetary registry.
+
+### Important
+
+Do not show:
+
+* Seattle
+* Portugal
+* Mexico
+* New York
+* contribution amounts
+* payment methods
+
+anywhere on the initial Registry Home.
+
+The monetary experience should remain completely hidden until the guest intentionally clicks:
+
+**I'd also like to give a gift**
+
+---
+
+# 6. Gift / Vote Selection
+
+Clicking **I'd also like to give a gift** should replace the Registry Home with the next view.
+
+Do not expand the options underneath the book section.
+
+## Breadcrumb
+
+Show:
+
+**Registry › Gift**
+
+“Registry” should allow the guest to return to the original Registry Home.
+
+## Main Heading
+
+# Help us decide our next step
+
+Supporting copy:
+
+“Pick the chapter of our life you'd like to help shape.”
+
+The page should make the playful voting concept immediately understandable.
+
+There are exactly four options.
+
+All four options should have **equal visual hierarchy**.
+
+Do not divide them into primary and secondary gift categories.
+
+---
+
+# 7. Gift Option — Seattle
+
+Card:
+
+### 🌲 Plant roots in Seattle
+
+This represents voting for Izzy & Zé to remain in Seattle and make it home.
+
+Possible supporting copy:
+
+**“Convince us to stay.”**
+
+Keep this copy short.
+
+The card should have the same size and visual prominence as Portugal, Mexico, and New York.
+
+Clicking the card advances to Amount.
+
+---
+
+# 8. Gift Option — Portugal
+
+Card:
+
+### 🇵🇹 Move back to Portugal
+
+Possible supporting copy:
+
+**“Send us back to the Alentejo.”**
+
+Keep this copy short.
+
+Clicking the card advances to Amount.
+
+---
+
+# 9. Gift Option — Mexico
+
+Card:
+
+### 🇲🇽 Move back to Mexico
+
+Possible supporting copy:
+
+**“Bring us back to where it all started.”**
+
+Keep this copy short.
+
+Clicking the card advances to Amount.
+
+---
+
+# 10. Gift Option — New York
+
+Card:
+
+### 🗽 Move back to New York
+
+Possible supporting copy:
+
+**“Give New York another shot.”**
+
+Keep this copy short.
+
+Clicking the card advances to Amount.
+
+---
+
+# 11. Gift Selection Layout
+
+On desktop, display the four options as a clean **2 × 2 grid**.
+
+For example:
+
+**Plant roots in Seattle** | **Move back to Portugal**
+
+**Move back to Mexico** | **Move back to New York**
+
+All four cards should be equal in size.
+
+On mobile, stack them vertically or use another responsive layout that preserves readability and tap targets.
+
+Do not make any destination look like the preferred/default choice.
+
+No option should be preselected.
+
+---
+
+# 12. Amount Step
+
+After a guest selects one of the four options, advance to a dedicated Amount view.
+
+Breadcrumb:
+
+**Registry › Gift › Amount**
+
+Carry the selected destination forward.
+
+For example:
+
+“You're voting to help us…”
+
+## Move back to Portugal
+
+Or:
+
+“You're voting to help us…”
+
+## Plant roots in Seattle
+
+Then:
+
+**Enter your contribution**
+
+Display one blank amount field with a fixed Euro symbol.
+
+Example:
+
+**€ [                    ]**
+
+### Amount Rules
+
+* Currency is EUR.
+* Input must be blank by default.
+* Do not prepopulate an amount.
+* Do not show suggested amounts.
+* Do not show €50 / €100 / €250 / €500 buttons.
+* Do not show minimum contribution suggestions.
+* Accept positive numerical values only.
+* Use the numeric keyboard on mobile.
+* Do not allow Continue until an amount is entered.
+
+CTA:
+
+**Continue**
+
+Clicking Continue advances to Payment.
+
+---
+
+# 13. Payment Method
+
+Breadcrumb:
+
+**Registry › Gift › Amount › Payment**
+
+Carry forward the selected vote and contribution amount.
+
+For example:
+
+**🇵🇹 Move back to Portugal**
+
+**€250**
+
+Then:
+
+## How would you like to send your gift?
+
+Supporting copy:
+
+“Choose whichever is easiest for you.”
+
+Show exactly four payment options:
+
+### Venmo
+
+### MB WAY
+
+### Revolut
+
+### Bank Transfer
+
+---
+
+# 14. Venmo Payment Option
+
+Card:
+
+### Venmo
+
+🇺🇸
+
+Supporting copy:
+
+**Best for US guests**
+
+Clicking Venmo advances to a dedicated Venmo details view.
+
+---
+
+# 15. MB WAY Payment Option
+
+Card:
+
+### MB WAY
+
+🇵🇹
+
+Supporting copy:
+
+**Best for Portugal**
+
+Clicking MB WAY advances to a dedicated MB WAY details view.
+
+---
+
+# 16. Revolut Payment Option
+
+Card:
+
+### Revolut
+
+🌍
+
+Supporting copy:
+
+**For Revolut users**
+
+Important:
+
+Revolut means a normal **Revolut-to-Revolut transfer**.
+
+Do not implement or use the Revolut personal card-payment-link feature.
+
+Clicking Revolut advances to a dedicated Revolut details view.
+
+---
+
+# 17. Bank Transfer Payment Option
+
+Card:
+
+### Bank Transfer
+
+🏦
+
+Supporting copy:
+
+**USA · Portugal · International**
+
+Clicking Bank Transfer advances to another dedicated view.
+
+Do not immediately display bank details.
+
+---
+
+# 18. Bank Transfer Selection
+
+Breadcrumb:
+
+**Registry › Gift › Amount › Payment › Bank Transfer**
+
+Carry forward the vote and contribution amount where appropriate.
+
+Heading:
+
+## Where are you transferring from?
+
+Supporting copy:
+
+“We'll show you the right bank details.”
+
+Show exactly three options:
+
+### 🇺🇸 USA
+
+Supporting copy:
+
+**US bank details**
+
+### 🇵🇹 Portugal
+
+Supporting copy:
+
+**Portuguese bank details**
+
+### 🌎 International
+
+Supporting copy:
+
+**International transfer details**
+
+### Important
+
+The three options are exactly:
+
+**USA**
+
+**Portugal**
+
+**International**
+
+Do not use:
+
+* Europe
+* EU
+* Other
+
+as replacements for these three labels.
+
+---
+
+# 19. Venmo Details
+
+Breadcrumb:
+
+**Registry › Gift › Amount › Payment › Venmo**
+
+Continue showing the selected vote and amount.
+
+For example:
+
+**🇵🇹 Move back to Portugal**
+
+**€250**
+
+Then:
+
+## Send with Venmo
+
+Display:
+
+* Venmo username
+* QR code if useful
+* Open Venmo button if a reliable deep link can be used
+* Copy username action if useful
+
+Use placeholder credentials until actual credentials are supplied.
+
+Do not attempt to verify whether the guest completes the payment.
+
+---
+
+# 20. MB WAY Details
+
+Breadcrumb:
+
+**Registry › Gift › Amount › Payment › MB WAY**
+
+Continue showing selected vote and amount.
+
+Then:
+
+## Send with MB WAY
+
+Display:
+
+* Portuguese mobile number
+* Copy-number action
+* brief instructions if necessary
+
+For example:
+
+“Open the MB WAY app and send your gift to this number.”
+
+Use placeholder credentials until actual credentials are supplied.
+
+Do not integrate with an MB WAY API.
+
+---
+
+# 21. Revolut Details
+
+Breadcrumb:
+
+**Registry › Gift › Amount › Payment › Revolut**
+
+Continue showing selected vote and amount.
+
+Then:
+
+## Send with Revolut
+
+Display:
+
+* Revolut username / Revtag
+* QR code if useful
+* Open Revolut button if a reliable deep link exists
+* Copy username action
+
+Use placeholder credentials until actual credentials are supplied.
+
+Again:
+
+Do not use a Revolut card-payment link.
+
+This is intended to facilitate a direct Revolut-to-Revolut transfer.
+
+---
+
+# 22. USA Bank Transfer Details
+
+Breadcrumb:
+
+**Registry › Gift › Amount › Payment › Bank Transfer › USA**
+
+Continue showing selected vote and amount.
+
+Heading:
+
+## US Bank Details
+
+Display:
+
+* Account holder
+* Routing number
+* Account number
+* Account type
+
+Use placeholder values until actual banking information is supplied.
+
+Provide clear Copy controls beside routing number and account number.
+
+Design this especially carefully for mobile.
+
+---
+
+# 23. Portugal Bank Transfer Details
+
+Breadcrumb:
+
+**Registry › Gift › Amount › Payment › Bank Transfer › Portugal**
+
+Continue showing selected vote and amount.
+
+Heading:
+
+## Portuguese Bank Details
+
+Display:
+
+* Account holder
+* IBAN
+* BIC / SWIFT if appropriate
+
+Use placeholder values until actual banking information is supplied.
+
+Provide Copy actions.
+
+IBAN should be visually formatted for readability while copying the correct underlying value.
+
+---
+
+# 24. International Bank Transfer Details
+
+Breadcrumb:
+
+**Registry › Gift › Amount › Payment › Bank Transfer › International**
+
+Continue showing selected vote and amount.
+
+Heading:
+
+## International Bank Details
+
+Display whatever information is required for the selected international receiving account, potentially including:
+
+* Account holder
+* IBAN or account number
+* SWIFT / BIC
+* Bank name
+* Bank address
+* any other required international wire details
+
+Use placeholders until actual information is supplied.
+
+Provide Copy actions where useful.
+
+---
+
+# 25. End of Payment Flow
+
+The payment details page is the final functional step.
+
+There is no need for the guest to return and tell the website that they paid.
+
+Do not include a button that claims:
+
+**Payment complete**
+
+or:
+
+**Payment successful**
+
+There is no payment verification.
+
+At the bottom of each payment-details screen, provide:
+
+**← Back to Registry**
+
+Optionally include a subtle closing message:
+
+**Thank you ❤️**
+
+“We can't wait to celebrate with you in Évora.”
+
+This is simply a friendly closing message.
+
+It does not indicate that payment was received.
+
+---
+
+# 26. Breadcrumbs
+
+Breadcrumbs should evolve as the guest advances.
+
+Examples:
+
+**Registry › Gift**
+
+**Registry › Gift › Amount**
+
+**Registry › Gift › Amount › Payment**
+
+**Registry › Gift › Amount › Payment › Venmo**
+
+For bank transfer:
+
+**Registry › Gift › Amount › Payment › Bank Transfer**
+
+then:
+
+**Registry › Gift › Amount › Payment › Bank Transfer › Portugal**
+
+Earlier breadcrumb items should be clickable where practical.
+
+Going backward should preserve temporary selections during the current browser session.
+
+---
+
+# 27. Interaction Model
+
+Every major decision advances to a new view.
+
+For example:
+
+Guest selects:
+
+**Move back to Mexico**
+
+→ replace current view with Amount.
+
+Guest enters:
+
+**€150**
+
+and clicks Continue
+
+→ replace Amount with Payment.
+
+Guest selects:
+
+**Bank Transfer**
+
+→ replace Payment with Bank Transfer Location.
+
+Guest selects:
+
+**Portugal**
+
+→ replace location selection with Portuguese Bank Details.
+
+Do not:
+
+* append new sections below existing sections
+* use accordions for the main flow
+* create a continuously expanding page
+* display multiple steps simultaneously
+
+The flow should feel calm and focused.
+
+---
+
+# 28. Frontend State Only
+
+Maintain only the temporary frontend state necessary for navigation.
+
+For example:
+
+`giftVote`
+
+`amount`
+
+`paymentMethod`
+
+`bankRegion`
+
+Example:
+
+`giftVote = "portugal"`
+
+`amount = 250`
+
+`paymentMethod = "bank"`
+
+`bankRegion = "portugal"`
+
+This state exists only to render the correct screens during the guest's current interaction.
+
+It does not need to survive a page refresh.
+
+---
+
+# 29. No Tracking
+
+This is extremely important.
+
+There is **no actual voting system**.
+
+Do not track votes.
+
+Do not track money.
+
+Do not store anything about individual guests.
+
+Do NOT:
+
+* create a database
+* save destination selections
+* save contribution amounts
+* calculate votes
+* calculate destination totals
+* calculate percentages
+* create a Seattle vs Portugal vs Mexico vs New York leaderboard
+* store payment methods
+* track whether a guest paid
+* reconcile payments
+* create gift records
+* create user accounts
+* collect names
+* collect email addresses
+* build payment-provider API integrations
+* build webhooks
+* build an admin dashboard
+
+“Help us decide our next step” and “vote” are simply playful UX framing.
+
+The actual transfer happens independently through the guest's chosen payment method.
+
+---
+
+# 30. No Payment Processing
+
+izze.life is not processing payments.
+
+The site only provides instructions or redirects the guest to the appropriate payment app.
+
+Actual payments happen through:
+
+* Venmo
+* MB WAY
+* Revolut
+* Bank Transfer
+
+Do not build Stripe or another payment-processing layer.
+
+Do not handle card details.
+
+Do not handle Apple Pay.
+
+Do not create a checkout.
+
+---
+
+# 31. Payment Credentials
+
+Do not show payment credentials until the guest reaches the relevant details page.
+
+For example:
+
+Venmo information appears only after selecting Venmo.
+
+MB WAY phone number appears only after selecting MB WAY.
+
+US bank details appear only after:
+
+**Bank Transfer → USA**
+
+Portuguese bank details appear only after:
+
+**Bank Transfer → Portugal**
+
+International banking information appears only after:
+
+**Bank Transfer → International**
+
+Keep the actual credentials in a clearly identifiable configuration/constants location so they can easily be updated later.
+
+Use placeholders initially.
+
+This is primarily about keeping the page clean and avoiding unnecessarily exposing every payment identifier at once. It should not be treated as a security mechanism.
+
+---
+
+# 32. Responsive Design
+
+Prioritize mobile.
+
+Many guests will access the Registry from their phones immediately before or during the wedding.
+
+On mobile:
+
+* stack the four destination cards appropriately
+* keep tap targets large
+* use a numeric keyboard for the amount
+* ensure long IBAN/account numbers do not overflow
+* make Copy controls obvious
+* keep breadcrumbs usable
+* keep payment app buttons prominent
+* preserve generous whitespace
+
+On desktop:
+
+Use a **2 × 2 grid** for the four destination choices.
+
+---
+
+# 33. Visual Direction
+
+Match the existing izze.life design system exactly.
+
+Reuse:
+
+* existing fonts
+* existing colors
+* existing navigation
+* existing page width
+* existing spacing
+* existing button styles
+* existing border radius
+* existing cards
+* existing responsive breakpoints
+* existing animation conventions
+
+Do not create a separate Registry design system.
+
+The visual character should be:
+
+**Elegant**
+
+**Warm**
+
+**Personal**
+
+**Editorial**
+
+**Minimal**
+
+**Premium**
+
+with small playful moments.
+
+The book request should feel sentimental.
+
+The destination vote should feel playful.
+
+The payment screens should feel simple and trustworthy without looking like fintech software.
+
+---
+
+# 34. Emotional Hierarchy
+
+The page should communicate these ideas in this exact order:
+
+### 1. We want a book from you.
+
+This is the meaningful, personal gift we genuinely want guests to bring.
+
+### 2. Your presence is genuinely enough.
+
+Make the usual wedding-registry cliché self-aware and funny.
+
+### 3. But if you really want to give us something else...
+
+The guest actively chooses:
+
+**I'd also like to give a gift**
+
+### 4. Help us decide what comes next.
+
+Instead of buying us plates or funding a honeymoon, guests get to playfully advocate for the next chapter of our lives.
+
+The four choices are:
+
+🌲 **Plant roots in Seattle**
+
+🇵🇹 **Move back to Portugal**
+
+🇲🇽 **Move back to Mexico**
+
+🗽 **Move back to New York**
+
+### 5. Choose an amount.
+
+No suggested amount.
+
+### 6. Choose the easiest way to send it.
+
+Venmo / MB WAY / Revolut / Bank Transfer.
+
+This emotional hierarchy is central to the experience.
+
+---
+
+# 35. Final Product Rules
+
+1. Add Registry as a native tab/page within izze.life.
+2. The book request is the primary registry experience.
+3. Monetary options are completely hidden initially.
+4. Guest must click **I'd also like to give a gift** to enter the monetary flow.
+5. The monetary registry is framed as **Help us decide our next step**.
+6. There are exactly four gift/vote options.
+7. Those options are exactly:
+
+   * Plant roots in Seattle
+   * Move back to Portugal
+   * Move back to Mexico
+   * Move back to New York
+8. Do not include a honeymoon fund.
+9. Do not include a first-home fund.
+10. All four destination options have equal visual hierarchy.
+11. Desktop layout should preferably be 2 × 2.
+12. Selecting a destination advances to Amount.
+13. Amount is blank by default.
+14. Currency is EUR (€).
+15. No preset or suggested amounts.
+16. Payment methods are exactly Venmo, MB WAY, Revolut, and Bank Transfer.
+17. Revolut means direct Revolut-to-Revolut transfer.
+18. Do not use the Revolut card payment link.
+19. Bank Transfer choices are exactly USA, Portugal, and International.
+20. Do not replace Portugal with Europe.
+21. Every main decision advances to a new view.
+22. Do not use accordions for the main flow.
+23. There is no actual voting system.
+24. There is no vote tracking.
+25. There is no gift tracking.
+26. There is no payment tracking.
+27. There is no database.
+28. There is no reconciliation.
+29. There are no payment-provider APIs.
+30. There is no admin dashboard.
+31. There is no payment-success verification.
+32. Payment-details pages are the final functional step.
+33. Use temporary frontend state only.
+34. Match the existing izze.life design rather than inventing a new visual system.
+35. Keep the experience warm and personal rather than transactional.
+
+Before implementation, inspect the existing izze.life codebase and identify which existing components, styles, navigation patterns, and responsive behaviors can be reused. Implement the Registry within those existing conventions rather than rebuilding them from scratch.
