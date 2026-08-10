@@ -285,23 +285,20 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-8 items-stretch">
               {/* Book request */}
               <div className={`${cardClass} overflow-hidden flex flex-row`}>
-                <picture className="block w-2/5 md:w-2/5 flex-shrink-0">
-                  <source media="(max-width: 767px)" srcSet={bookMobileImg} />
-                  <img
-                    src={bookImg}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
-                </picture>
+                <img
+                  src={bookImg}
+                  alt=""
+                  className="w-2/5 flex-shrink-0 object-cover"
+                />
                 <div className="px-4 py-4 md:px-7 md:py-8 flex flex-col justify-center text-left min-w-0">
-                  <div className="hidden md:block font-sans text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                  <div className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground mb-1 md:mb-2">
                     {t.bookEyebrow}
                   </div>
                   <h2 className="font-serif text-lg md:text-3xl font-medium text-foreground mb-2 md:mb-4">{t.bookTitle}</h2>
                   <p className="font-sans text-xs md:text-base text-muted-foreground leading-snug mb-1 md:mb-3">
                     {t.bookCopy1}
                   </p>
-                  <p className="hidden md:block font-sans text-base text-muted-foreground leading-relaxed">{t.bookCopy2}</p>
+                  <p className="font-sans text-xs md:text-base text-muted-foreground leading-snug">{t.bookCopy2}</p>
                 </div>
               </div>
 
