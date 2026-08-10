@@ -4,10 +4,10 @@ import { QRCodeSVG } from 'qrcode.react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import SiteTabs from '@/components/SiteTabs';
 import { registryContent, paymentConfig, GiftOption } from '@/lib/registryContent';
-import seattleImg from '@assets/Seattle_1786342608299.png';
-import portugalImg from '@assets/Portugal_1786342608299.png';
-import mexicoImg from '@assets/Mexico_1786342608296.png';
-import newyorkImg from '@assets/New_York_1786342608298.png';
+import seattleImg from '@assets/Seattle_1786342608299_cropped.png';
+import portugalImg from '@assets/Portugal_1786342608299_cropped.png';
+import mexicoImg from '@assets/Mexico_1786342608296_cropped.png';
+import newyorkImg from '@assets/New_York_1786342608298_cropped.png';
 
 const giftImages: Record<GiftOption['id'], string> = {
   seattle: seattleImg,
