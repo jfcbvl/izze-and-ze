@@ -200,10 +200,42 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
       </div>
     ) : null;
 
-  const BackToRegistry = ({ toThanks = false }: { toThanks?: boolean }) => (
+  const previousStep: Record<Step, Step | null> = {
+    home: null,
+    gift: 'home',
+    amount: 'gift',
+    payment: 'amount',
+    bank: 'payment',
+    venmo: 'payment',
+    mbway: 'payment',
+    revolut: 'payment',
+    'bank-us': 'bank',
+    'bank-pt': 'bank',
+    'bank-intl': 'bank',
+    thanks: 'home',
+  };
+
+  const BackStep = ({ className = 'pt-8' }: { className?: string } = {}) => {
+    const target = previousStep[step];
+    if (!target) return null;
+
+    return (
+      <div className={`text-center ${className}`}>
+        <button
+          onClick={() => setStep(target)}
+          className="font-sans text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
+          data-testid="button-back-step"
+        >
+          {t.back}
+        </button>
+      </div>
+    );
+  };
+
+  const BackToRegistry = () => (
     <div className="text-center pt-12">
       <button
-        onClick={() => (toThanks ? setStep('thanks') : resetAll())}
+        onClick={resetAll}
         className="font-sans text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
         data-testid="button-back-to-registry"
       >
@@ -318,7 +350,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <p className="font-sans text-muted-foreground">{t.giftSubtitle}</p>
             </div>
 
-            <div className="grid min-h-[calc(100dvh-10rem)] min-w-0 w-full max-w-md place-content-center grid-cols-2 grid-rows-2 gap-3 overflow-hidden md:min-h-0 md:h-auto md:max-w-none md:gap-3">
+            <div className="grid min-h-[calc(100dvh-15rem)] min-w-0 w-full max-w-md place-content-center grid-cols-2 grid-rows-2 gap-1.5 overflow-hidden md:min-h-0 md:h-auto md:max-w-none md:gap-3">
               {t.giftOptions.map((option) => (
                 <button
                   key={option.id}
@@ -338,6 +370,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 </button>
               ))}
             </div>
+            <BackStep className="pt-3 md:pt-6" />
           </div>
         )}
 
@@ -383,6 +416,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
             >
               {t.continueCta}
             </button>
+            <BackStep />
           </div>
         )}
 
@@ -416,6 +450,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 </button>
               ))}
             </div>
+            <BackStep />
           </div>
         )}
 
@@ -448,15 +483,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 </button>
               ))}
             </div>
-            <div className="text-center pt-8">
-              <button
-                onClick={() => setStep('payment')}
-                className="font-sans text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
-                data-testid="button-bank-back"
-              >
-                {t.back}
-              </button>
-            </div>
+            <BackStep />
           </div>
         )}
 
@@ -483,7 +510,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               </a>
               <CopyButton value={paymentConfig.venmo.username} label={t.copyUsername} copiedLabel={t.copied} />
             </div>
-            <BackToRegistry toThanks />
+            <BackStep />
           </div>
         )}
 
@@ -497,7 +524,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <DetailRow label={t.fieldPhoneNumber} value={paymentConfig.mbway.phone} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
             <p className="font-sans text-sm text-muted-foreground max-w-xs mx-auto">{t.mbwayInstructions}</p>
-            <BackToRegistry toThanks />
+            <BackStep />
           </div>
         )}
 
@@ -524,7 +551,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               </a>
               <CopyButton value={paymentConfig.revolut.revtag} label={t.copyUsername} copiedLabel={t.copied} />
             </div>
-            <BackToRegistry toThanks />
+            <BackStep />
           </div>
         )}
 
@@ -540,7 +567,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <DetailRow label={t.fieldAccountNumber} value={paymentConfig.bankUS.accountNumber} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldAccountType} value={paymentConfig.bankUS.accountType} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
-            <BackToRegistry toThanks />
+            <BackStep />
           </div>
         )}
 
@@ -555,7 +582,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <DetailRow label={t.fieldBicSwift} value={paymentConfig.bankPT.bicSwift} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldBankName} value={paymentConfig.bankPT.bankName} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
-            <BackToRegistry toThanks />
+            <BackStep />
           </div>
         )}
 
@@ -571,7 +598,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <DetailRow label={t.fieldBankName} value={paymentConfig.bankIntl.bankName} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldBankAddress} value={paymentConfig.bankIntl.bankAddress} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
-            <BackToRegistry toThanks />
+            <BackStep />
           </div>
         )}
 
