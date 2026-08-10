@@ -495,8 +495,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Venmo */}
         {step === 'venmo' && giftVote && (
           <div data-testid="registry-venmo" className="text-center">
-            <GiftSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.venmoTitle}</h1>
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.venmoTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className={`${cardClass} inline-block p-6 bg-white mb-8`}>
               <div className="font-sans text-lg text-foreground mb-4">{paymentConfig.venmo.username}</div>
@@ -522,8 +521,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ MB WAY */}
         {step === 'mbway' && giftVote && (
           <div data-testid="registry-mbway" className="text-center">
-            <GiftSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.mbwayTitle}</h1>
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.mbwayTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className="max-w-sm mx-auto mb-5">
               <DetailRow label={t.fieldPhoneNumber} value={paymentConfig.mbway.phone} copyLabel={t.copyLabel} copiedLabel={t.copied} />
@@ -536,8 +534,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Revolut */}
         {step === 'revolut' && giftVote && (
           <div data-testid="registry-revolut" className="text-center">
-            <GiftSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.revolutTitle}</h1>
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.revolutTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className={`${cardClass} inline-block p-6 bg-white mb-8`}>
               <div className="font-sans text-lg text-foreground mb-4">{paymentConfig.revolut.revtag}</div>
@@ -563,8 +560,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Bank details */}
         {step === 'bank-us' && giftVote && (
           <div data-testid="registry-bank-us" className="text-center">
-            <GiftSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankUSTitle}</h1>
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankUSTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className="space-y-3 max-w-md mx-auto">
               <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankUS.accountHolder} copyLabel={t.copyLabel} copiedLabel={t.copied} />
@@ -578,8 +574,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
 
         {step === 'bank-pt' && giftVote && (
           <div data-testid="registry-bank-pt" className="text-center">
-            <GiftSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankPTTitle}</h1>
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankPTTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className="space-y-3 max-w-md mx-auto">
               <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankPT.accountHolder} copyLabel={t.copyLabel} copiedLabel={t.copied} />
@@ -593,8 +588,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
 
         {step === 'bank-intl' && giftVote && (
           <div data-testid="registry-bank-intl" className="text-center">
-            <GiftSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankIntlTitle}</h1>
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankIntlTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className="space-y-3 max-w-md mx-auto">
               <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankIntl.accountHolder} copyLabel={t.copyLabel} copiedLabel={t.copied} />
