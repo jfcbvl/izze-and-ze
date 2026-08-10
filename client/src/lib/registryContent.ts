@@ -166,7 +166,7 @@ const en: RegistryStrings = {
   amountHint: 'Enter the amount you would like to gift us',
   continueCta: 'Continue',
 
-  paymentTitle: 'How would you like to send your gift?',
+  paymentTitle: 'How would you like to send {amount}?',
   paymentSubtitle: 'Choose whichever is easiest for you.',
   venmoTag: 'Best for US guests',
   mbwayTag: 'Best for Portugal',
@@ -255,7 +255,7 @@ const pt: RegistryStrings = {
   amountHint: 'Qualquer valor em EUR',
   continueCta: 'Continuar',
 
-  paymentTitle: 'Como preferem enviar o presente?',
+  paymentTitle: 'Como preferem enviar {amount}?',
   paymentSubtitle: 'Escolham o que for mais fácil para vocês.',
   venmoTag: 'Ideal para convidados dos EUA',
   mbwayTag: 'Ideal para Portugal',
@@ -344,7 +344,7 @@ const mx: RegistryStrings = {
   amountHint: 'Cualquier monto en EUR',
   continueCta: 'Continuar',
 
-  paymentTitle: '¿Cómo prefieren enviar su regalo?',
+  paymentTitle: '¿Cómo prefieren enviar {amount}?',
   paymentSubtitle: 'Elijan lo que les resulte más fácil.',
   venmoTag: 'Ideal para invitados de EE. UU.',
   mbwayTag: 'Ideal para Portugal',
