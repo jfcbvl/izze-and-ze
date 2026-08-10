@@ -139,6 +139,7 @@ const en: RegistryStrings = {
   breadcrumbBankTransfer: 'Bank Transfer',
 
   homeTitle: 'Our Registry',
+  homeSubtitle: 'We decided a physical registry wouldn\'t be practical — for us or for you.',
   bookEyebrow: 'First things first',
   bookTitle: 'Bring us a book',
   bookCopy1:
@@ -227,7 +228,7 @@ const pt: RegistryStrings = {
   breadcrumbBankTransfer: 'Transferência',
 
   homeTitle: 'A Nossa Lista',
-  homeSubtitle: 'Temos um pequeno pedido antes de tudo o resto.',
+  homeSubtitle: 'Decidimos que uma lista física não seria prática — para nós nem para vocês.',
   bookEyebrow: 'Primeiro que tudo',
   bookTitle: 'Tragam-nos um livro',
   bookCopy1:
@@ -316,7 +317,7 @@ const mx: RegistryStrings = {
   breadcrumbBankTransfer: 'Transferencia',
 
   homeTitle: 'Nuestra Mesa de Regalos',
-  homeSubtitle: 'Tenemos un pequeño favor antes que nada.',
+  homeSubtitle: 'Decidimos que una lista física no sería práctica — ni para nosotros ni para ustedes.',
   bookEyebrow: 'Lo primero es lo primero',
   bookTitle: 'Tráigannos un libro',
   bookCopy1:

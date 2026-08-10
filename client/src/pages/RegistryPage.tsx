@@ -279,7 +279,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
           <div data-testid="registry-home">
             <div className="text-center mb-4 md:mb-10">
               <h1 className="font-serif text-3xl md:text-5xl font-medium text-foreground mb-1 md:mb-3">{t.homeTitle}</h1>
-              <p className="hidden md:block font-sans text-muted-foreground">{t.homeSubtitle}</p>
+              <p className="font-sans text-sm md:text-base text-muted-foreground mt-1 md:mt-0">{t.homeSubtitle}</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-8 items-stretch">
