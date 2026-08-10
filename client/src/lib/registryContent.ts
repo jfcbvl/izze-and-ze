@@ -143,8 +143,8 @@ const en: RegistryStrings = {
   bookEyebrow: 'First things first',
   bookTitle: 'Bring us a book',
   bookCopy1:
-    'Bring a book for Izzy or Zé — something you love, or something you think belongs on our shelf.',
-  bookCopy2: "One day, they'll become our home library — with a little piece of all of you in it.",
+    'Bring a book for Izzy or Zé - or both! Something you love, or something you think belongs on our shelf.',
+  bookCopy2: "This is your small contribution to help us build our home library.",
   presenceTitle: 'Your presence really is the gift.',
   presenceCopy1:
     "Every registry says it. But some of you are crossing an ocean to get to Évora — so this time we actually mean it.",

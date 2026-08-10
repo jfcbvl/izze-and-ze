@@ -235,23 +235,13 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-stretch">
-              {/* Book request */}
-              <div className={`${cardClass} overflow-hidden flex flex-col sm:flex-row`}>
+              {/* Book request — the supplied registry card artwork carries its own title. */}
+              <div className={`${cardClass} overflow-hidden p-2 md:p-3`}>
                 <img
                   src={bookImg}
-                  alt=""
-                  className="w-full h-44 sm:h-auto sm:w-2/5 object-cover flex-shrink-0"
+                  alt={`${t.bookTitle}. ${t.bookCopy1}`}
+                  className="block w-full h-full max-h-[520px] object-contain rounded-lg"
                 />
-                <div className="px-6 py-7 md:px-7 md:py-8 flex flex-col justify-center text-left">
-                  <div className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-2">
-                    {t.bookEyebrow}
-                  </div>
-                  <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground mb-4">{t.bookTitle}</h2>
-                  <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed mb-3">
-                    {t.bookCopy1}
-                  </p>
-                  <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed">{t.bookCopy2}</p>
-                </div>
               </div>
 
               {/* Elegant and/or divider */}
