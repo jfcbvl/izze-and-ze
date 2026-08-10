@@ -251,7 +251,11 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
 
   return (
     <div
-      className={step === 'gift' ? 'h-[100dvh] overflow-hidden overscroll-none' : 'min-h-screen'}
+      className={
+        step === 'gift' || step === 'home'
+          ? 'h-[100dvh] overflow-hidden overscroll-none'
+          : 'min-h-screen'
+      }
       style={{ backgroundColor: CREAM }}
     >
       <SiteTabs lang={lang} />
@@ -263,7 +267,9 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         className={`${
           step === 'home' ? 'max-w-6xl' : step === 'gift' ? 'max-w-3xl' : 'max-w-2xl'
         } mx-auto px-6 ${
-          step === 'gift' ? 'pt-20 md:pt-20 pb-4' : 'pt-28 md:pt-32 pb-24 md:pb-16'
+          step === 'gift' ? 'pt-20 md:pt-20 pb-4'
+          : step === 'home' ? 'pt-20 md:pt-32 pb-4 md:pb-16'
+          : 'pt-28 md:pt-32 pb-24 md:pb-16'
         } focus:outline-none`}
       >
         <Breadcrumb />
@@ -271,31 +277,31 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Registry Home */}
         {step === 'home' && (
           <div data-testid="registry-home">
-            <div className="text-center mb-8 md:mb-10">
-              <h1 className="font-serif text-4xl md:text-5xl font-medium text-foreground mb-3">{t.homeTitle}</h1>
-              <p className="font-sans text-muted-foreground">{t.homeSubtitle}</p>
+            <div className="text-center mb-4 md:mb-10">
+              <h1 className="font-serif text-3xl md:text-5xl font-medium text-foreground mb-1 md:mb-3">{t.homeTitle}</h1>
+              <p className="hidden md:block font-sans text-muted-foreground">{t.homeSubtitle}</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-8 items-stretch">
               {/* Book request */}
-              <div className={`${cardClass} overflow-hidden flex flex-col sm:flex-row`}>
-                <picture className="block w-full sm:w-2/5 flex-shrink-0">
-                  <source media="(max-width: 639px)" srcSet={bookMobileImg} />
+              <div className={`${cardClass} overflow-hidden flex flex-row`}>
+                <picture className="block w-2/5 md:w-2/5 flex-shrink-0">
+                  <source media="(max-width: 767px)" srcSet={bookMobileImg} />
                   <img
                     src={bookImg}
                     alt=""
-                    className="w-full h-44 sm:h-auto object-cover flex-shrink-0"
+                    className="w-full h-full object-cover"
                   />
                 </picture>
-                <div className="px-6 py-7 md:px-7 md:py-8 flex flex-col justify-center text-left">
-                  <div className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                <div className="px-4 py-4 md:px-7 md:py-8 flex flex-col justify-center text-left min-w-0">
+                  <div className="hidden md:block font-sans text-xs uppercase tracking-widest text-muted-foreground mb-2">
                     {t.bookEyebrow}
                   </div>
-                  <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground mb-4">{t.bookTitle}</h2>
-                  <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed mb-3">
+                  <h2 className="font-serif text-lg md:text-3xl font-medium text-foreground mb-2 md:mb-4">{t.bookTitle}</h2>
+                  <p className="font-sans text-xs md:text-base text-muted-foreground leading-snug mb-1 md:mb-3">
                     {t.bookCopy1}
                   </p>
-                  <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed">{t.bookCopy2}</p>
+                  <p className="hidden md:block font-sans text-base text-muted-foreground leading-relaxed">{t.bookCopy2}</p>
                 </div>
               </div>
 
@@ -311,20 +317,21 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               </div>
               <div className="md:hidden flex items-center gap-4" aria-hidden="true">
                 <div className="h-px flex-1 bg-black/15" />
-                <span className="font-serif italic text-muted-foreground">
+                <span className="font-serif italic text-sm text-muted-foreground">
                   {t.dividerAnd} / {t.dividerOr}
                 </span>
                 <div className="h-px flex-1 bg-black/15" />
               </div>
 
               {/* Monetary gift */}
-              <div className={`${cardClass} px-6 py-7 md:px-8 md:py-8 text-center flex flex-col justify-center`}>
-                <div className="font-serif text-3xl text-black/10 select-none mb-2" aria-hidden="true">❧</div>
-                <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground mb-4">{t.presenceTitle}</h2>
-                <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed mb-3">
+              <div className={`${cardClass} px-5 py-5 md:px-8 md:py-8 text-center flex flex-col justify-center`}>
+                <div className="hidden md:block font-serif text-3xl text-black/10 select-none mb-2" aria-hidden="true">❧</div>
+                <h2 className="font-serif text-xl md:text-3xl font-medium text-foreground mb-2 md:mb-4">{t.presenceTitle}</h2>
+                {/* presenceCopy1 hidden on mobile */}
+                <p className="hidden md:block font-sans text-base text-muted-foreground leading-relaxed mb-3">
                   {t.presenceCopy1}
                 </p>
-                <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
+                <p className="font-sans text-xs md:text-base text-muted-foreground leading-relaxed mb-4 md:mb-6">
                   {t.presenceCopy2}
                 </p>
                 <div>

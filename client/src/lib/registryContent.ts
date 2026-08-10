@@ -139,7 +139,6 @@ const en: RegistryStrings = {
   breadcrumbBankTransfer: 'Bank Transfer',
 
   homeTitle: 'Our Registry',
-  homeSubtitle: 'We have one small favor before anything else.',
   bookEyebrow: 'First things first',
   bookTitle: 'Bring us a book',
   bookCopy1:
