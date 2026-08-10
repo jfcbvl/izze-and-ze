@@ -218,7 +218,10 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   const cardClass = 'border border-black/12 rounded-xl bg-white/60';
 
   return (
-    <div className={step === 'gift' ? 'h-[100dvh] overflow-hidden' : 'min-h-screen'} style={{ backgroundColor: CREAM }}>
+    <div
+      className={step === 'gift' ? 'h-[100dvh] overflow-hidden overscroll-none' : 'min-h-screen'}
+      style={{ backgroundColor: CREAM }}
+    >
       <SiteTabs lang={lang} />
       <LanguageSwitcher />
 
@@ -315,7 +318,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <p className="font-sans text-muted-foreground">{t.giftSubtitle}</p>
             </div>
 
-            <div className="flex gap-3 overflow-x-auto overflow-y-hidden pb-2 no-scrollbar md:grid md:grid-cols-2 md:gap-3 md:overflow-visible md:pb-0">
+            <div className="grid h-[calc(100dvh-12rem)] min-h-0 grid-cols-2 grid-rows-2 gap-2.5 overflow-hidden md:h-auto md:gap-3">
               {t.giftOptions.map((option) => (
                 <button
                   key={option.id}
@@ -324,14 +327,13 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                     setGiftVote(option);
                     setStep('amount');
                   }}
-                  className={`${cardClass} flex-none p-1.5 hover-elevate active-elevate-2 transition-all md:flex-auto md:p-2`}
-                  style={{ flexBasis: 'calc((100% - 24px) / 2.333)' }}
+                  className={`${cardClass} min-h-0 overflow-hidden p-1.5 hover-elevate active-elevate-2 transition-all md:p-2`}
                   data-testid={`gift-option-${option.id}`}
                 >
                   <img
                     src={giftImages[option.id]}
                     alt={`${option.title} — ${option.tagline}`}
-                    className="block w-full h-[112px] object-contain rounded-lg md:h-[190px]"
+                    className="block h-full min-h-0 w-full rounded-lg object-contain object-center md:h-[190px]"
                   />
                 </button>
               ))}
