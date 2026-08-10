@@ -9,6 +9,7 @@ import portugalImg from '@assets/Portugal_1786342608299_cropped.png';
 import mexicoImg from '@assets/Mexico_1786342608296_cropped.png';
 import newyorkImg from '@assets/New_York_1786342608298_cropped.png';
 import bookImg from '@assets/ChatGPT_Image_Aug_9,_2026,_11_45_06_PM_1786344396263.png';
+import bookMobileImg from '@assets/ChatGPT_Image_Aug_9,_2026,_11_53_12_PM_1786344828943.png';
 
 const giftImages: Record<GiftOption['id'], string> = {
   seattle: seattleImg,
@@ -237,11 +238,14 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-stretch">
               {/* Book request */}
               <div className={`${cardClass} overflow-hidden flex flex-col sm:flex-row`}>
-                <img
-                  src={bookImg}
-                  alt=""
-                  className="w-full h-44 sm:h-auto sm:w-2/5 object-cover flex-shrink-0"
-                />
+                <picture className="block w-full sm:w-2/5 flex-shrink-0">
+                  <source media="(max-width: 639px)" srcSet={bookMobileImg} />
+                  <img
+                    src={bookImg}
+                    alt=""
+                    className="w-full h-44 sm:h-auto object-cover flex-shrink-0"
+                  />
+                </picture>
                 <div className="px-6 py-7 md:px-7 md:py-8 flex flex-col justify-center text-left">
                   <div className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-2">
                     {t.bookEyebrow}
