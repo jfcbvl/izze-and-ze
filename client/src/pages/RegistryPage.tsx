@@ -359,7 +359,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                     setGiftVote(option);
                     setStep('amount');
                   }}
-                  className={`${cardClass} aspect-[1.4] min-h-0 overflow-hidden p-1.5 hover-elevate active-elevate-2 transition-all md:aspect-auto md:p-2`}
+                  className={`${cardClass} aspect-[1.4] min-h-0 overflow-hidden px-1.5 py-0 hover-elevate active-elevate-2 transition-all md:aspect-auto md:p-2`}
                   data-testid={`gift-option-${option.id}`}
                 >
                   <img
