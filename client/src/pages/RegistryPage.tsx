@@ -4,6 +4,17 @@ import { QRCodeSVG } from 'qrcode.react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import SiteTabs from '@/components/SiteTabs';
 import { registryContent, paymentConfig, GiftOption } from '@/lib/registryContent';
+import seattleImg from '@assets/Seattle_1786342608299.png';
+import portugalImg from '@assets/Portugal_1786342608299.png';
+import mexicoImg from '@assets/Mexico_1786342608296.png';
+import newyorkImg from '@assets/New_York_1786342608298.png';
+
+const giftImages: Record<GiftOption['id'], string> = {
+  seattle: seattleImg,
+  portugal: portugalImg,
+  mexico: mexicoImg,
+  newyork: newyorkImg,
+};
 
 type Step =
   | 'home'
@@ -264,14 +275,14 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                     setGiftVote(option);
                     setStep('amount');
                   }}
-                  className={`${cardClass} text-center px-4 py-7 md:px-6 md:py-8 hover-elevate active-elevate-2 transition-all`}
+                  className={`${cardClass} p-2.5 md:p-3 hover-elevate active-elevate-2 transition-all`}
                   data-testid={`gift-option-${option.id}`}
                 >
-                  <div className="text-3xl mb-3">{option.emoji}</div>
-                  <div className="font-serif text-lg md:text-2xl font-medium text-foreground leading-snug mb-1.5">
-                    {option.title}
-                  </div>
-                  <div className="font-sans text-xs md:text-sm text-muted-foreground">{option.tagline}</div>
+                  <img
+                    src={giftImages[option.id]}
+                    alt={`${option.title} — ${option.tagline}`}
+                    className="w-full h-auto rounded-lg"
+                  />
                 </button>
               ))}
             </div>
