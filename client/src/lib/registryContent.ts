@@ -99,11 +99,13 @@ export interface RegistryStrings {
   bankUSTitle: string;
   bankPTTitle: string;
   bankIntlTitle: string;
+  detailThanks: string;
 
   openVenmo: string;
   openRevolut: string;
   copyUsername: string;
   copyNumber: string;
+  copyLabel: string;
   copied: string;
 
   fieldAccountHolder: string;
@@ -186,11 +188,13 @@ const en: RegistryStrings = {
   bankUSTitle: 'US Bank Details',
   bankPTTitle: 'Portuguese Bank Details',
   bankIntlTitle: 'International Bank Details',
+  detailThanks: 'Thank you!',
 
   openVenmo: 'Open Venmo',
   openRevolut: 'Open Revolut',
   copyUsername: 'Copy username',
   copyNumber: 'Copy number',
+  copyLabel: 'Copy',
   copied: 'Copied',
 
   fieldAccountHolder: 'Account holder',
@@ -203,7 +207,7 @@ const en: RegistryStrings = {
   fieldBankAddress: 'Bank address',
   fieldPhoneNumber: 'Phone number',
 
-  thankYouTitle: 'Thank you ❤️',
+  thankYouTitle: 'Thank you ♡',
   thankYouCopy: "We can't wait to celebrate with you in Évora.",
   backToRegistry: '← Back to Registry',
   back: '← Back',
@@ -273,11 +277,13 @@ const pt: RegistryStrings = {
   bankUSTitle: 'Dados Bancários — EUA',
   bankPTTitle: 'Dados Bancários Portugueses',
   bankIntlTitle: 'Dados Bancários Internacionais',
+  detailThanks: 'Obrigado!',
 
   openVenmo: 'Abrir Venmo',
   openRevolut: 'Abrir Revolut',
   copyUsername: 'Copiar utilizador',
   copyNumber: 'Copiar número',
+  copyLabel: 'Copiar',
   copied: 'Copiado',
 
   fieldAccountHolder: 'Titular da conta',
@@ -290,7 +296,7 @@ const pt: RegistryStrings = {
   fieldBankAddress: 'Morada do banco',
   fieldPhoneNumber: 'Número de telemóvel',
 
-  thankYouTitle: 'Obrigado ❤️',
+  thankYouTitle: 'Obrigado ♡',
   thankYouCopy: 'Mal podemos esperar para celebrar convosco em Évora.',
   backToRegistry: '← Voltar aos Presentes',
   back: '← Voltar',
@@ -360,11 +366,13 @@ const mx: RegistryStrings = {
   bankUSTitle: 'Datos Bancarios — EE. UU.',
   bankPTTitle: 'Datos Bancarios Portugueses',
   bankIntlTitle: 'Datos Bancarios Internacionales',
+  detailThanks: '¡Gracias!',
 
   openVenmo: 'Abrir Venmo',
   openRevolut: 'Abrir Revolut',
   copyUsername: 'Copiar usuario',
   copyNumber: 'Copiar número',
+  copyLabel: 'Copiar',
   copied: 'Copiado',
 
   fieldAccountHolder: 'Titular de la cuenta',
@@ -377,7 +385,7 @@ const mx: RegistryStrings = {
   fieldBankAddress: 'Dirección del banco',
   fieldPhoneNumber: 'Número de teléfono',
 
-  thankYouTitle: 'Gracias ❤️',
+  thankYouTitle: 'Gracias ♡',
   thankYouCopy: 'No podemos esperar para celebrar con ustedes en Évora.',
   backToRegistry: '← Volver a Regalos',
   back: '← Volver',

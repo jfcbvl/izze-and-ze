@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { Copy, Check, ExternalLink } from 'lucide-react';
+import { Copy, Check, Landmark } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import SiteTabs from '@/components/SiteTabs';
@@ -16,13 +16,28 @@ type Step =
   | 'bank'
   | 'bank-us'
   | 'bank-pt'
-  | 'bank-intl';
+  | 'bank-intl'
+  | 'thanks';
 
 interface RegistryPageProps {
   lang: string;
 }
 
-function CopyButton({ value, label, copiedLabel }: { value: string; label?: string; copiedLabel: string }) {
+// Wireframe palette: dark olive on warm cream
+const OLIVE = '#565b48';
+const CREAM = '#faf8f2';
+
+function CopyButton({
+  value,
+  label,
+  aria,
+  copiedLabel,
+}: {
+  value: string;
+  label?: string;
+  aria?: string;
+  copiedLabel: string;
+}) {
   const [copied, setCopied] = useState(false);
   const handleCopy = () => {
     navigator.clipboard.writeText(value.replace(/\s+/g, ' ').trim()).then(() => {
@@ -34,8 +49,8 @@ function CopyButton({ value, label, copiedLabel }: { value: string; label?: stri
     <button
       onClick={handleCopy}
       className="flex-shrink-0 inline-flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors"
-      aria-label={copied ? copiedLabel : label || 'Copy'}
-      title={copied ? copiedLabel : label || 'Copy'}
+      aria-label={copied ? copiedLabel : label || aria || 'Copy'}
+      title={copied ? copiedLabel : label || aria || 'Copy'}
       data-testid="button-copy-value"
     >
       {label && <span className="font-sans text-sm">{copied ? copiedLabel : label}</span>}
@@ -44,15 +59,37 @@ function CopyButton({ value, label, copiedLabel }: { value: string; label?: stri
   );
 }
 
-function DetailRow({ label, value, copiedLabel }: { label: string; value: string; copiedLabel: string }) {
+function DetailRow({
+  label,
+  value,
+  copyLabel,
+  copiedLabel,
+}: {
+  label: string;
+  value: string;
+  copyLabel: string;
+  copiedLabel: string;
+}) {
   return (
-    <div className="flex items-center justify-between gap-3 border border-black/10 rounded-md px-4 py-3 bg-white/50">
-      <div className="min-w-0">
+    <div className="flex items-center justify-between gap-3 border border-black/10 rounded-lg px-4 py-3 bg-white/70">
+      <div className="min-w-0 text-left">
         <div className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-0.5">{label}</div>
         <div className="font-sans text-sm md:text-base text-foreground break-all">{value}</div>
       </div>
-      <CopyButton value={value} copiedLabel={copiedLabel} />
+      <CopyButton value={value} aria={copyLabel} copiedLabel={copiedLabel} />
     </div>
+  );
+}
+
+function BrandMark({ kind }: { kind: 'venmo' | 'mbway' | 'revolut' | 'bank' }) {
+  const base = 'flex-shrink-0 w-9 h-9 rounded-md flex items-center justify-center font-sans font-bold text-sm';
+  if (kind === 'venmo') return <span className={`${base} bg-[#3D95CE] text-white`}>V</span>;
+  if (kind === 'mbway') return <span className={`${base} bg-[#D40511] text-white text-xs`}>MB</span>;
+  if (kind === 'revolut') return <span className={`${base} bg-black text-white`}>R</span>;
+  return (
+    <span className={`${base} bg-black/5 text-foreground`}>
+      <Landmark className="w-5 h-5" strokeWidth={1.5} />
+    </span>
   );
 }
 
@@ -63,8 +100,6 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   const [giftVote, setGiftVote] = useState<GiftOption | null>(null);
   const [amount, setAmount] = useState('');
 
-  // Move focus to the step container on every transition so screen readers
-  // announce the new view, and scroll back to the top.
   const stepContainerRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
   useEffect(() => {
@@ -82,11 +117,18 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
     ? `€${amountNumber % 1 === 0 ? amountNumber.toFixed(0) : amountNumber.toFixed(2)}`
     : '';
 
+  const resetAll = () => {
+    setStep('home');
+    setGiftVote(null);
+    setAmount('');
+  };
+
   // ---- Breadcrumb -----------------------------------------------------------
   const breadcrumb = (() => {
     const items: { label: string; target: Step | null }[] = [];
     if (step === 'home') return items;
     items.push({ label: t.breadcrumbRegistry, target: 'home' });
+    if (step === 'thanks') return items;
     items.push({ label: t.breadcrumbGift, target: step !== 'gift' ? 'gift' : null });
     if (step === 'gift') return items;
     items.push({ label: t.breadcrumbAmount, target: step !== 'amount' ? 'amount' : null });
@@ -107,47 +149,46 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
 
   const Breadcrumb = () =>
     breadcrumb.length === 0 ? null : (
-      <nav className="font-sans text-xs md:text-sm text-muted-foreground mb-8 flex flex-wrap items-center gap-1.5" data-testid="registry-breadcrumb">
+      <nav
+        className="font-sans text-[11px] md:text-xs uppercase tracking-wider text-muted-foreground mb-10 flex flex-wrap items-center justify-center gap-1.5"
+        data-testid="registry-breadcrumb"
+      >
         {breadcrumb.map((item, i) => (
           <span key={i} className="flex items-center gap-1.5">
-            {i > 0 && <span className="text-black/30">›</span>}
+            {i > 0 && <span className="text-black/25">›</span>}
             {item.target ? (
               <button
                 onClick={() => setStep(item.target!)}
-                className="hover:text-foreground underline-offset-4 hover:underline transition-colors"
+                className="hover:text-foreground underline-offset-4 hover:underline transition-colors uppercase tracking-wider"
                 data-testid={`breadcrumb-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
                 {item.label}
               </button>
             ) : (
-              <span className="text-foreground">{item.label}</span>
+              <span className="text-foreground/70">{item.label}</span>
             )}
           </span>
         ))}
       </nav>
     );
 
-  const VoteSummary = () =>
+  // Persistent contribution summary — "Our Honeymoon / €250" as in the wireframe
+  const GiftSummary = () =>
     giftVote ? (
-      <div className="text-center mb-8" data-testid="vote-summary">
-        <div className="font-sans text-sm text-muted-foreground">
-          <span className="mr-1">{giftVote.emoji}</span>
-          {giftVote.title}
-          {formattedAmount && step !== 'amount' && (
-            <span className="ml-2 text-foreground font-medium">{formattedAmount}</span>
-          )}
-        </div>
+      <div className="text-center mb-10" data-testid="vote-summary">
+        <div className="text-xl mb-1.5">{giftVote.emoji}</div>
+        <div className="font-serif text-lg md:text-xl text-foreground">{giftVote.title}</div>
+        {formattedAmount && step !== 'amount' && (
+          <div className="font-sans text-sm text-muted-foreground mt-0.5">{formattedAmount}</div>
+        )}
+        <div className="w-10 h-px bg-black/15 mx-auto mt-4" />
       </div>
     ) : null;
 
-  const BackToRegistry = () => (
-    <div className="text-center pt-10">
+  const BackToRegistry = ({ toThanks = false }: { toThanks?: boolean }) => (
+    <div className="text-center pt-12">
       <button
-        onClick={() => {
-          setStep('home');
-          setGiftVote(null);
-          setAmount('');
-        }}
+        onClick={() => (toThanks ? setStep('thanks') : resetAll())}
         className="font-sans text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
         data-testid="button-back-to-registry"
       >
@@ -156,22 +197,21 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
     </div>
   );
 
-  const ThankYou = () => (
-    <div className="text-center pt-10 space-y-2">
-      <p className="font-serif text-2xl text-foreground">{t.thankYouTitle}</p>
-      <p className="font-sans text-sm text-muted-foreground">{t.thankYouCopy}</p>
-    </div>
-  );
+  const primaryBtn =
+    'inline-flex items-center justify-center font-sans text-sm md:text-base px-8 py-3 rounded-md text-white transition-all hover-elevate active-elevate-2';
 
-  const optionCardClass =
-    'w-full text-left border border-black/15 rounded-md px-5 py-5 md:px-6 md:py-6 bg-white/40 hover-elevate active-elevate-2 transition-all';
+  const cardClass = 'border border-black/12 rounded-xl bg-white/60';
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen" style={{ backgroundColor: CREAM }}>
       <SiteTabs lang={lang} />
       <LanguageSwitcher />
 
-      <div ref={stepContainerRef} tabIndex={-1} className="max-w-2xl mx-auto px-6 pt-28 md:pt-32 pb-24 md:pb-16 focus:outline-none">
+      <div
+        ref={stepContainerRef}
+        tabIndex={-1}
+        className="max-w-2xl mx-auto px-6 pt-28 md:pt-32 pb-24 md:pb-16 focus:outline-none"
+      >
         <Breadcrumb />
 
         {/* ------------------------------------------------ Registry Home */}
@@ -182,21 +222,23 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <p className="font-sans text-muted-foreground">{t.homeSubtitle}</p>
             </div>
 
-            <div className="border border-black/15 rounded-md px-6 py-10 md:px-12 md:py-12 bg-white/40 text-center mb-8">
-              <div className="text-3xl mb-4">📚</div>
+            <div className={`${cardClass} px-6 py-10 md:px-12 md:py-12 text-center mb-6`}>
+              <div className="text-3xl mb-4">📖</div>
               <div className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">{t.bookEyebrow}</div>
               <h2 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-6">{t.bookTitle}</h2>
               <p className="font-sans text-muted-foreground leading-relaxed mb-4">{t.bookCopy1}</p>
               <p className="font-sans text-muted-foreground leading-relaxed">{t.bookCopy2}</p>
             </div>
 
-            <div className="border border-black/15 rounded-md px-6 py-10 md:px-12 md:py-12 bg-white/40 text-center">
+            <div className={`${cardClass} px-6 py-10 md:px-12 md:py-12 text-center relative overflow-hidden`}>
+              <div className="font-serif text-4xl text-black/10 select-none mb-2" aria-hidden="true">❧</div>
               <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground mb-6">{t.presenceTitle}</h2>
               <p className="font-sans text-muted-foreground leading-relaxed mb-4">{t.presenceCopy1}</p>
               <p className="font-sans text-muted-foreground leading-relaxed mb-8">{t.presenceCopy2}</p>
               <button
                 onClick={() => setStep('gift')}
-                className="bg-black text-white font-sans text-sm md:text-base px-8 py-3 rounded-md hover-elevate active-elevate-2 transition-all"
+                className={primaryBtn}
+                style={{ backgroundColor: OLIVE }}
                 data-testid="button-give-gift"
               >
                 {t.giftCta}
@@ -205,14 +247,15 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
           </div>
         )}
 
-        {/* ------------------------------------------------ Gift / Vote */}
+        {/* ------------------------------------------------ Gift selection */}
         {step === 'gift' && (
           <div data-testid="registry-gift">
             <div className="text-center mb-10">
               <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-3">{t.giftTitle}</h1>
               <p className="font-sans text-muted-foreground">{t.giftSubtitle}</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <div className="grid grid-cols-2 gap-3 md:gap-4">
               {t.giftOptions.map((option) => (
                 <button
                   key={option.id}
@@ -221,12 +264,14 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                     setGiftVote(option);
                     setStep('amount');
                   }}
-                  className={`${optionCardClass} text-center`}
+                  className={`${cardClass} text-center px-4 py-7 md:px-6 md:py-8 hover-elevate active-elevate-2 transition-all`}
                   data-testid={`gift-option-${option.id}`}
                 >
                   <div className="text-3xl mb-3">{option.emoji}</div>
-                  <div className="font-serif text-xl md:text-2xl font-medium text-foreground mb-1">{option.title}</div>
-                  <div className="font-sans text-sm text-muted-foreground">{option.tagline}</div>
+                  <div className="font-serif text-lg md:text-2xl font-medium text-foreground leading-snug mb-1.5">
+                    {option.title}
+                  </div>
+                  <div className="font-sans text-xs md:text-sm text-muted-foreground">{option.tagline}</div>
                 </button>
               ))}
             </div>
@@ -236,15 +281,18 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Amount */}
         {step === 'amount' && giftVote && (
           <div data-testid="registry-amount" className="text-center">
-            <div className="text-3xl mb-4">{giftVote.emoji}</div>
-            <p className="font-sans text-sm text-muted-foreground mb-2">{t.amountLeadIn}</p>
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-10">{giftVote.title}</h1>
+            <p className="font-sans text-sm text-muted-foreground mb-3">{t.amountLeadIn}</p>
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-2">{giftVote.title}</h1>
+            <div className="w-10 h-px bg-black/15 mx-auto mb-10" />
 
-            <label htmlFor="registry-amount-input" className="block font-sans text-xs uppercase tracking-widest text-muted-foreground mb-4">
+            <label
+              htmlFor="registry-amount-input"
+              className="block font-sans text-sm text-muted-foreground mb-4"
+            >
               {t.amountLabel}
             </label>
-            <div className="flex items-center justify-center gap-2 max-w-xs mx-auto border-b border-black/30 pb-2 mb-2">
-              <span className="font-serif text-3xl text-foreground">€</span>
+            <div className="flex items-center gap-2 max-w-xs mx-auto border border-black/15 rounded-lg bg-white/70 px-5 py-3 mb-3">
+              <span className="font-serif text-2xl text-muted-foreground">€</span>
               <input
                 id="registry-amount-input"
                 type="text"
@@ -254,7 +302,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                   const v = e.target.value.replace(',', '.');
                   if (/^\d*\.?\d{0,2}$/.test(v)) setAmount(v);
                 }}
-                className="w-full bg-transparent font-serif text-3xl text-foreground text-center focus:outline-none"
+                className="w-full bg-transparent font-serif text-2xl text-foreground focus:outline-none"
                 autoFocus
                 data-testid="input-amount"
               />
@@ -264,11 +312,10 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
             <button
               onClick={() => amountValid && setStep('payment')}
               disabled={!amountValid}
-              className={`font-sans text-sm md:text-base px-10 py-3 rounded-md transition-all ${
-                amountValid
-                  ? 'bg-black text-white hover-elevate active-elevate-2'
-                  : 'bg-black/10 text-black/30 cursor-not-allowed'
+              className={`font-sans text-sm md:text-base w-full max-w-xs px-10 py-3 rounded-md transition-all ${
+                amountValid ? 'text-white hover-elevate active-elevate-2' : 'bg-black/10 text-black/30 cursor-not-allowed'
               }`}
+              style={amountValid ? { backgroundColor: OLIVE } : undefined}
               data-testid="button-continue-amount"
             >
               {t.continueCta}
@@ -279,30 +326,30 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Payment method */}
         {step === 'payment' && giftVote && (
           <div data-testid="registry-payment">
-            <VoteSummary />
+            <GiftSummary />
             <div className="text-center mb-10">
               <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-3">{t.paymentTitle}</h1>
               <p className="font-sans text-muted-foreground">{t.paymentSubtitle}</p>
             </div>
             <div className="space-y-3 max-w-md mx-auto">
               {[
-                { id: 'venmo' as Step, name: 'Venmo', emoji: '🇺🇸', tag: t.venmoTag },
-                { id: 'mbway' as Step, name: 'MB WAY', emoji: '🇵🇹', tag: t.mbwayTag },
-                { id: 'revolut' as Step, name: 'Revolut', emoji: '🌍', tag: t.revolutTag },
-                { id: 'bank' as Step, name: t.breadcrumbBankTransfer, emoji: '🏦', tag: t.bankTag },
+                { id: 'venmo' as Step, name: 'Venmo', mark: 'venmo' as const, tag: t.venmoTag },
+                { id: 'mbway' as Step, name: 'MB WAY', mark: 'mbway' as const, tag: t.mbwayTag },
+                { id: 'revolut' as Step, name: 'Revolut', mark: 'revolut' as const, tag: t.revolutTag },
+                { id: 'bank' as Step, name: t.breadcrumbBankTransfer, mark: 'bank' as const, tag: t.bankTag },
               ].map((method) => (
                 <button
                   key={method.id}
                   onClick={() => setStep(method.id)}
-                  className={`${optionCardClass} flex items-center gap-4`}
+                  className={`${cardClass} w-full text-left flex items-center gap-4 px-5 py-4 hover-elevate active-elevate-2 transition-all`}
                   data-testid={`payment-option-${method.id}`}
                 >
-                  <span className="text-2xl">{method.emoji}</span>
-                  <span className="flex-1">
-                    <span className="block font-serif text-xl font-medium text-foreground">{method.name}</span>
+                  <BrandMark kind={method.mark} />
+                  <span className="flex-1 min-w-0">
+                    <span className="block font-serif text-lg md:text-xl font-medium text-foreground">{method.name}</span>
                     <span className="block font-sans text-sm text-muted-foreground">{method.tag}</span>
                   </span>
-                  <span className="text-muted-foreground">›</span>
+                  <span className="text-muted-foreground text-lg">›</span>
                 </button>
               ))}
             </div>
@@ -312,7 +359,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Bank location */}
         {step === 'bank' && giftVote && (
           <div data-testid="registry-bank">
-            <VoteSummary />
+            <GiftSummary />
             <div className="text-center mb-10">
               <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-3">{t.bankWhereTitle}</h1>
               <p className="font-sans text-muted-foreground">{t.bankWhereSubtitle}</p>
@@ -321,20 +368,20 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               {[
                 { id: 'bank-us' as Step, emoji: '🇺🇸', label: t.bankUSLabel, tag: t.bankUSTag },
                 { id: 'bank-pt' as Step, emoji: '🇵🇹', label: t.bankPTLabel, tag: t.bankPTTag },
-                { id: 'bank-intl' as Step, emoji: '🌎', label: t.bankIntlLabel, tag: t.bankIntlTag },
+                { id: 'bank-intl' as Step, emoji: '🌐', label: t.bankIntlLabel, tag: t.bankIntlTag },
               ].map((region) => (
                 <button
                   key={region.id}
                   onClick={() => setStep(region.id)}
-                  className={`${optionCardClass} flex items-center gap-4`}
+                  className={`${cardClass} w-full text-left flex items-center gap-4 px-5 py-4 hover-elevate active-elevate-2 transition-all`}
                   data-testid={`bank-region-${region.id}`}
                 >
                   <span className="text-2xl">{region.emoji}</span>
-                  <span className="flex-1">
-                    <span className="block font-serif text-xl font-medium text-foreground">{region.label}</span>
+                  <span className="flex-1 min-w-0">
+                    <span className="block font-serif text-lg md:text-xl font-medium text-foreground">{region.label}</span>
                     <span className="block font-sans text-sm text-muted-foreground">{region.tag}</span>
                   </span>
-                  <span className="text-muted-foreground">›</span>
+                  <span className="text-muted-foreground text-lg">›</span>
                 </button>
               ))}
             </div>
@@ -353,9 +400,10 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Venmo */}
         {step === 'venmo' && giftVote && (
           <div data-testid="registry-venmo" className="text-center">
-            <VoteSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-10">{t.venmoTitle}</h1>
-            <div className="inline-block border border-black/15 rounded-md p-6 bg-white mb-6">
+            <GiftSummary />
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.venmoTitle}</h1>
+            <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
+            <div className={`${cardClass} inline-block p-6 bg-white mb-8`}>
               <div className="font-sans text-lg text-foreground mb-4">{paymentConfig.venmo.username}</div>
               <QRCodeSVG value={paymentConfig.venmo.url} size={160} className="mx-auto" />
             </div>
@@ -364,38 +412,39 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 href={paymentConfig.venmo.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-black text-white font-sans text-sm px-8 py-3 rounded-md hover-elevate active-elevate-2 transition-all"
+                className={primaryBtn}
+                style={{ backgroundColor: OLIVE }}
                 data-testid="button-open-venmo"
               >
-                {t.openVenmo} <ExternalLink className="w-4 h-4" />
+                {t.openVenmo}
               </a>
               <CopyButton value={paymentConfig.venmo.username} label={t.copyUsername} copiedLabel={t.copied} />
             </div>
-            <ThankYou />
-            <BackToRegistry />
+            <BackToRegistry toThanks />
           </div>
         )}
 
         {/* ------------------------------------------------ MB WAY */}
         {step === 'mbway' && giftVote && (
           <div data-testid="registry-mbway" className="text-center">
-            <VoteSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-10">{t.mbwayTitle}</h1>
-            <div className="max-w-sm mx-auto mb-6">
-              <DetailRow label={t.fieldPhoneNumber} value={paymentConfig.mbway.phone} copiedLabel={t.copied} />
+            <GiftSummary />
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.mbwayTitle}</h1>
+            <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
+            <div className="max-w-sm mx-auto mb-5">
+              <DetailRow label={t.fieldPhoneNumber} value={paymentConfig.mbway.phone} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
             <p className="font-sans text-sm text-muted-foreground max-w-xs mx-auto">{t.mbwayInstructions}</p>
-            <ThankYou />
-            <BackToRegistry />
+            <BackToRegistry toThanks />
           </div>
         )}
 
         {/* ------------------------------------------------ Revolut */}
         {step === 'revolut' && giftVote && (
           <div data-testid="registry-revolut" className="text-center">
-            <VoteSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-10">{t.revolutTitle}</h1>
-            <div className="inline-block border border-black/15 rounded-md p-6 bg-white mb-6">
+            <GiftSummary />
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.revolutTitle}</h1>
+            <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
+            <div className={`${cardClass} inline-block p-6 bg-white mb-8`}>
               <div className="font-sans text-lg text-foreground mb-4">{paymentConfig.revolut.revtag}</div>
               <QRCodeSVG value={paymentConfig.revolut.url} size={160} className="mx-auto" />
             </div>
@@ -404,62 +453,81 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 href={paymentConfig.revolut.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-black text-white font-sans text-sm px-8 py-3 rounded-md hover-elevate active-elevate-2 transition-all"
+                className={primaryBtn}
+                style={{ backgroundColor: OLIVE }}
                 data-testid="button-open-revolut"
               >
-                {t.openRevolut} <ExternalLink className="w-4 h-4" />
+                {t.openRevolut}
               </a>
               <CopyButton value={paymentConfig.revolut.revtag} label={t.copyUsername} copiedLabel={t.copied} />
             </div>
-            <ThankYou />
-            <BackToRegistry />
+            <BackToRegistry toThanks />
           </div>
         )}
 
         {/* ------------------------------------------------ Bank details */}
         {step === 'bank-us' && giftVote && (
-          <div data-testid="registry-bank-us">
-            <VoteSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-10 text-center">{t.bankUSTitle}</h1>
+          <div data-testid="registry-bank-us" className="text-center">
+            <GiftSummary />
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankUSTitle}</h1>
+            <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className="space-y-3 max-w-md mx-auto">
-              <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankUS.accountHolder} copiedLabel={t.copied} />
-              <DetailRow label={t.fieldRoutingNumber} value={paymentConfig.bankUS.routingNumber} copiedLabel={t.copied} />
-              <DetailRow label={t.fieldAccountNumber} value={paymentConfig.bankUS.accountNumber} copiedLabel={t.copied} />
-              <DetailRow label={t.fieldAccountType} value={paymentConfig.bankUS.accountType} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankUS.accountHolder} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldRoutingNumber} value={paymentConfig.bankUS.routingNumber} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldAccountNumber} value={paymentConfig.bankUS.accountNumber} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldAccountType} value={paymentConfig.bankUS.accountType} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
-            <ThankYou />
-            <BackToRegistry />
+            <BackToRegistry toThanks />
           </div>
         )}
 
         {step === 'bank-pt' && giftVote && (
-          <div data-testid="registry-bank-pt">
-            <VoteSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-10 text-center">{t.bankPTTitle}</h1>
+          <div data-testid="registry-bank-pt" className="text-center">
+            <GiftSummary />
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankPTTitle}</h1>
+            <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className="space-y-3 max-w-md mx-auto">
-              <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankPT.accountHolder} copiedLabel={t.copied} />
-              <DetailRow label={t.fieldIban} value={paymentConfig.bankPT.iban} copiedLabel={t.copied} />
-              <DetailRow label={t.fieldBicSwift} value={paymentConfig.bankPT.bicSwift} copiedLabel={t.copied} />
-              <DetailRow label={t.fieldBankName} value={paymentConfig.bankPT.bankName} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankPT.accountHolder} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldIban} value={paymentConfig.bankPT.iban} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldBicSwift} value={paymentConfig.bankPT.bicSwift} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldBankName} value={paymentConfig.bankPT.bankName} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
-            <ThankYou />
-            <BackToRegistry />
+            <BackToRegistry toThanks />
           </div>
         )}
 
         {step === 'bank-intl' && giftVote && (
-          <div data-testid="registry-bank-intl">
-            <VoteSummary />
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-10 text-center">{t.bankIntlTitle}</h1>
+          <div data-testid="registry-bank-intl" className="text-center">
+            <GiftSummary />
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankIntlTitle}</h1>
+            <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className="space-y-3 max-w-md mx-auto">
-              <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankIntl.accountHolder} copiedLabel={t.copied} />
-              <DetailRow label={t.fieldIban} value={paymentConfig.bankIntl.iban} copiedLabel={t.copied} />
-              <DetailRow label={t.fieldBicSwift} value={paymentConfig.bankIntl.swift} copiedLabel={t.copied} />
-              <DetailRow label={t.fieldBankName} value={paymentConfig.bankIntl.bankName} copiedLabel={t.copied} />
-              <DetailRow label={t.fieldBankAddress} value={paymentConfig.bankIntl.bankAddress} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankIntl.accountHolder} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldIban} value={paymentConfig.bankIntl.iban} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldBicSwift} value={paymentConfig.bankIntl.swift} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldBankName} value={paymentConfig.bankIntl.bankName} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldBankAddress} value={paymentConfig.bankIntl.bankAddress} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
-            <ThankYou />
-            <BackToRegistry />
+            <BackToRegistry toThanks />
+          </div>
+        )}
+
+        {/* ------------------------------------------------ Thank you */}
+        {step === 'thanks' && (
+          <div data-testid="registry-thanks" className="text-center pt-8">
+            <div className="font-serif text-4xl text-black/15 select-none mb-6" aria-hidden="true">
+              ❦
+            </div>
+            <h1 className="font-serif text-4xl md:text-5xl font-medium text-foreground mb-4">{t.thankYouTitle}</h1>
+            <p className="font-sans text-muted-foreground mb-12">{t.thankYouCopy}</p>
+            <button
+              onClick={resetAll}
+              className={primaryBtn}
+              style={{ backgroundColor: OLIVE }}
+              data-testid="button-thanks-back"
+            >
+              {t.backToRegistry}
+            </button>
           </div>
         )}
       </div>
