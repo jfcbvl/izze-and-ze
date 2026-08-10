@@ -318,7 +318,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <p className="font-sans text-muted-foreground">{t.giftSubtitle}</p>
             </div>
 
-            <div className="grid h-[calc(100dvh-12rem)] min-h-0 grid-cols-2 grid-rows-2 gap-2.5 overflow-hidden md:h-auto md:gap-3">
+            <div className="grid min-h-[calc(100dvh-10rem)] min-w-0 w-full max-w-md place-content-center grid-cols-2 grid-rows-2 gap-3 overflow-hidden md:min-h-0 md:h-auto md:max-w-none md:gap-3">
               {t.giftOptions.map((option) => (
                 <button
                   key={option.id}
@@ -327,7 +327,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                     setGiftVote(option);
                     setStep('amount');
                   }}
-                  className={`${cardClass} min-h-0 overflow-hidden p-1.5 hover-elevate active-elevate-2 transition-all md:p-2`}
+                  className={`${cardClass} aspect-[1.4] min-h-0 overflow-hidden p-1.5 hover-elevate active-elevate-2 transition-all md:aspect-auto md:p-2`}
                   data-testid={`gift-option-${option.id}`}
                 >
                   <img
