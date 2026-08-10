@@ -139,6 +139,7 @@ const en: RegistryStrings = {
   breadcrumbBankTransfer: 'Bank Transfer',
 
   homeTitle: 'Our Registry',
+  homeSubtitle: 'We have one small favor before anything else.',
   bookEyebrow: 'First things first',
   bookTitle: 'Bring us a book',
   bookCopy1:
@@ -153,7 +154,7 @@ const en: RegistryStrings = {
   dividerOr: 'or',
 
   giftTitle: 'Help us decide our next step',
-  giftSubtitle: "We truly don't know what our next step is. Help us pick with your generous gift!",
+  giftSubtitle: "We truly don't know what our next step is. Help us pick! Choose where you'd want us to move next and donate to that cause :)",
   giftOptions: [
     { id: 'seattle', emoji: '🌲', title: 'Plant roots in Seattle', tagline: 'Convince us to stay.' },
     { id: 'portugal', emoji: '🇵🇹', title: 'Move back to Portugal', tagline: 'Send us back to the Alentejo.' },

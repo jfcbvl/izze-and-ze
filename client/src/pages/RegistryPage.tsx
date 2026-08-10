@@ -163,7 +163,9 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   const Breadcrumb = () =>
     breadcrumb.length === 0 ? null : (
       <nav
-        className="font-sans text-[11px] md:text-xs uppercase tracking-wider text-muted-foreground mb-10 flex flex-wrap items-center justify-center gap-1.5"
+        className={`font-sans text-[11px] md:text-xs uppercase tracking-wider text-muted-foreground ${
+          step === 'gift' ? 'mb-3' : 'mb-10'
+        } flex flex-wrap items-center justify-center gap-1.5`}
         data-testid="registry-breadcrumb"
       >
         {breadcrumb.map((item, i) => (
@@ -216,14 +218,18 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   const cardClass = 'border border-black/12 rounded-xl bg-white/60';
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: CREAM }}>
+    <div className={step === 'gift' ? 'h-[100dvh] overflow-hidden' : 'min-h-screen'} style={{ backgroundColor: CREAM }}>
       <SiteTabs lang={lang} />
       <LanguageSwitcher />
 
       <div
         ref={stepContainerRef}
         tabIndex={-1}
-        className={`${step === 'home' ? 'max-w-6xl' : 'max-w-2xl'} mx-auto px-6 pt-28 md:pt-32 pb-24 md:pb-16 focus:outline-none`}
+        className={`${
+          step === 'home' ? 'max-w-6xl' : step === 'gift' ? 'max-w-3xl' : 'max-w-2xl'
+        } mx-auto px-6 ${
+          step === 'gift' ? 'pt-20 md:pt-20 pb-4' : 'pt-28 md:pt-32 pb-24 md:pb-16'
+        } focus:outline-none`}
       >
         <Breadcrumb />
 
@@ -304,12 +310,12 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Gift selection */}
         {step === 'gift' && (
           <div data-testid="registry-gift">
-            <div className="text-center mb-10">
-              <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-3">{t.giftTitle}</h1>
+            <div className="text-center mb-5 md:mb-6">
+              <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-2">{t.giftTitle}</h1>
               <p className="font-sans text-muted-foreground">{t.giftSubtitle}</p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 md:gap-4">
+            <div className="flex gap-3 overflow-x-auto overflow-y-hidden pb-2 no-scrollbar md:grid md:grid-cols-2 md:gap-3 md:overflow-visible md:pb-0">
               {t.giftOptions.map((option) => (
                 <button
                   key={option.id}
@@ -318,13 +324,14 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                     setGiftVote(option);
                     setStep('amount');
                   }}
-                  className={`${cardClass} p-2.5 md:p-3 hover-elevate active-elevate-2 transition-all`}
+                  className={`${cardClass} flex-none p-1.5 hover-elevate active-elevate-2 transition-all md:flex-auto md:p-2`}
+                  style={{ flexBasis: 'calc((100% - 24px) / 2.333)' }}
                   data-testid={`gift-option-${option.id}`}
                 >
                   <img
                     src={giftImages[option.id]}
                     alt={`${option.title} — ${option.tagline}`}
-                    className="w-full h-auto rounded-lg"
+                    className="block w-full h-[112px] object-contain rounded-lg md:h-[190px]"
                   />
                 </button>
               ))}
