@@ -350,7 +350,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <p className="font-sans text-muted-foreground">{t.giftSubtitle}</p>
             </div>
 
-            <div className="grid min-h-[calc(100dvh-15rem)] min-w-0 w-full max-w-md place-content-center grid-cols-2 grid-rows-2 gap-1.5 overflow-hidden md:min-h-0 md:h-auto md:max-w-none md:gap-3">
+            <div className="grid min-h-[calc(100dvh-15rem)] min-w-0 w-full max-w-md place-content-center grid-cols-2 grid-rows-2 gap-x-3 gap-y-0 overflow-hidden md:min-h-0 md:h-auto md:max-w-none md:gap-3">
               {t.giftOptions.map((option) => (
                 <button
                   key={option.id}
