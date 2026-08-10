@@ -322,7 +322,6 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
 
               {/* Monetary gift */}
               <div className={`${cardClass} px-5 py-5 md:px-8 md:py-8 text-center flex flex-col justify-center`}>
-                <div className="hidden md:block font-serif text-3xl text-black/10 select-none mb-2" aria-hidden="true">❧</div>
                 <h2 className="font-serif text-xl md:text-3xl font-medium text-foreground mb-2 md:mb-4">{t.presenceTitle}</h2>
                 {/* presenceCopy1 hidden on mobile */}
                 <p className="hidden md:block font-sans text-base text-muted-foreground leading-relaxed mb-3">
