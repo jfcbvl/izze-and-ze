@@ -252,9 +252,9 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   return (
     <div
       className={
-        step === 'gift' || step === 'home' || step === 'payment'
-          ? 'h-[100dvh] overflow-hidden overscroll-none'
-          : 'min-h-screen'
+        step === 'thanks'
+          ? 'min-h-screen'
+          : 'h-[100dvh] overflow-hidden overscroll-none'
       }
       style={{ backgroundColor: CREAM }}
     >
