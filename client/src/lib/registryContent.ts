@@ -66,6 +66,8 @@ export interface RegistryStrings {
   presenceCopy1: string;
   presenceCopy2: string;
   giftCta: string;
+  dividerAnd: string;
+  dividerOr: string;
 
   giftTitle: string;
   giftSubtitle: string;
@@ -141,15 +143,15 @@ const en: RegistryStrings = {
   bookEyebrow: 'First things first',
   bookTitle: 'Bring us a book',
   bookCopy1:
-    "We'd love for each guest to bring a book for either Izzy or Zé — something you love, something that made you think, or something you think belongs on our shelf.",
-  bookCopy2:
-    "One day, when we finally settle down somewhere, we'll use them to build our home library — with a little piece of all of you in it.",
-  presenceTitle: 'And yes, your presence really is the gift.',
+    'Bring a book for Izzy or Zé — something you love, or something you think belongs on our shelf.',
+  bookCopy2: "One day, they'll become our home library — with a little piece of all of you in it.",
+  presenceTitle: 'Your presence really is the gift.',
   presenceCopy1:
-    "We know that's what every wedding registry says. But in our defense, some of you are crossing an ocean to get to Évora, so this time we actually mean it.",
-  presenceCopy2:
-    "If you'd still like to give us something beyond a book, we'd be incredibly grateful.",
+    "Every registry says it. But some of you are crossing an ocean to get to Évora — so this time we actually mean it.",
+  presenceCopy2: "If you'd still like to give something more, we'd be incredibly grateful.",
   giftCta: "I'd also like to give a gift",
+  dividerAnd: 'and',
+  dividerOr: 'or',
 
   giftTitle: 'Help us decide our next step',
   giftSubtitle: "Pick the chapter of our life you'd like to help shape.",
@@ -230,15 +232,15 @@ const pt: RegistryStrings = {
   bookEyebrow: 'Primeiro que tudo',
   bookTitle: 'Tragam-nos um livro',
   bookCopy1:
-    'Adorávamos que cada convidado trouxesse um livro para a Izzy ou para o Zé — algo que adoram, algo que vos fez pensar, ou algo que acham que pertence à nossa estante.',
-  bookCopy2:
-    'Um dia, quando finalmente assentarmos, vamos usá-los para construir a nossa biblioteca — com um bocadinho de todos vocês.',
-  presenceTitle: 'E sim, a vossa presença é mesmo o presente.',
+    'Tragam um livro para a Izzy ou para o Zé — algo que adoram, ou algo que acham que pertence à nossa estante.',
+  bookCopy2: 'Um dia, serão a nossa biblioteca — com um bocadinho de todos vocês.',
+  presenceTitle: 'A vossa presença é mesmo o presente.',
   presenceCopy1:
-    'Sabemos que todas as listas de casamento dizem isto. Mas, em nossa defesa, alguns de vocês vão atravessar um oceano para chegar a Évora, por isso desta vez é mesmo a sério.',
-  presenceCopy2:
-    'Se mesmo assim quiserem dar-nos algo além de um livro, ficaríamos imensamente gratos.',
+    'Todas as listas dizem isto. Mas alguns de vocês vão atravessar um oceano até Évora — desta vez é mesmo a sério.',
+  presenceCopy2: 'Se mesmo assim quiserem dar algo mais, ficaríamos imensamente gratos.',
   giftCta: 'Também quero dar um presente',
+  dividerAnd: 'e',
+  dividerOr: 'ou',
 
   giftTitle: 'Ajudem-nos a decidir o próximo passo',
   giftSubtitle: 'Escolham o capítulo da nossa vida que gostavam de ajudar a moldar.',
@@ -319,15 +321,15 @@ const mx: RegistryStrings = {
   bookEyebrow: 'Lo primero es lo primero',
   bookTitle: 'Tráigannos un libro',
   bookCopy1:
-    'Nos encantaría que cada invitado traiga un libro para Izzy o para Zé — algo que amen, algo que los hizo pensar, o algo que crean que pertenece a nuestro librero.',
-  bookCopy2:
-    'Un día, cuando por fin nos establezcamos en algún lugar, los usaremos para construir nuestra biblioteca — con un pedacito de todos ustedes.',
-  presenceTitle: 'Y sí, su presencia realmente es el regalo.',
+    'Traigan un libro para Izzy o para Zé — algo que amen, o algo que crean que pertenece a nuestro librero.',
+  bookCopy2: 'Un día serán nuestra biblioteca — con un pedacito de todos ustedes.',
+  presenceTitle: 'Su presencia realmente es el regalo.',
   presenceCopy1:
-    'Sabemos que eso dicen todas las mesas de regalos. Pero en nuestra defensa, algunos de ustedes van a cruzar un océano para llegar a Évora, así que esta vez lo decimos en serio.',
-  presenceCopy2:
-    'Si aun así quieren darnos algo más que un libro, estaríamos increíblemente agradecidos.',
+    'Eso dicen todas las mesas de regalos. Pero algunos de ustedes van a cruzar un océano hasta Évora — así que esta vez lo decimos en serio.',
+  presenceCopy2: 'Si aun así quieren dar algo más, estaríamos increíblemente agradecidos.',
   giftCta: 'También quiero dar un regalo',
+  dividerAnd: 'y',
+  dividerOr: 'o',
 
   giftTitle: 'Ayúdennos a decidir nuestro siguiente paso',
   giftSubtitle: 'Elijan el capítulo de nuestra vida que les gustaría ayudar a moldear.',

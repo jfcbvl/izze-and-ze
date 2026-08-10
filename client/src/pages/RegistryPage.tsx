@@ -8,6 +8,7 @@ import seattleImg from '@assets/Seattle_1786342608299_cropped.png';
 import portugalImg from '@assets/Portugal_1786342608299_cropped.png';
 import mexicoImg from '@assets/Mexico_1786342608296_cropped.png';
 import newyorkImg from '@assets/New_York_1786342608298_cropped.png';
+import bookImg from '@assets/94385434-fe7a-4b2b-872d-ed7b8c8d27ee_1786343347129_cropped.png';
 
 const giftImages: Record<GiftOption['id'], string> = {
   seattle: seattleImg,
@@ -221,39 +222,77 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
       <div
         ref={stepContainerRef}
         tabIndex={-1}
-        className="max-w-2xl mx-auto px-6 pt-28 md:pt-32 pb-24 md:pb-16 focus:outline-none"
+        className={`${step === 'home' ? 'max-w-6xl' : 'max-w-2xl'} mx-auto px-6 pt-28 md:pt-32 pb-24 md:pb-16 focus:outline-none`}
       >
         <Breadcrumb />
 
         {/* ------------------------------------------------ Registry Home */}
         {step === 'home' && (
           <div data-testid="registry-home">
-            <div className="text-center mb-12">
-              <h1 className="font-serif text-4xl md:text-5xl font-medium text-foreground mb-4">{t.homeTitle}</h1>
+            <div className="text-center mb-8 md:mb-10">
+              <h1 className="font-serif text-4xl md:text-5xl font-medium text-foreground mb-3">{t.homeTitle}</h1>
               <p className="font-sans text-muted-foreground">{t.homeSubtitle}</p>
             </div>
 
-            <div className={`${cardClass} px-6 py-10 md:px-12 md:py-12 text-center mb-6`}>
-              <div className="text-3xl mb-4">📖</div>
-              <div className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-3">{t.bookEyebrow}</div>
-              <h2 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-6">{t.bookTitle}</h2>
-              <p className="font-sans text-muted-foreground leading-relaxed mb-4">{t.bookCopy1}</p>
-              <p className="font-sans text-muted-foreground leading-relaxed">{t.bookCopy2}</p>
-            </div>
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-6 md:gap-8 items-stretch">
+              {/* Book request */}
+              <div className={`${cardClass} overflow-hidden flex flex-col sm:flex-row`}>
+                <img
+                  src={bookImg}
+                  alt=""
+                  className="w-full h-44 sm:h-auto sm:w-2/5 object-cover flex-shrink-0"
+                />
+                <div className="px-6 py-7 md:px-7 md:py-8 flex flex-col justify-center text-left">
+                  <div className="font-sans text-xs uppercase tracking-widest text-muted-foreground mb-2">
+                    {t.bookEyebrow}
+                  </div>
+                  <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground mb-4">{t.bookTitle}</h2>
+                  <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed mb-3">
+                    {t.bookCopy1}
+                  </p>
+                  <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed">{t.bookCopy2}</p>
+                </div>
+              </div>
 
-            <div className={`${cardClass} px-6 py-10 md:px-12 md:py-12 text-center relative overflow-hidden`}>
-              <div className="font-serif text-4xl text-black/10 select-none mb-2" aria-hidden="true">❧</div>
-              <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground mb-6">{t.presenceTitle}</h2>
-              <p className="font-sans text-muted-foreground leading-relaxed mb-4">{t.presenceCopy1}</p>
-              <p className="font-sans text-muted-foreground leading-relaxed mb-8">{t.presenceCopy2}</p>
-              <button
-                onClick={() => setStep('gift')}
-                className={primaryBtn}
-                style={{ backgroundColor: OLIVE }}
-                data-testid="button-give-gift"
-              >
-                {t.giftCta}
-              </button>
+              {/* Elegant and/or divider */}
+              <div className="hidden md:flex flex-col items-center justify-center gap-3" aria-hidden="true">
+                <div className="w-px flex-1 bg-black/15" />
+                <div className="font-serif italic text-lg text-muted-foreground leading-tight text-center">
+                  {t.dividerAnd}
+                  <span className="block text-black/30 text-sm not-italic">/</span>
+                  {t.dividerOr}
+                </div>
+                <div className="w-px flex-1 bg-black/15" />
+              </div>
+              <div className="md:hidden flex items-center gap-4" aria-hidden="true">
+                <div className="h-px flex-1 bg-black/15" />
+                <span className="font-serif italic text-muted-foreground">
+                  {t.dividerAnd} / {t.dividerOr}
+                </span>
+                <div className="h-px flex-1 bg-black/15" />
+              </div>
+
+              {/* Monetary gift */}
+              <div className={`${cardClass} px-6 py-7 md:px-8 md:py-8 text-center flex flex-col justify-center`}>
+                <div className="font-serif text-3xl text-black/10 select-none mb-2" aria-hidden="true">❧</div>
+                <h2 className="font-serif text-2xl md:text-3xl font-medium text-foreground mb-4">{t.presenceTitle}</h2>
+                <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed mb-3">
+                  {t.presenceCopy1}
+                </p>
+                <p className="font-sans text-sm md:text-base text-muted-foreground leading-relaxed mb-6">
+                  {t.presenceCopy2}
+                </p>
+                <div>
+                  <button
+                    onClick={() => setStep('gift')}
+                    className={primaryBtn}
+                    style={{ backgroundColor: OLIVE }}
+                    data-testid="button-give-gift"
+                  >
+                    {t.giftCta}
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         )}
