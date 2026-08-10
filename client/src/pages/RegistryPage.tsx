@@ -252,7 +252,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   return (
     <div
       className={
-        step === 'gift' || step === 'home'
+        step === 'gift' || step === 'home' || step === 'payment'
           ? 'h-[100dvh] overflow-hidden overscroll-none'
           : 'min-h-screen'
       }

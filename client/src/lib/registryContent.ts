@@ -163,7 +163,7 @@ const en: RegistryStrings = {
 
   amountLeadIn: "You're chipping in toward",
   amountLabel: 'Enter your contribution',
-  amountHint: 'Enter any amount in EUR',
+  amountHint: 'Enter the amount you would like to gift us',
   continueCta: 'Continue',
 
   paymentTitle: 'How would you like to send your gift?',
