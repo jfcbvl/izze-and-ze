@@ -462,9 +462,8 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Bank location */}
         {step === 'bank' && giftVote && (
           <div data-testid="registry-bank">
-            <GiftSummary />
             <div className="text-center mb-10">
-              <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-3">{t.bankWhereTitle}</h1>
+              <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-3">{t.bankWhereTitle.replace('{amount}', formattedAmount ?? '')}</h1>
               <p className="font-sans text-muted-foreground">{t.bankWhereSubtitle}</p>
             </div>
             <div className="space-y-3 max-w-md mx-auto">

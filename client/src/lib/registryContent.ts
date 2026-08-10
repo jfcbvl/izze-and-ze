@@ -173,7 +173,7 @@ const en: RegistryStrings = {
   revolutTag: 'For Revolut users',
   bankTag: 'USA · Portugal · International',
 
-  bankWhereTitle: 'Where are you transferring from?',
+  bankWhereTitle: 'Sending {amount} — where from?',
   bankWhereSubtitle: "We'll show you the right bank details.",
   bankUSLabel: 'USA',
   bankUSTag: 'US bank details',
@@ -262,7 +262,7 @@ const pt: RegistryStrings = {
   revolutTag: 'Para utilizadores Revolut',
   bankTag: 'EUA · Portugal · Internacional',
 
-  bankWhereTitle: 'De onde vão transferir?',
+  bankWhereTitle: 'Enviando {amount} — de onde?',
   bankWhereSubtitle: 'Mostramos-vos os dados bancários certos.',
   bankUSLabel: 'EUA',
   bankUSTag: 'Dados bancários dos EUA',
@@ -351,7 +351,7 @@ const mx: RegistryStrings = {
   revolutTag: 'Para usuarios de Revolut',
   bankTag: 'EE. UU. · Portugal · Internacional',
 
-  bankWhereTitle: '¿Desde dónde van a transferir?',
+  bankWhereTitle: 'Enviando {amount} — ¿desde dónde?',
   bankWhereSubtitle: 'Les mostraremos los datos bancarios correctos.',
   bankUSLabel: 'EE. UU.',
   bankUSTag: 'Datos bancarios de EE. UU.',
