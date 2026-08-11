@@ -185,7 +185,7 @@ function DresscodeBlock({ dresscode }: { dresscode: NonNullable<CollapsibleSecti
             <img
               src={card.image}
               alt=""
-              className={`flex-shrink-0 object-contain object-bottom self-end ${i === 1 ? 'w-[166px] md:w-[168px]' : 'w-28 md:w-28'}`}
+              className={`flex-shrink-0 object-contain object-bottom self-end ${i === 1 ? 'w-36 md:w-[168px]' : 'w-28 md:w-28'}`}
             />
             <div className="flex-1 pt-1 space-y-2">
               <h5 className="font-sans font-semibold text-foreground text-sm leading-snug">
