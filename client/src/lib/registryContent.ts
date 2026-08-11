@@ -60,6 +60,7 @@ export interface RegistryStrings {
   homeSubtitle: string;
   bookEyebrow: string;
   bookTitle: string;
+  bookSubtitle: string;
   bookCopy1: string;
   bookCopy2: string;
   presenceTitle: string;
@@ -140,7 +141,8 @@ const en: RegistryStrings = {
 
   homeTitle: 'Our Registry',
   bookEyebrow: 'First things first',
-  bookTitle: 'Bring us a book or a vinyl',
+  bookTitle: 'Bring us a book',
+  bookSubtitle: 'or a vinyl',
   bookCopy1:
     'Bring a book or a record for Izzy, Zé or both. Something you think belongs on our shelf.',
   bookCopy2: "One day, they'll become our home library and collection, with a little piece of all of you.",
@@ -230,6 +232,7 @@ const pt: RegistryStrings = {
   homeSubtitle: 'Decidimos que uma lista física não seria prática — para nós nem para vocês.',
   bookEyebrow: 'Primeiro que tudo',
   bookTitle: 'Tragam-nos um livro',
+  bookSubtitle: 'ou um vinil',
   bookCopy1:
     'Tragam um livro para a Izzy ou para o Zé — algo que adoram, ou algo que acham que pertence à nossa estante.',
   bookCopy2: 'Um dia, serão a nossa biblioteca — com um bocadinho de todos vocês.',
@@ -319,6 +322,7 @@ const mx: RegistryStrings = {
   homeSubtitle: 'Decidimos que una lista física no sería práctica — ni para nosotros ni para ustedes.',
   bookEyebrow: 'Lo primero es lo primero',
   bookTitle: 'Tráigannos un libro',
+  bookSubtitle: 'o un vinilo',
   bookCopy1:
     'Traigan un libro para Izzy o para Zé — algo que amen, o algo que crean que pertenece a nuestro librero.',
   bookCopy2: 'Un día serán nuestra biblioteca — con un pedacito de todos ustedes.',

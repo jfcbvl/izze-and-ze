@@ -296,7 +296,10 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                   <div className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground mb-1 md:mb-2">
                     {t.bookEyebrow}
                   </div>
-                  <h2 className="font-serif text-lg md:text-3xl font-medium text-foreground mb-2 md:mb-4">{t.bookTitle}</h2>
+                  <h2 className="font-serif text-lg md:text-3xl font-medium text-foreground mb-0.5 md:mb-1">{t.bookTitle}</h2>
+                  <div className="font-serif text-sm md:text-2xl font-medium text-foreground mb-2 md:mb-4">
+                    {t.bookSubtitle}
+                  </div>
                   <p className="font-sans text-xs md:text-base text-muted-foreground leading-snug mb-1 md:mb-3">
                     {t.bookCopy1}
                   </p>
