@@ -63,7 +63,7 @@ function AddressRow({ address, mapUrl }: { address: string; mapUrl: string }) {
   const [copied, setCopied] = useState(false);
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(address).then(() => {
+    navigator.clipboard.writeText(mapUrl).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     });

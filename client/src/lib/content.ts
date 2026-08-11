@@ -18,7 +18,7 @@ export const content = {
     day1: {
       title: 'Day 1',
       subtitle: 'Friday, September 4th, 2026',
-      location: 'TBD, Évora',
+      location: "Celeiro D'Évora",
       events: [
         {
           time: '5:00 PM',
@@ -120,7 +120,7 @@ export const content = {
             },
             {
               title: 'Day 2: Wedding Reception',
-              content: 'Think suits, a great tie, and elegant dresses — a step up from the night before. Come dressed for the best night of the year.',
+              content: 'Think suits, a great tie, and elegant dresses — a step up from the night before.',
               image: '__WEDDING__',
               imagePosition: 'right' as const,
             },
@@ -171,7 +171,7 @@ export const content = {
     day1: {
       title: 'Dia 1',
       subtitle: 'Sexta-feira, 4 de Setembro de 2026',
-      location: 'Por definir, Évora',
+      location: "Celeiro D'Évora",
       events: [
         {
           time: '17:00',
@@ -224,6 +224,34 @@ export const content = {
             content: 'Visite o Templo Romano, a Capela dos Ossos, percorra as ruas históricas e coma bem e beba bem. A cidade é pequena, fácil de percorrer a pé e de explorar em poucas horas.',
           },
         ],
+        tip: {
+          eyebrow: 'Dicas de Viagem',
+          title: 'Comboio e autocarro desde Lisboa',
+          content: 'Há duas estações principais para ambos: Oriente e Sete Rios. Se forem para Sete Rios de metro, a paragem chama-se Jardim Zoológico.',
+          note: {
+            title: 'Aluguer de Carro',
+            content: 'Seria a nossa terceira escolha. Só recomendamos alugar carro se planearem explorar mais do país, para além de Lisboa, Évora e Porto. Só quando visitarem outros lugares como a Nazaré, Coimbra, as praias do Algarve ou o sul de Espanha é que o carro se torna a melhor opção.',
+          },
+          groups: [
+            {
+              name: 'Comboio',
+              badge: 'MELHOR',
+              link: { href: 'https://cp.pt', label: 'Reservar na CP' },
+              rows: [
+                { label: 'Duração', value: '1h25' },
+                { label: 'Frequência', value: '5x / dia' },
+              ],
+            },
+            {
+              name: 'Autocarro',
+              link: { href: 'https://rede-expressos.pt', label: 'Reservar na Rede Expressos' },
+              rows: [
+                { label: 'Duração', value: '1h35' },
+                { label: 'Frequência', value: '20x / dia' },
+              ],
+            },
+          ],
+        },
       },
       {
         title: 'Sobre o Local da Festa',
@@ -239,13 +267,13 @@ export const content = {
           cards: [
             {
               title: 'Dia 1: Cocktail de Boas-Vindas',
-              content: 'Tragam os vossos vestidos e camisas coloridas de verão para celebrar connosco com estilo e conforto.',
+              content: 'Tragam os vossos vestidos e camisas coloridas de verão para celebrar connosco em estilo e com conforto.',
               image: '__COCKTAIL__',
               imagePosition: 'left' as const,
             },
             {
               title: 'Dia 2: Casamento',
-              content: 'Pensem em fato e gravata, e vestidos elegantes — um nível acima da noite anterior. Venham vestidos para a melhor noite do ano.',
+              content: 'Pensem em fato e gravata, e vestidos elegantes — um nível acima da noite anterior.',
               image: '__WEDDING__',
               imagePosition: 'right' as const,
             },
@@ -296,7 +324,7 @@ export const content = {
     day1: {
       title: 'Día 1',
       subtitle: 'Viernes, 4 de septiembre de 2026',
-      location: 'Por definir, Évora',
+      location: "Celeiro D'Évora",
       events: [
         {
           time: '17:00',
@@ -349,6 +377,34 @@ export const content = {
             content: 'Visita el Templo Romano, la Capilla de los Huesos, recorre las calles históricas y disfruta de la gastronomía y vinos del Alentejo. La ciudad es compacta, perfecta para caminar y fácil de recorrer en pocas horas.',
           },
         ],
+        tip: {
+          eyebrow: 'Tips de Viaje',
+          title: 'Tren y autobús desde Lisboa',
+          content: 'Hay dos estaciones principales para ambos: Oriente y Sete Rios. Si van a Sete Rios en metro, la parada se llama Jardim Zoológico.',
+          note: {
+            title: 'Renta de Coche',
+            content: 'Esta sería nuestra tercera opción. Solo recomendamos rentar un coche si planean explorar más del país, más allá de Lisboa, Évora y Oporto. Solo al visitar otros lugares como Nazaré, Coimbra, las playas del Algarve o el sur de España el coche se vuelve la mejor opción.',
+          },
+          groups: [
+            {
+              name: 'Tren',
+              badge: 'MEJOR',
+              link: { href: 'https://cp.pt/en', label: 'Reservar en CP' },
+              rows: [
+                { label: 'Duración', value: '1h25' },
+                { label: 'Frecuencia', value: '5x / día' },
+              ],
+            },
+            {
+              name: 'Autobús',
+              link: { href: 'https://rede-expressos.pt/en', label: 'Reservar en Rede Expressos' },
+              rows: [
+                { label: 'Duración', value: '1h35' },
+                { label: 'Frecuencia', value: '20x / día' },
+              ],
+            },
+          ],
+        },
       },
       {
         title: 'Sobre el Lugar',
@@ -370,7 +426,7 @@ export const content = {
             },
             {
               title: 'Día 2: Recepción de Boda',
-              content: 'Piensa en traje y corbata, y vestidos elegantes — un paso más arriba que la noche anterior. Vengan vestidos para la mejor noche del año.',
+              content: 'Piensa en traje y corbata, y vestidos elegantes — un paso más arriba que la noche anterior.',
               image: '__WEDDING__',
               imagePosition: 'right' as const,
             },

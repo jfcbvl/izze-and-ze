@@ -120,6 +120,7 @@ export default function WeddingRSVP({ content, lang, anchor }: WeddingRSVPProps)
         title={content.day1.title}
         subtitle={content.day1.subtitle}
         location={content.day1.location}
+        locationUrl="https://maps.app.goo.gl/c2zp2qWPMy9ijsQV9"
         events={content.day1.events}
         variant="default"
       />
@@ -128,6 +129,7 @@ export default function WeddingRSVP({ content, lang, anchor }: WeddingRSVPProps)
         title={content.day2.title}
         subtitle={content.day2.subtitle}
         location={content.day2.location}
+        locationUrl="https://maps.app.goo.gl/sdxiDqAqXzqhAfUf9"
         events={content.day2.events}
         variant="alternate"
       />
@@ -144,7 +146,7 @@ export default function WeddingRSVP({ content, lang, anchor }: WeddingRSVPProps)
             image: venuePhoto,
             imageOrientation: 'horizontal' as const,
             address: 'Rua da Mouraria 26, Évora, Portugal',
-            addressMapUrl: 'https://www.google.com/maps/search/?api=1&query=Rua+da+Mouraria+26+Évora+Portugal',
+            addressMapUrl: 'https://maps.app.goo.gl/sdxiDqAqXzqhAfUf9',
             dresscode: section.dresscode ? {
               ...section.dresscode,
               cards: section.dresscode.cards.map(c => ({

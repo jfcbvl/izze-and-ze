@@ -11,6 +11,7 @@ interface DayScheduleProps {
   title: string;
   subtitle: string;
   location?: string;
+  locationUrl?: string;
   events: Event[];
   variant?: 'default' | 'alternate';
 }
@@ -19,6 +20,7 @@ export default function DaySchedule({
   title,
   subtitle,
   location,
+  locationUrl,
   events,
   variant = 'default',
 }: DayScheduleProps) {
@@ -39,7 +41,18 @@ export default function DaySchedule({
             <div className="flex items-center justify-center gap-2 text-muted-foreground mt-3">
               <MapPin className="w-4 h-4" />
               <span className="font-sans" data-testid={`text-${dayId}-location`}>
-                <LinkifyEvora text={location} />
+                {locationUrl ? (
+                  <a
+                    href={locationUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:underline underline-offset-4 transition-all"
+                  >
+                    {location}
+                  </a>
+                ) : (
+                  <LinkifyEvora text={location} />
+                )}
               </span>
             </div>
           )}
