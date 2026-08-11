@@ -1,4 +1,5 @@
 import { ExternalLink } from 'lucide-react';
+import { Link } from 'wouter';
 import { useEffect, useRef, useCallback } from 'react';
 
 interface NavLink {
@@ -150,13 +151,13 @@ export default function HeroSection({
         {navLinks && navLinks.length > 0 ? (
           <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:gap-x-10">
             {navLinks.map((link, i) => (
-              <a
+              <Link
                 key={i}
                 href={link.href}
                 className="font-sans text-sm md:text-base font-medium text-white/80 hover:text-white uppercase tracking-widest transition-colors border-b border-white/30 hover:border-white/80 pb-0.5"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
         ) : (
