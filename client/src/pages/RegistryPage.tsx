@@ -175,9 +175,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
     if (step === 'revolut') items.push({ label: 'Revolut', target: null });
     if (step === 'bank' || step === 'bank-us' || step === 'bank-pt' || step === 'bank-intl') {
       items.push({ label: t.breadcrumbBankTransfer, target: step !== 'bank' ? 'bank' : null });
-      if (step === 'bank-us') items.push({ label: t.bankUSLabel, target: null });
-      if (step === 'bank-pt') items.push({ label: t.bankPTLabel, target: null });
-      if (step === 'bank-intl') items.push({ label: t.bankIntlLabel, target: null });
+      // last crumb (country) intentionally omitted — redundant with the page title
     }
     return items;
   })();
@@ -437,10 +435,10 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
 
         {/* ------------------------------------------------ Bank details */}
         {step === 'bank-us' && (
-          <div data-testid="registry-bank-us" className="text-center">
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankUSTitle.replace('{amount}', formattedAmount ?? '')}</h1>
-            <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
-            <div className="space-y-3 max-w-md mx-auto">
+          <div data-testid="registry-bank-us" className="text-center -mt-8">
+            <h1 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-1">{t.bankUSTitle.replace('{amount}', formattedAmount ?? '')}</h1>
+            <p className="font-sans text-sm text-muted-foreground mb-4">{t.detailThanks}</p>
+            <div className="space-y-2 max-w-md mx-auto">
               <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankUS.accountHolder} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldRoutingNumber} value={paymentConfig.bankUS.routingNumber} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldAccountNumber} value={paymentConfig.bankUS.accountNumber} copyLabel={t.copyLabel} copiedLabel={t.copied} />
@@ -451,7 +449,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         )}
 
         {step === 'bank-pt' && (
-          <div data-testid="registry-bank-pt" className="text-center">
+          <div data-testid="registry-bank-pt" className="text-center -mt-8">
             <h1 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-1">{t.bankPTTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-4">{t.detailThanks}</p>
             <div className="space-y-2 max-w-md mx-auto">
@@ -467,7 +465,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         )}
 
         {step === 'bank-intl' && (
-          <div data-testid="registry-bank-intl" className="text-center">
+          <div data-testid="registry-bank-intl" className="text-center -mt-8">
             <h1 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-1">{t.bankIntlTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-4">{t.detailThanks}</p>
             <div className="space-y-2 max-w-md mx-auto">
