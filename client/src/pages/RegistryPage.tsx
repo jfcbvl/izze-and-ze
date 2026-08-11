@@ -288,7 +288,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 <img
                   src={bookImg}
                   alt=""
-                  className="w-2/5 flex-shrink-0 object-cover"
+                  className="w-[38%] flex-shrink-0 object-cover"
                 />
                 <div className="px-4 py-4 md:px-7 md:py-8 flex flex-col justify-center text-left min-w-0">
                   <div className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground mb-1 md:mb-2">
