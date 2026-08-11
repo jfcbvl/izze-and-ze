@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import HeroSection from '@/components/HeroSection';
 import EventDetails from '@/components/EventDetails';
 import DaySchedule from '@/components/DaySchedule';
@@ -72,13 +72,18 @@ export default function WeddingRSVP({ content, lang, anchor }: WeddingRSVPProps)
     window.open(content.formUrl, '_blank', 'noopener,noreferrer');
   };
 
+  // Keep the section in the URL so it can be shared. Only scroll when the
+  // anchor itself changes — switching language on the same section stays put.
+  const lastScrolledAnchor = useRef<string | undefined>(undefined);
   useEffect(() => {
-    if (!anchor || !anchorIds[anchor]) return;
+    if (!anchor || !anchorIds[anchor]) {
+      lastScrolledAnchor.current = undefined;
+      return;
+    }
+    if (anchor === lastScrolledAnchor.current) return;
     const timer = setTimeout(() => {
       document.getElementById(anchorIds[anchor])?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Drop the anchor from the URL once used, so refreshes and language
-      // switches don't jump back to this section.
-      window.history.replaceState(null, '', `/${lang}`);
+      lastScrolledAnchor.current = anchor;
     }, 150);
     return () => clearTimeout(timer);
   }, [anchor]);
