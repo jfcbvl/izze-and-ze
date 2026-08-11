@@ -378,7 +378,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
             </div>
             <div className="flex flex-col items-center gap-4">
               <a
-                href={paymentConfig.venmo.url}
+                href={`https://venmo.com/${paymentConfig.venmo.username.replace('@', '')}?txn=pay&amount=${amountValid ? amountNumber : ''}&note=${encodeURIComponent('Wedding gift')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={primaryBtn}
