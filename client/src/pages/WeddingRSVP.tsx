@@ -75,6 +75,9 @@ export default function WeddingRSVP({ content, lang, anchor }: WeddingRSVPProps)
     if (!anchor || !anchorIds[anchor]) return;
     const timer = setTimeout(() => {
       document.getElementById(anchorIds[anchor])?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Drop the anchor from the URL once used, so refreshes and language
+      // switches don't jump back to this section.
+      window.history.replaceState(null, '', `/${lang}`);
     }, 150);
     return () => clearTimeout(timer);
   }, [anchor]);
