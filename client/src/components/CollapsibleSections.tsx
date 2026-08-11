@@ -7,9 +7,10 @@ interface SubSection {
 }
 
 interface TipDetail {
-  label: string;
-  value: string;
-  href?: string;
+  label?: string;
+  value?: string;
+  link?: { href: string; label: string };
+  isHeading?: boolean;
 }
 
 interface Tip {
@@ -108,23 +109,46 @@ function TipBox({ tip }: { tip: Tip }) {
       <p className="font-sans text-muted-foreground leading-relaxed">{tip.content}</p>
       {tip.details && tip.details.length > 0 && (
         <div className="space-y-1 pt-1">
-          {tip.details.map((d, i) => (
-            <p key={i} className="font-sans text-muted-foreground leading-relaxed">
-              <span className="font-medium text-foreground">{d.label}:</span>{' '}
-              {d.href ? (
-                <a
-                  href={d.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline underline-offset-4 hover:text-foreground transition-colors"
-                >
-                  {d.value}
-                </a>
-              ) : (
-                d.value
-              )}
-            </p>
-          ))}
+          {tip.details.map((d, i) => {
+            if (d.isHeading) {
+              return (
+                <p key={i} className="font-sans font-semibold text-foreground leading-relaxed pt-2">
+                  {d.label}
+                  {d.link && (
+                    <a
+                      href={d.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="ml-2 font-normal text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
+                    >
+                      {d.link.label}
+                    </a>
+                  )}
+                </p>
+              );
+            }
+            return (
+              <div key={i}>
+                {d.label && d.value && (
+                  <p className="font-sans text-muted-foreground leading-relaxed">
+                    <span className="font-medium text-foreground">{d.label}:</span>{' '}{d.value}
+                  </p>
+                )}
+                {d.link && (
+                  <p className="font-sans text-muted-foreground leading-relaxed pl-3">
+                    <a
+                      href={d.link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-4 hover:text-foreground transition-colors"
+                    >
+                      {d.link.label}
+                    </a>
+                  </p>
+                )}
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
