@@ -24,6 +24,7 @@ interface Tip {
   content: string;
   groups?: TipGroup[];
   note?: { title: string; content: string };
+  arrival?: { title: string; content: string };
 }
 
 interface DresscodeCard {
@@ -171,6 +172,14 @@ function TipBox({ tip }: { tip: Tip }) {
             {tip.note.title}
           </h5>
           <p className="font-sans text-muted-foreground leading-relaxed">{tip.note.content}</p>
+        </div>
+      )}
+      {tip.arrival && (
+        <div className="pt-2 space-y-1">
+          <h5 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest">
+            {tip.arrival.title}
+          </h5>
+          <p className="font-sans text-muted-foreground leading-relaxed">{tip.arrival.content}</p>
         </div>
       )}
     </div>

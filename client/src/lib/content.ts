@@ -79,6 +79,10 @@ export const content = {
             title: 'Car Rental',
             content: 'This would be our third choice. We only recommend renting a car if you\'re planning to explore more of the country going beyond Lisbon, Évora and Porto. Only when visiting other places like Nazaré, Coimbra, all the Algarve beach towns or south of Spain does a car become the best option.',
           },
+          arrival: {
+            title: 'Arriving in Évora',
+            content: 'If you\'re arriving at the train station or bus terminal, we recommend taking a taxi or an Uber (there usually aren\'t many Ubers available), as the stations are outside the city walls. Once inside the city walls, you can do everything on foot.',
+          },
           groups: [
             {
               name: 'Train',
@@ -232,6 +236,10 @@ export const content = {
             title: 'Aluguer de Carro',
             content: 'Seria a nossa terceira escolha. Só recomendamos alugar carro se planearem explorar mais do país, para além de Lisboa, Évora e Porto. Só quando visitarem outros lugares como a Nazaré, Coimbra, as praias do Algarve ou o sul de Espanha é que o carro se torna a melhor opção.',
           },
+          arrival: {
+            title: 'Chegar a Évora',
+            content: 'Se chegarem à estação de comboios ou ao terminal de autocarros, recomendamos que apanhem um táxi ou um Uber (normalmente não há muitos Ubers disponíveis), pois as estações ficam fora das muralhas da cidade. Uma vez dentro das muralhas, podem fazer tudo a pé.',
+          },
           groups: [
             {
               name: 'Comboio',
@@ -384,6 +392,10 @@ export const content = {
           note: {
             title: 'Renta de Auto',
             content: 'Esta sería nuestra tercera opción. Solo recomendamos rentar un carro si planean explorar más del país, más allá de Lisboa, Évora y Oporto. Solo al visitar otros lugares como Nazaré, Coimbra, las playas del Algarve o el sur de España el carro se vuelve la mejor opción.',
+          },
+          arrival: {
+            title: 'Llegar a Évora',
+            content: 'Si llegan a la estación de tren o a la terminal de autobuses, les recomendamos tomar un taxi o un Uber (normalmente no hay muchos Ubers disponibles), ya que las estaciones están fuera de las murallas de la ciudad. Una vez dentro de las murallas, pueden hacer todo caminando.',
           },
           groups: [
             {
