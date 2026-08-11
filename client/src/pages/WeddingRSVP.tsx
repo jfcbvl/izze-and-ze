@@ -9,6 +9,8 @@ import videoSrcMobile from '@assets/Fiesta_-_Vertical_1766433192320.mp4';
 import evoraPhoto from '@assets/evora-photo.png';
 import explorePortugalPhoto from '@assets/explore-portugal.jpg';
 import venuePhoto from '@assets/venue-photo.png';
+import cocktailDresscode from '@assets/Cocktail_Dresscode_1786424638448.png';
+import weddingDresscode from '@assets/Wedding_Dresscode_1786424638450.png';
 
 interface Event {
   time: string;
@@ -116,6 +118,13 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
             imageOrientation: 'horizontal' as const,
             address: 'Rua da Mouraria 26, Évora, Portugal',
             addressMapUrl: 'https://www.google.com/maps/search/?api=1&query=Rua+da+Mouraria+26+Évora+Portugal',
+            dresscode: section.dresscode ? {
+              ...section.dresscode,
+              cards: section.dresscode.cards.map(c => ({
+                ...c,
+                image: c.image === '__COCKTAIL__' ? cocktailDresscode : c.image === '__WEDDING__' ? weddingDresscode : c.image,
+              })),
+            } : undefined,
           };
           return section;
         })}

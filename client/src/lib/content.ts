@@ -75,10 +75,6 @@ export const content = {
           eyebrow: 'Travel Tips',
           title: 'Train and bus from Lisbon',
           content: 'There are two main stations for both: Oriente and Sete Rios. If you\'re going to Sete Rios by metro, the stop is called Jardim Zoológico.',
-          note: {
-            title: 'Car Rental',
-            content: 'This would be our third choice. We only recommend renting a car if you\'re planning to explore more of the country going beyond Lisbon, Évora and Porto. Only when visiting other places like Nazaré, Coimbra, all the Algarve beach towns or south of Spain does a car become the best option.',
-          },
           groups: [
             {
               name: 'Train',
@@ -123,7 +119,7 @@ export const content = {
         ],
       },
       {
-        title: 'About the Venue',
+        title: 'Venue and Dresscode',
         preview: "Zé's childhood home in the heart of Évora — a place filled with family memories.",
         subsections: [
           {
@@ -131,6 +127,23 @@ export const content = {
             content: "Our wedding will be held at Zé's childhood home, a place filled with family memories and where many of his favorite moments growing up took place. We're excited to welcome you to a setting we've spent countless memories together with both our families over the years.",
           },
         ],
+        dresscode: {
+          title: 'Dresscode',
+          cards: [
+            {
+              title: 'Day 1: Cocktail Reception',
+              content: 'Wear your favorite summer cocktail colorful dresses and shirts to celebrate with us in stylish comfort.',
+              image: '__COCKTAIL__',
+              imagePosition: 'left',
+            },
+            {
+              title: 'Day 2: Wedding Reception',
+              content: 'Think suits, a great tie, and elegant dresses — a step up from the night before. Come dressed for the best night of the year.',
+              image: '__WEDDING__',
+              imagePosition: 'right',
+            },
+          ],
+        },
       },
     ],
     formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagDfEkcD13OzncWs/form',

@@ -26,6 +26,13 @@ interface Tip {
   note?: { title: string; content: string };
 }
 
+interface DresscodeCard {
+  title: string;
+  content: string;
+  image: string;
+  imagePosition: 'left' | 'right';
+}
+
 export interface CollapsibleSection {
   title: string;
   preview: string;
@@ -35,6 +42,10 @@ export interface CollapsibleSection {
   address?: string;
   addressMapUrl?: string;
   tip?: Tip;
+  dresscode?: {
+    title: string;
+    cards: DresscodeCard[];
+  };
 }
 
 interface CollapsibleSectionsProps {
@@ -159,6 +170,38 @@ function TipBox({ tip }: { tip: Tip }) {
   );
 }
 
+function DresscodeBlock({ dresscode }: { dresscode: NonNullable<CollapsibleSection['dresscode']> }) {
+  return (
+    <div className="border-t border-black/10 pt-6 space-y-4">
+      <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest">
+        {dresscode.title}
+      </h4>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {dresscode.cards.map((card, i) => (
+          <div
+            key={i}
+            className={`flex gap-4 items-start ${card.imagePosition === 'right' ? 'flex-row-reverse' : 'flex-row'}`}
+          >
+            <img
+              src={card.image}
+              alt=""
+              className="w-24 md:w-28 flex-shrink-0 object-contain object-bottom self-end"
+            />
+            <div className="flex-1 pt-1 space-y-2">
+              <h5 className="font-sans font-semibold text-foreground text-sm leading-snug">
+                {card.title}
+              </h5>
+              <p className="font-sans text-sm text-muted-foreground leading-relaxed">
+                {card.content}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isLast: boolean }) {
   const [open, setOpen] = useState(false);
 
@@ -241,6 +284,7 @@ function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isL
               <AddressRow address={section.address} mapUrl={section.addressMapUrl} />
             )}
             {section.tip && <TipBox tip={section.tip} />}
+            {section.dresscode && <DresscodeBlock dresscode={section.dresscode} />}
           </div>
         </div>
       </div>
