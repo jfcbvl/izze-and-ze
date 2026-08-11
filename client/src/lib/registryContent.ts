@@ -23,7 +23,8 @@ export const paymentConfig = {
     accountHolder: 'Jose Lopes',
     iban: 'PT50 3560 0001 9001 5451 5340 8',
     bicSwift: 'REVOPTP2',
-    bankName: 'Revolut Bank UAB - Sucursal em Portugal, Fábrica 390, Rua Heróis de França, nos. 415 and 417, 4450-155, Matosinhos, Portugal',
+    bankName: 'Revolut Bank UAB - Sucursal em Portugal',
+    bankAddress: 'Fábrica 390, Rua Heróis de França, nos. 415 and 417, 4450-155, Matosinhos, Portugal',
     correspondentBic: 'CHASDEFX',
   },
   bankIntl: {

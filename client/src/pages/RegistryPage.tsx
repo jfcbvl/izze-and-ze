@@ -249,7 +249,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
       <LanguageSwitcher />
 
       {/* Breadcrumb — snug under the header */}
-      <div className="max-w-2xl mx-auto w-full px-6 pt-16 md:pt-20">
+      <div className="max-w-2xl mx-auto w-full px-6 pt-10 md:pt-12">
         <Breadcrumb />
       </div>
 
@@ -308,11 +308,10 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Payment method */}
         {step === 'payment' && (
           <div data-testid="registry-payment">
-            <div className="text-center mb-10">
-              <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-3">
+            <div className="text-center mb-8">
+              <h1 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-0">
                 {t.paymentTitle.replace('{amount}', formattedAmount ?? '')}
               </h1>
-              <p className="font-sans text-muted-foreground">{t.paymentSubtitle}</p>
             </div>
             <div className="space-y-3 max-w-md mx-auto">
               {[
@@ -343,9 +342,8 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {/* ------------------------------------------------ Bank location */}
         {step === 'bank' && (
           <div data-testid="registry-bank">
-            <div className="text-center mb-10">
-              <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-3">{t.bankWhereTitle.replace('{amount}', formattedAmount ?? '')}</h1>
-              <p className="font-sans text-muted-foreground">{t.bankWhereSubtitle}</p>
+            <div className="text-center mb-8">
+              <h1 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-0">{t.bankWhereTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             </div>
             <div className="space-y-3 max-w-md mx-auto">
               {[
@@ -454,13 +452,14 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
 
         {step === 'bank-pt' && (
           <div data-testid="registry-bank-pt" className="text-center">
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankPTTitle.replace('{amount}', formattedAmount ?? '')}</h1>
-            <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
-            <div className="space-y-3 max-w-md mx-auto">
+            <h1 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-1">{t.bankPTTitle.replace('{amount}', formattedAmount ?? '')}</h1>
+            <p className="font-sans text-sm text-muted-foreground mb-4">{t.detailThanks}</p>
+            <div className="space-y-2 max-w-md mx-auto">
               <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankPT.accountHolder} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldIban} value={paymentConfig.bankPT.iban} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldBicSwift} value={paymentConfig.bankPT.bicSwift} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldBankName} value={paymentConfig.bankPT.bankName} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldBankAddress} value={paymentConfig.bankPT.bankAddress} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldCorrespondentBic} value={paymentConfig.bankPT.correspondentBic} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
             <BackStep />
@@ -469,7 +468,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
 
         {step === 'bank-intl' && (
           <div data-testid="registry-bank-intl" className="text-center">
-            <h1 className="font-serif text-2xl md:text-4xl font-medium text-foreground mb-1">{t.bankIntlTitle.replace('{amount}', formattedAmount ?? '')}</h1>
+            <h1 className="font-serif text-xl md:text-2xl font-medium text-foreground mb-1">{t.bankIntlTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-4">{t.detailThanks}</p>
             <div className="space-y-2 max-w-md mx-auto">
               <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankIntl.accountHolder} copyLabel={t.copyLabel} copiedLabel={t.copied} />
