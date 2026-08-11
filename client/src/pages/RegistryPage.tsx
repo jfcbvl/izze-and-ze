@@ -464,9 +464,9 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
 
         {step === 'bank-intl' && (
           <div data-testid="registry-bank-intl" className="text-center">
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankIntlTitle.replace('{amount}', formattedAmount ?? '')}</h1>
-            <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
-            <div className="space-y-3 max-w-md mx-auto">
+            <h1 className="font-serif text-2xl md:text-4xl font-medium text-foreground mb-1">{t.bankIntlTitle.replace('{amount}', formattedAmount ?? '')}</h1>
+            <p className="font-sans text-sm text-muted-foreground mb-4">{t.detailThanks}</p>
+            <div className="space-y-2 max-w-md mx-auto">
               <DetailRow label={t.fieldAccountHolder} value={paymentConfig.bankIntl.accountHolder} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldIban} value={paymentConfig.bankIntl.iban} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldBicSwift} value={paymentConfig.bankIntl.swift} copyLabel={t.copyLabel} copiedLabel={t.copied} />
@@ -474,9 +474,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <DetailRow label={t.fieldBankAddress} value={paymentConfig.bankIntl.bankAddress} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldCorrespondentBic} value={paymentConfig.bankIntl.correspondentBic} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
-            <div className="pb-24 md:pb-0">
-              <BackStep />
-            </div>
+            <BackStep />
           </div>
         )}
 
