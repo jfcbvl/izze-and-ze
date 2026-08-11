@@ -75,6 +75,10 @@ export const content = {
           eyebrow: 'Travel Tips',
           title: 'Train and bus from Lisbon',
           content: 'There are two main stations for both: Oriente and Sete Rios. If you\'re going to Sete Rios by metro, the stop is called Jardim Zoológico.',
+          note: {
+            title: 'Car Rental',
+            content: 'This would be our third choice. We only recommend renting a car if you\'re planning to explore more of the country going beyond Lisbon, Évora and Porto. Only when visiting other places like Nazaré, Coimbra, all the Algarve beach towns or south of Spain does a car become the best option.',
+          },
           groups: [
             {
               name: 'Train',

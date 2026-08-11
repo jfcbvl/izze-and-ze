@@ -62,7 +62,6 @@ export interface RegistryStrings {
   breadcrumbBankTransfer: string;
 
   homeTitle: string;
-  homeSubtitle: string;
   bookEyebrow: string;
   bookTitle: string;
   bookSubtitle: string;
@@ -80,6 +79,8 @@ export interface RegistryStrings {
   giftOptions: GiftOption[];
 
   amountLeadIn: string;
+  amountTitle: string;
+  currencySymbol: string;
   amountLabel: string;
   amountHint: string;
   continueCta: string;
@@ -150,7 +151,6 @@ const en: RegistryStrings = {
   breadcrumbBankTransfer: 'Bank Transfer',
 
   homeTitle: 'Our Registry',
-  homeSubtitle: "We decided a physical registry wouldn't be practical — for us or for you.",
   bookEyebrow: 'First things first',
   bookTitle: 'Bring us a book',
   bookSubtitle: 'or a vinyl',
@@ -175,8 +175,10 @@ const en: RegistryStrings = {
   ],
 
   amountLeadIn: "You're chipping in toward",
+  amountTitle: 'Give a gift',
+  currencySymbol: '$',
   amountLabel: 'Enter your contribution',
-  amountHint: 'Enter the amount you would like to gift us',
+  amountHint: 'Any amount in USD',
   continueCta: 'Continue',
 
   paymentTitle: 'How would you like to send {amount}?',
@@ -245,16 +247,15 @@ const pt: RegistryStrings = {
   breadcrumbBankTransfer: 'Transferência',
 
   homeTitle: 'A Nossa Lista',
-  homeSubtitle: 'Decidimos que uma lista física não seria prática — para nós nem para vocês.',
   bookEyebrow: 'Primeiro que tudo',
   bookTitle: 'Tragam-nos um livro',
   bookSubtitle: 'ou um vinil',
   bookCopy1:
     'Tragam um livro para a Izzy ou para o Zé — algo que adoram, ou algo que acham que pertence à nossa estante.',
-  bookCopy2: 'Um dia, serão a nossa biblioteca — com um bocadinho de todos vocês.',
+  bookCopy2: 'Um dia, constituirão a nossa biblioteca — com um bocadinho de todos vocês.',
   presenceTitle: 'A vossa presença é mesmo o presente.',
   presenceCopy1:
-    'Todas as listas dizem isto. Mas alguns de vocês vão atravessar um oceano até Évora — desta vez é mesmo a sério.',
+    'Todas as listas dizem isto. Mas alguns de vocês vão atravessar continentes até Évora — desta vez é mesmo a sério.',
   presenceCopy2: 'Se mesmo assim quiserem dar algo mais, ficaríamos imensamente gratos.',
   giftCta: 'Também quero dar um presente',
   dividerAnd: 'e',
@@ -270,6 +271,8 @@ const pt: RegistryStrings = {
   ],
 
   amountLeadIn: 'Estão a contribuir para',
+  amountTitle: 'Dar um presente',
+  currencySymbol: '€',
   amountLabel: 'Insiram a vossa contribuição',
   amountHint: 'Qualquer valor em EUR',
   continueCta: 'Continuar',
@@ -340,7 +343,6 @@ const mx: RegistryStrings = {
   breadcrumbBankTransfer: 'Transferencia',
 
   homeTitle: 'Nuestra Mesa de Regalos',
-  homeSubtitle: 'Decidimos que una lista física no sería práctica — ni para nosotros ni para ustedes.',
   bookEyebrow: 'Lo primero es lo primero',
   bookTitle: 'Tráigannos un libro',
   bookSubtitle: 'o un vinilo',
@@ -365,8 +367,10 @@ const mx: RegistryStrings = {
   ],
 
   amountLeadIn: 'Están contribuyendo para',
+  amountTitle: 'Dar un regalo',
+  currencySymbol: '$',
   amountLabel: 'Ingresen su contribución',
-  amountHint: 'Cualquier monto en EUR',
+  amountHint: 'Cualquier monto en USD',
   continueCta: 'Continuar',
 
   paymentTitle: '¿Cómo prefieren enviar {amount}?',

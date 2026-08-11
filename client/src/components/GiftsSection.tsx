@@ -22,7 +22,6 @@ export default function GiftsSection({ lang }: GiftsSectionProps) {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-8 md:mb-10">
           <h2 className="font-serif text-3xl md:text-5xl font-medium text-foreground mb-1 md:mb-3">{t.homeTitle}</h2>
-          <p className="font-sans text-sm md:text-base text-muted-foreground mt-1 md:mt-0">{t.homeSubtitle}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-8 items-stretch">

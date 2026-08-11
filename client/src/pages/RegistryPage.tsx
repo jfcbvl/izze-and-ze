@@ -4,21 +4,9 @@ import { Copy, Check, Landmark } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Header from '@/components/Header';
-import { registryContent, paymentConfig, GiftOption } from '@/lib/registryContent';
-import seattleImg from '@assets/Seattle_1786342608299_cropped.png';
-import portugalImg from '@assets/Portugal_1786342608299_cropped.png';
-import mexicoImg from '@assets/Mexico_1786342608296_cropped.png';
-import newyorkImg from '@assets/New_York_1786342608298_cropped.png';
-
-const giftImages: Record<GiftOption['id'], string> = {
-  seattle: seattleImg,
-  portugal: portugalImg,
-  mexico: mexicoImg,
-  newyork: newyorkImg,
-};
+import { registryContent, paymentConfig } from '@/lib/registryContent';
 
 type Step =
-  | 'gift'
   | 'amount'
   | 'payment'
   | 'venmo'
@@ -108,8 +96,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   const t = registryContent[lang] ?? registryContent.en;
 
   const [, navigate] = useLocation();
-  const [step, setStepRaw] = useState<Step>('gift');
-  const [giftVote, setGiftVote] = useState<GiftOption | null>(null);
+  const [step, setStepRaw] = useState<Step>('amount');
   const [amount, setAmount] = useState('');
 
   // Advance to a new step, pushing a history entry so the browser Back
@@ -122,7 +109,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   useEffect(() => {
     const onPop = (e: PopStateEvent) => {
       const s = e.state?.registryStep as Step | undefined;
-      setStepRaw(s ?? 'gift');
+      setStepRaw(s ?? 'amount');
     };
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
@@ -142,7 +129,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   const amountNumber = parseFloat(amount);
   const amountValid = !isNaN(amountNumber) && amountNumber > 0;
   const formattedAmount = amountValid
-    ? `€${amountNumber % 1 === 0 ? amountNumber.toFixed(0) : amountNumber.toFixed(2)}`
+    ? `${t.currencySymbol}${amountNumber % 1 === 0 ? amountNumber.toFixed(0) : amountNumber.toFixed(2)}`
     : '';
 
   const resetAll = () => {
@@ -152,17 +139,16 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   // Depth of each step in the linear flow; breadcrumb jumps traverse history
   // backwards so the browser Back/Forward stack stays coherent.
   const stepDepth: Record<Step, number> = {
-    gift: 0,
-    amount: 1,
-    payment: 2,
-    bank: 3,
-    venmo: 3,
-    mbway: 3,
-    revolut: 3,
-    'bank-us': 4,
-    'bank-pt': 4,
-    'bank-intl': 4,
-    thanks: 5,
+    amount: 0,
+    payment: 1,
+    bank: 2,
+    venmo: 2,
+    mbway: 2,
+    revolut: 2,
+    'bank-us': 3,
+    'bank-pt': 3,
+    'bank-intl': 3,
+    thanks: 4,
   };
 
   const jumpBackTo = (target: Step) => {
@@ -179,8 +165,6 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
     const items: { label: string; target: Step | null; home?: boolean }[] = [];
     items.push({ label: t.breadcrumbRegistry, target: null, home: true });
     if (step === 'thanks') return items;
-    items.push({ label: t.breadcrumbGift, target: step !== 'gift' ? 'gift' : null });
-    if (step === 'gift') return items;
     items.push({ label: t.breadcrumbAmount, target: step !== 'amount' ? 'amount' : null });
     if (step === 'amount') return items;
     items.push({ label: t.breadcrumbPayment, target: step !== 'payment' ? 'payment' : null });
@@ -200,9 +184,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
   const Breadcrumb = () =>
     breadcrumb.length === 0 ? null : (
       <nav
-        className={`font-sans text-[11px] md:text-xs uppercase tracking-wider text-muted-foreground ${
-          step === 'gift' ? 'mb-3' : 'mb-10'
-        } flex flex-wrap items-center justify-center gap-1.5`}
+        className="font-sans text-[11px] md:text-xs uppercase tracking-wider text-muted-foreground mb-10 flex flex-wrap items-center justify-center gap-1.5"
         data-testid="registry-breadcrumb"
       >
         {breadcrumb.map((item, i) => (
@@ -223,19 +205,6 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         ))}
       </nav>
     );
-
-  // Persistent contribution summary — "Our Honeymoon / €250" as in the wireframe
-  const GiftSummary = () =>
-    giftVote ? (
-      <div className="text-center mb-10" data-testid="vote-summary">
-        <div className="text-xl mb-1.5">{giftVote.emoji}</div>
-        <div className="font-serif text-lg md:text-xl text-foreground">{giftVote.title}</div>
-        {formattedAmount && step !== 'amount' && (
-          <div className="font-sans text-sm text-muted-foreground mt-0.5">{formattedAmount}</div>
-        )}
-        <div className="w-10 h-px bg-black/15 mx-auto mt-4" />
-      </div>
-    ) : null;
 
   const BackStep = ({ className = 'pt-8' }: { className?: string } = {}) => (
     <div className={`text-center ${className}`}>
@@ -281,51 +250,14 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
       <div
         ref={stepContainerRef}
         tabIndex={-1}
-        className={`${
-          step === 'gift' ? 'max-w-3xl' : 'max-w-2xl'
-        } mx-auto px-6 ${
-          step === 'gift' ? 'pt-20 md:pt-20 pb-4' : 'pt-28 md:pt-32 pb-24 md:pb-16'
-        } focus:outline-none`}
+        className="max-w-2xl mx-auto px-6 pt-28 md:pt-32 pb-24 md:pb-16 focus:outline-none"
       >
         <Breadcrumb />
 
-        {/* ------------------------------------------------ Gift selection */}
-        {step === 'gift' && (
-          <div data-testid="registry-gift">
-            <div className="text-center mb-5 md:mb-6">
-              <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-2">{t.giftTitle}</h1>
-              <p className="font-sans text-muted-foreground">{t.giftSubtitle}</p>
-            </div>
-
-            <div className="grid min-h-[calc(100dvh-15rem)] min-w-0 w-full max-w-md place-content-center grid-cols-2 grid-rows-2 gap-x-3 gap-y-0 overflow-hidden md:min-h-0 md:h-auto md:max-w-none md:gap-3">
-              {t.giftOptions.map((option) => (
-                <button
-                  key={option.id}
-                  onClick={() => {
-                    if (giftVote?.id !== option.id) setAmount('');
-                    setGiftVote(option);
-                    setStep('amount');
-                  }}
-                  className={`${cardClass} aspect-[1.4] min-h-0 overflow-hidden px-1.5 py-0 hover-elevate active-elevate-2 transition-all md:aspect-auto md:p-2`}
-                  data-testid={`gift-option-${option.id}`}
-                >
-                  <img
-                    src={giftImages[option.id]}
-                    alt={`${option.title} — ${option.tagline}`}
-                    className="block h-full min-h-0 w-full rounded-lg object-contain object-center md:h-[190px]"
-                  />
-                </button>
-              ))}
-            </div>
-            <BackStep className="pt-3 md:pt-6" />
-          </div>
-        )}
-
         {/* ------------------------------------------------ Amount */}
-        {step === 'amount' && giftVote && (
+        {step === 'amount' && (
           <div data-testid="registry-amount" className="text-center">
-            <p className="font-sans text-sm text-muted-foreground mb-3">{t.amountLeadIn}</p>
-            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-2">{giftVote.title}</h1>
+            <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-2">{t.amountTitle}</h1>
             <div className="w-10 h-px bg-black/15 mx-auto mb-10" />
 
             <label
@@ -335,7 +267,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               {t.amountLabel}
             </label>
             <div className="flex items-center gap-2 max-w-xs mx-auto border border-black/15 rounded-lg bg-white/70 px-5 py-3 mb-3">
-              <span className="font-serif text-2xl text-muted-foreground">€</span>
+              <span className="font-serif text-2xl text-muted-foreground">{t.currencySymbol}</span>
               <input
                 id="registry-amount-input"
                 type="text"
@@ -368,7 +300,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         )}
 
         {/* ------------------------------------------------ Payment method */}
-        {step === 'payment' && giftVote && (
+        {step === 'payment' && (
           <div data-testid="registry-payment">
             <div className="text-center mb-10">
               <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-3">
@@ -403,7 +335,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         )}
 
         {/* ------------------------------------------------ Bank location */}
-        {step === 'bank' && giftVote && (
+        {step === 'bank' && (
           <div data-testid="registry-bank">
             <div className="text-center mb-10">
               <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-3">{t.bankWhereTitle.replace('{amount}', formattedAmount ?? '')}</h1>
@@ -435,7 +367,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         )}
 
         {/* ------------------------------------------------ Venmo */}
-        {step === 'venmo' && giftVote && (
+        {step === 'venmo' && (
           <div data-testid="registry-venmo" className="text-center">
             <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.venmoTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
@@ -461,7 +393,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         )}
 
         {/* ------------------------------------------------ MB WAY */}
-        {step === 'mbway' && giftVote && (
+        {step === 'mbway' && (
           <div data-testid="registry-mbway" className="text-center">
             <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.mbwayTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
@@ -474,7 +406,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         )}
 
         {/* ------------------------------------------------ Revolut */}
-        {step === 'revolut' && giftVote && (
+        {step === 'revolut' && (
           <div data-testid="registry-revolut" className="text-center">
             <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.revolutTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
@@ -500,7 +432,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         )}
 
         {/* ------------------------------------------------ Bank details */}
-        {step === 'bank-us' && giftVote && (
+        {step === 'bank-us' && (
           <div data-testid="registry-bank-us" className="text-center">
             <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankUSTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
@@ -514,7 +446,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
           </div>
         )}
 
-        {step === 'bank-pt' && giftVote && (
+        {step === 'bank-pt' && (
           <div data-testid="registry-bank-pt" className="text-center">
             <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankPTTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
@@ -528,7 +460,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
           </div>
         )}
 
-        {step === 'bank-intl' && giftVote && (
+        {step === 'bank-intl' && (
           <div data-testid="registry-bank-intl" className="text-center">
             <h1 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-1">{t.bankIntlTitle.replace('{amount}', formattedAmount ?? '')}</h1>
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
