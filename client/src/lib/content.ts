@@ -74,7 +74,7 @@ export const content = {
         tip: {
           eyebrow: 'Travel Tips',
           title: 'Train and bus from Lisbon',
-          content: 'There are two main stations for both: Oriente and Sete Rios. If you\'re going to Sete Rios by metro, the stop is called Jardim Zoológico.',
+          content: 'There are two main stations for both: Oriente and Sete Rios. If you\'re going to Sete Rios by metro, the stop is called Jardim Zoológico. The train always leaves from Oriente and stops at Sete Rios. The bus leaves either from one or the other, or from the airport.',
           note: {
             title: 'Car Rental',
             content: 'This would be our third choice. We only recommend renting a car if you\'re planning to explore more of the country going beyond Lisbon, Évora and Porto. Only when visiting other places like Nazaré, Coimbra, all the Algarve beach towns or south of Spain does a car become the best option.',
@@ -227,7 +227,7 @@ export const content = {
         tip: {
           eyebrow: 'Dicas de Viagem',
           title: 'Comboio e autocarro desde Lisboa',
-          content: 'Há duas estações principais para ambos: Oriente e Sete Rios. Se forem para Sete Rios de metro, a paragem chama-se Jardim Zoológico.',
+          content: 'Há duas estações principais para ambos: Oriente e Sete Rios. Se forem para Sete Rios de metro, a paragem chama-se Jardim Zoológico. O comboio sai sempre do Oriente e passa por Sete Rios. O autocarro ou sai de um ou do outro, ou também desde o aeroporto.',
           note: {
             title: 'Aluguer de Carro',
             content: 'Seria a nossa terceira escolha. Só recomendamos alugar carro se planearem explorar mais do país, para além de Lisboa, Évora e Porto. Só quando visitarem outros lugares como a Nazaré, Coimbra, as praias do Algarve ou o sul de Espanha é que o carro se torna a melhor opção.',
@@ -380,10 +380,10 @@ export const content = {
         tip: {
           eyebrow: 'Tips de Viaje',
           title: 'Tren y autobús desde Lisboa',
-          content: 'Hay dos estaciones principales para ambos: Oriente y Sete Rios. Si van a Sete Rios en metro, la parada se llama Jardim Zoológico.',
+          content: 'Hay dos estaciones principales para ambos: Oriente y Sete Rios. Si van a Sete Rios en metro, la parada se llama Jardim Zoológico.El tren siempre sale de Oriente y pasa por Siete Rios. El autobus sale desde una u otra, o inclusivé desde el aeropuerto',
           note: {
-            title: 'Renta de Coche',
-            content: 'Esta sería nuestra tercera opción. Solo recomendamos rentar un coche si planean explorar más del país, más allá de Lisboa, Évora y Oporto. Solo al visitar otros lugares como Nazaré, Coimbra, las playas del Algarve o el sur de España el coche se vuelve la mejor opción.',
+            title: 'Renta de Auto',
+            content: 'Esta sería nuestra tercera opción. Solo recomendamos rentar un carro si planean explorar más del país, más allá de Lisboa, Évora y Oporto. Solo al visitar otros lugares como Nazaré, Coimbra, las playas del Algarve o el sur de España el carro se vuelve la mejor opción.',
           },
           groups: [
             {
