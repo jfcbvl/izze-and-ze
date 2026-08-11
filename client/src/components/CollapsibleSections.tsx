@@ -6,18 +6,23 @@ interface SubSection {
   content: string;
 }
 
-interface TipDetail {
-  label?: string;
-  value?: string;
+interface TipRow {
+  label: string;
+  value: string;
+}
+
+interface TipGroup {
+  name: string;
+  badge?: string;
   link?: { href: string; label: string };
-  isHeading?: boolean;
+  rows: TipRow[];
 }
 
 interface Tip {
   eyebrow?: string;
   title: string;
   content: string;
-  details?: TipDetail[];
+  groups?: TipGroup[];
 }
 
 export interface CollapsibleSection {
@@ -97,7 +102,7 @@ function SubSectionList({ subsections }: { subsections: SubSection[] }) {
 
 function TipBox({ tip }: { tip: Tip }) {
   return (
-    <div className="border-t border-black/10 pt-6 space-y-3">
+    <div className="border-t border-black/10 pt-6 space-y-4">
       {tip.eyebrow && (
         <div className="font-sans text-xs uppercase tracking-widest text-muted-foreground">
           {tip.eyebrow}
@@ -107,48 +112,38 @@ function TipBox({ tip }: { tip: Tip }) {
         {tip.title}
       </h4>
       <p className="font-sans text-muted-foreground leading-relaxed">{tip.content}</p>
-      {tip.details && tip.details.length > 0 && (
-        <div className="space-y-1 pt-1">
-          {tip.details.map((d, i) => {
-            if (d.isHeading) {
-              return (
-                <p key={i} className="font-sans font-semibold text-foreground leading-relaxed pt-2">
-                  {d.label}
-                  {d.link && (
-                    <a
-                      href={d.link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="ml-2 font-normal text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
-                    >
-                      {d.link.label}
-                    </a>
-                  )}
-                </p>
-              );
-            }
-            return (
-              <div key={i}>
-                {d.label && d.value && (
-                  <p className="font-sans text-muted-foreground leading-relaxed">
-                    <span className="font-medium text-foreground">{d.label}:</span>{' '}{d.value}
-                  </p>
-                )}
-                {d.link && (
-                  <p className="font-sans text-muted-foreground leading-relaxed pl-3">
-                    <a
-                      href={d.link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline underline-offset-4 hover:text-foreground transition-colors"
-                    >
-                      {d.link.label}
-                    </a>
-                  </p>
+      {tip.groups && tip.groups.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+          {tip.groups.map((g, i) => (
+            <div key={i} className="border border-black/10 rounded-lg px-4 py-4 space-y-2">
+              <div className="flex items-center gap-2">
+                <span className="font-sans font-semibold text-foreground">{g.name}</span>
+                {g.badge && (
+                  <span className="font-sans text-[10px] uppercase tracking-widest text-muted-foreground border border-black/15 rounded px-1.5 py-0.5">
+                    {g.badge}
+                  </span>
                 )}
               </div>
-            );
-          })}
+              {g.link && (
+                <a
+                  href={g.link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block font-sans text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
+                >
+                  {g.link.label}
+                </a>
+              )}
+              <div className="space-y-1 pt-1">
+                {g.rows.map((r, j) => (
+                  <div key={j} className="flex justify-between gap-4 font-sans text-sm">
+                    <span className="text-muted-foreground">{r.label}</span>
+                    <span className="text-foreground font-medium text-right">{r.value}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </div>

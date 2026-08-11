@@ -75,14 +75,24 @@ export const content = {
           eyebrow: 'Tips',
           title: 'Train and bus from Lisbon',
           content: 'There are two main stations for both: Oriente and Sete Rios. If you\'re going to Sete Rios by metro, the stop is called Jardim Zoológico.',
-          details: [
-            { label: 'Preferred method', value: 'Train' },
-            { link: { href: 'https://cp.pt/en', label: 'Book via cp.pt/en' } },
-            { label: 'Duration', value: '1h25 min' },
-            { label: 'How often', value: '5x/day' },
-            { isHeading: true, label: 'Second choice: Bus', link: { href: 'https://rede-expressos.pt/en', label: 'Book via Rede Expressos' } },
-            { label: 'Duration', value: '1h35' },
-            { label: 'How often', value: '20+/day' },
+          groups: [
+            {
+              name: 'Train',
+              badge: 'Preferred',
+              link: { href: 'https://cp.pt/en', label: 'Book via cp.pt/en' },
+              rows: [
+                { label: 'Duration', value: '1h25 min' },
+                { label: 'How often', value: '5x / day' },
+              ],
+            },
+            {
+              name: 'Bus',
+              link: { href: 'https://rede-expressos.pt/en', label: 'Book via Rede Expressos' },
+              rows: [
+                { label: 'Duration', value: '1h35' },
+                { label: 'How often', value: '20+ / day' },
+              ],
+            },
           ],
         },
       },
