@@ -50,6 +50,11 @@ export interface RegistryStrings {
   tabGifts: string;
   comingSoon: string;
 
+  navProgram: string;
+  navTravel: string;
+  navVenue: string;
+  navGifts: string;
+
   breadcrumbRegistry: string;
   breadcrumbGift: string;
   breadcrumbAmount: string;
@@ -133,6 +138,11 @@ const en: RegistryStrings = {
   tabGifts: 'Gifts',
   comingSoon: 'Coming soon.',
 
+  navProgram: 'Program',
+  navTravel: 'Travel to Évora',
+  navVenue: 'Venue & Dresscode',
+  navGifts: 'Gifts',
+
   breadcrumbRegistry: 'Registry',
   breadcrumbGift: 'Gift',
   breadcrumbAmount: 'Amount',
@@ -140,6 +150,7 @@ const en: RegistryStrings = {
   breadcrumbBankTransfer: 'Bank Transfer',
 
   homeTitle: 'Our Registry',
+  homeSubtitle: "We decided a physical registry wouldn't be practical — for us or for you.",
   bookEyebrow: 'First things first',
   bookTitle: 'Bring us a book',
   bookSubtitle: 'or a vinyl',
@@ -221,6 +232,11 @@ const pt: RegistryStrings = {
   tabDressCode: 'Dress Code',
   tabGifts: 'Presentes',
   comingSoon: 'Brevemente.',
+
+  navProgram: 'Programa',
+  navTravel: 'Viagem para Évora',
+  navVenue: 'Local & Dresscode',
+  navGifts: 'Presentes',
 
   breadcrumbRegistry: 'Presentes',
   breadcrumbGift: 'Presente',
@@ -311,6 +327,11 @@ const mx: RegistryStrings = {
   tabDressCode: 'Código de Vestimenta',
   tabGifts: 'Regalos',
   comingSoon: 'Próximamente.',
+
+  navProgram: 'Programa',
+  navTravel: 'Viaje a Évora',
+  navVenue: 'Lugar & Dresscode',
+  navGifts: 'Regalos',
 
   breadcrumbRegistry: 'Regalos',
   breadcrumbGift: 'Regalo',

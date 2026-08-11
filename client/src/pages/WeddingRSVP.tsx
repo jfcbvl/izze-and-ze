@@ -1,9 +1,11 @@
+import { useEffect } from 'react';
 import HeroSection from '@/components/HeroSection';
 import EventDetails from '@/components/EventDetails';
 import DaySchedule from '@/components/DaySchedule';
 import CollapsibleSections, { CollapsibleSection } from '@/components/CollapsibleSections';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import SiteTabs from '@/components/SiteTabs';
+import Header from '@/components/Header';
+import GiftsSection from '@/components/GiftsSection';
 import videoSrc from '@assets/Fiesta_-_Horizontal_1766433192319.mp4';
 import videoSrcMobile from '@assets/Fiesta_-_Vertical_1766433192320.mp4';
 import evoraPhoto from '@assets/evora-photo.png';
@@ -54,16 +56,34 @@ interface WeddingContent {
 interface WeddingRSVPProps {
   content: WeddingContent;
   lang: string;
+  anchor?: string;
 }
 
-export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
+const anchorIds: Record<string, string> = {
+  program: 'program',
+  travel: 'travel',
+  'venue-dresscode': 'venue-dresscode',
+  gifts: 'gifts',
+};
+
+export default function WeddingRSVP({ content, lang, anchor }: WeddingRSVPProps) {
   const openForm = () => {
     window.open(content.formUrl, '_blank', 'noopener,noreferrer');
   };
 
+  useEffect(() => {
+    if (!anchor || !anchorIds[anchor]) return;
+    const timer = setTimeout(() => {
+      document.getElementById(anchorIds[anchor])?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [anchor]);
+
+  const openIndex = anchor === 'travel' ? 0 : anchor === 'venue-dresscode' ? 1 : null;
+
   return (
     <div className="min-h-screen bg-background">
-      <SiteTabs lang={lang} />
+      <Header lang={lang} />
       <LanguageSwitcher />
       
       <HeroSection
@@ -77,7 +97,7 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
         videoSrcMobile={videoSrcMobile}
       />
       
-      <div className="-mt-[20vh] md:mt-0 relative z-10">
+      <div id="program" className="-mt-[20vh] md:mt-0 relative z-10 scroll-mt-16">
         <EventDetails
           title={content.eventDetails.title}
           description={content.eventDetails.description}
@@ -109,10 +129,11 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
       />
       
       <CollapsibleSections
+        ids={['travel', 'venue-dresscode', undefined]}
+        openIndex={openIndex}
         sections={content.infoSections.map((section, i) => {
           if (i === 0) return { ...section, image: evoraPhoto, imageOrientation: 'vertical' as const };
-          if (i === 1) return { ...section, image: explorePortugalPhoto, imageOrientation: 'horizontal' as const };
-          if (i === 2) return {
+          if (i === 1) return {
             ...section,
             image: venuePhoto,
             imageOrientation: 'horizontal' as const,
@@ -126,9 +147,12 @@ export default function WeddingRSVP({ content, lang }: WeddingRSVPProps) {
               })),
             } : undefined,
           };
+          if (i === 2) return { ...section, image: explorePortugalPhoto, imageOrientation: 'horizontal' as const };
           return section;
         })}
       />
+
+      <GiftsSection lang={lang} />
       
       <div className="pb-20 md:pb-8 text-center">
         <button

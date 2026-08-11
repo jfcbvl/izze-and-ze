@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ChevronDown, MapPin, Copy, Check } from 'lucide-react';
 
 interface SubSection {
@@ -50,6 +50,10 @@ export interface CollapsibleSection {
 
 interface CollapsibleSectionsProps {
   sections: CollapsibleSection[];
+  /** Optional DOM ids for each card, used for anchor navigation */
+  ids?: (string | undefined)[];
+  /** Index of a card that should be forced open (e.g. from a URL anchor) */
+  openIndex?: number | null;
 }
 
 function AddressRow({ address, mapUrl }: { address: string; mapUrl: string }) {
@@ -202,12 +206,27 @@ function DresscodeBlock({ dresscode }: { dresscode: NonNullable<CollapsibleSecti
   );
 }
 
-function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isLast: boolean }) {
+function CollapsibleCard({
+  section,
+  isLast,
+  id,
+  forceOpen,
+}: {
+  section: CollapsibleSection;
+  isLast: boolean;
+  id?: string;
+  forceOpen?: boolean;
+}) {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (forceOpen) setOpen(true);
+  }, [forceOpen]);
 
   return (
     <div
-      className={`border border-black/15 ${isLast ? '' : 'border-b-0'} ${isLast ? 'rounded-b-md' : ''} first:rounded-t-md`}
+      id={id}
+      className={`border border-black/15 ${isLast ? '' : 'border-b-0'} ${isLast ? 'rounded-b-md' : ''} first:rounded-t-md scroll-mt-16`}
       data-testid={`card-collapsible-${section.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}
     >
       <button
@@ -292,7 +311,7 @@ function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isL
   );
 }
 
-export default function CollapsibleSections({ sections }: CollapsibleSectionsProps) {
+export default function CollapsibleSections({ sections, ids, openIndex }: CollapsibleSectionsProps) {
   return (
     <section className="py-16 px-6 bg-background" data-testid="section-collapsible">
       <div className="max-w-3xl mx-auto rounded-md overflow-hidden border border-black/15">
@@ -301,6 +320,8 @@ export default function CollapsibleSections({ sections }: CollapsibleSectionsPro
             key={i}
             section={section}
             isLast={i === sections.length - 1}
+            id={ids?.[i]}
+            forceOpen={openIndex === i}
           />
         ))}
       </div>

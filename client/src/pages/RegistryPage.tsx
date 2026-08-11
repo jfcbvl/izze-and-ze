@@ -1,15 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLocation } from 'wouter';
 import { Copy, Check, Landmark } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
-import SiteTabs from '@/components/SiteTabs';
+import Header from '@/components/Header';
 import { registryContent, paymentConfig, GiftOption } from '@/lib/registryContent';
 import seattleImg from '@assets/Seattle_1786342608299_cropped.png';
 import portugalImg from '@assets/Portugal_1786342608299_cropped.png';
 import mexicoImg from '@assets/Mexico_1786342608296_cropped.png';
 import newyorkImg from '@assets/New_York_1786342608298_cropped.png';
-import bookImg from '@assets/ChatGPT_Image_Aug_10,_2026,_07_20_40_PM_1786414973643.png';
-import bookMobileImg from '@assets/ChatGPT_Image_Aug_9,_2026,_11_53_12_PM_1786344828943.png';
 
 const giftImages: Record<GiftOption['id'], string> = {
   seattle: seattleImg,
@@ -19,7 +18,6 @@ const giftImages: Record<GiftOption['id'], string> = {
 };
 
 type Step =
-  | 'home'
   | 'gift'
   | 'amount'
   | 'payment'
@@ -109,9 +107,26 @@ function BrandMark({ kind }: { kind: 'venmo' | 'mbway' | 'revolut' | 'bank' }) {
 export default function RegistryPage({ lang }: RegistryPageProps) {
   const t = registryContent[lang] ?? registryContent.en;
 
-  const [step, setStep] = useState<Step>('home');
+  const [, navigate] = useLocation();
+  const [step, setStepRaw] = useState<Step>('gift');
   const [giftVote, setGiftVote] = useState<GiftOption | null>(null);
   const [amount, setAmount] = useState('');
+
+  // Advance to a new step, pushing a history entry so the browser Back
+  // button mirrors the on-page Back link.
+  const setStep = (s: Step) => {
+    window.history.pushState({ registryStep: s }, '');
+    setStepRaw(s);
+  };
+
+  useEffect(() => {
+    const onPop = (e: PopStateEvent) => {
+      const s = e.state?.registryStep as Step | undefined;
+      setStepRaw(s ?? 'gift');
+    };
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
 
   const stepContainerRef = useRef<HTMLDivElement>(null);
   const isFirstRender = useRef(true);
@@ -131,16 +146,38 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
     : '';
 
   const resetAll = () => {
-    setStep('home');
-    setGiftVote(null);
-    setAmount('');
+    navigate(`/${lang}/gifts`);
+  };
+
+  // Depth of each step in the linear flow; breadcrumb jumps traverse history
+  // backwards so the browser Back/Forward stack stays coherent.
+  const stepDepth: Record<Step, number> = {
+    gift: 0,
+    amount: 1,
+    payment: 2,
+    bank: 3,
+    venmo: 3,
+    mbway: 3,
+    revolut: 3,
+    'bank-us': 4,
+    'bank-pt': 4,
+    'bank-intl': 4,
+    thanks: 5,
+  };
+
+  const jumpBackTo = (target: Step) => {
+    const delta = stepDepth[target] - stepDepth[step];
+    if (delta < 0) {
+      window.history.go(delta);
+    } else {
+      setStep(target);
+    }
   };
 
   // ---- Breadcrumb -----------------------------------------------------------
   const breadcrumb = (() => {
-    const items: { label: string; target: Step | null }[] = [];
-    if (step === 'home') return items;
-    items.push({ label: t.breadcrumbRegistry, target: 'home' });
+    const items: { label: string; target: Step | null; home?: boolean }[] = [];
+    items.push({ label: t.breadcrumbRegistry, target: null, home: true });
     if (step === 'thanks') return items;
     items.push({ label: t.breadcrumbGift, target: step !== 'gift' ? 'gift' : null });
     if (step === 'gift') return items;
@@ -171,9 +208,9 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
         {breadcrumb.map((item, i) => (
           <span key={i} className="flex items-center gap-1.5">
             {i > 0 && <span className="text-black/25">›</span>}
-            {item.target ? (
+            {item.target || item.home ? (
               <button
-                onClick={() => setStep(item.target!)}
+                onClick={() => (item.home ? resetAll() : jumpBackTo(item.target!))}
                 className="hover:text-foreground underline-offset-4 hover:underline transition-colors uppercase tracking-wider"
                 data-testid={`breadcrumb-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
@@ -200,37 +237,17 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
       </div>
     ) : null;
 
-  const previousStep: Record<Step, Step | null> = {
-    home: null,
-    gift: 'home',
-    amount: 'gift',
-    payment: 'amount',
-    bank: 'payment',
-    venmo: 'payment',
-    mbway: 'payment',
-    revolut: 'payment',
-    'bank-us': 'bank',
-    'bank-pt': 'bank',
-    'bank-intl': 'bank',
-    thanks: 'home',
-  };
-
-  const BackStep = ({ className = 'pt-8' }: { className?: string } = {}) => {
-    const target = previousStep[step];
-    if (!target) return null;
-
-    return (
-      <div className={`text-center ${className}`}>
-        <button
-          onClick={() => setStep(target)}
-          className="font-sans text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
-          data-testid="button-back-step"
-        >
-          {t.back}
-        </button>
-      </div>
-    );
-  };
+  const BackStep = ({ className = 'pt-8' }: { className?: string } = {}) => (
+    <div className={`text-center ${className}`}>
+      <button
+        onClick={() => window.history.back()}
+        className="font-sans text-sm text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
+        data-testid="button-back-step"
+      >
+        {t.back}
+      </button>
+    </div>
+  );
 
   const BackToRegistry = () => (
     <div className="text-center pt-12">
@@ -258,97 +275,19 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
       }
       style={{ backgroundColor: CREAM }}
     >
-      <SiteTabs lang={lang} />
+      <Header lang={lang} />
       <LanguageSwitcher />
 
       <div
         ref={stepContainerRef}
         tabIndex={-1}
         className={`${
-          step === 'home' ? 'max-w-6xl' : step === 'gift' ? 'max-w-3xl' : 'max-w-2xl'
+          step === 'gift' ? 'max-w-3xl' : 'max-w-2xl'
         } mx-auto px-6 ${
-          step === 'gift' ? 'pt-20 md:pt-20 pb-4'
-          : step === 'home' ? 'pt-20 md:pt-32 pb-4 md:pb-16'
-          : 'pt-28 md:pt-32 pb-24 md:pb-16'
+          step === 'gift' ? 'pt-20 md:pt-20 pb-4' : 'pt-28 md:pt-32 pb-24 md:pb-16'
         } focus:outline-none`}
       >
         <Breadcrumb />
-
-        {/* ------------------------------------------------ Registry Home */}
-        {step === 'home' && (
-          <div data-testid="registry-home">
-            <div className="text-center mb-4 md:mb-10">
-              <h1 className="font-serif text-3xl md:text-5xl font-medium text-foreground mb-1 md:mb-3">{t.homeTitle}</h1>
-              <p className="font-sans text-sm md:text-base text-muted-foreground mt-1 md:mt-0">{t.homeSubtitle}</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-8 items-stretch">
-              {/* Book request */}
-              <div className={`${cardClass} overflow-hidden flex flex-row`}>
-                <div className="w-[38%] flex-shrink-0 flex items-center justify-center overflow-hidden bg-white/40">
-                  <img
-                    src={bookImg}
-                    alt=""
-                    className="w-full h-auto object-contain"
-                  />
-                </div>
-                <div className="px-4 py-4 md:px-7 md:py-8 flex flex-col justify-center text-left min-w-0">
-                  <div className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground mb-1 md:mb-2">
-                    {t.bookEyebrow}
-                  </div>
-                  <h2 className="font-serif text-lg md:text-3xl font-medium text-foreground mb-0.5 md:mb-1">{t.bookTitle}</h2>
-                  <div className="font-serif italic text-sm md:text-2xl font-medium text-foreground mb-2 md:mb-4">
-                    {t.bookSubtitle}
-                  </div>
-                  <p className="font-sans text-xs md:text-base text-muted-foreground leading-snug mb-1 md:mb-3">
-                    {t.bookCopy1}
-                  </p>
-                  <p className="font-sans text-xs md:text-base text-muted-foreground leading-snug">{t.bookCopy2}</p>
-                </div>
-              </div>
-
-              {/* Elegant and/or divider */}
-              <div className="hidden md:flex flex-col items-center justify-center gap-3" aria-hidden="true">
-                <div className="w-px flex-1 bg-black/15" />
-                <div className="font-serif italic text-lg text-muted-foreground leading-tight text-center">
-                  {t.dividerAnd}
-                  <span className="block text-black/30 text-sm not-italic">/</span>
-                  {t.dividerOr}
-                </div>
-                <div className="w-px flex-1 bg-black/15" />
-              </div>
-              <div className="md:hidden flex items-center gap-4" aria-hidden="true">
-                <div className="h-px flex-1 bg-black/15" />
-                <span className="font-serif italic text-sm text-muted-foreground">
-                  {t.dividerAnd} / {t.dividerOr}
-                </span>
-                <div className="h-px flex-1 bg-black/15" />
-              </div>
-
-              {/* Monetary gift */}
-              <div className={`${cardClass} px-5 py-5 md:px-8 md:py-8 text-center flex flex-col justify-center`}>
-                <h2 className="font-serif text-xl md:text-3xl font-medium text-foreground mb-2 md:mb-4">{t.presenceTitle}</h2>
-                {/* presenceCopy1 hidden on mobile */}
-                <p className="hidden md:block font-sans text-base text-muted-foreground leading-relaxed mb-3">
-                  {t.presenceCopy1}
-                </p>
-                <p className="font-sans text-xs md:text-base text-muted-foreground leading-relaxed mb-4 md:mb-6">
-                  {t.presenceCopy2}
-                </p>
-                <div>
-                  <button
-                    onClick={() => setStep('gift')}
-                    className={primaryBtn}
-                    style={{ backgroundColor: OLIVE }}
-                    data-testid="button-give-gift"
-                  >
-                    {t.giftCta}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* ------------------------------------------------ Gift selection */}
         {step === 'gift' && (

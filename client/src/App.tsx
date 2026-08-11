@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import WeddingRSVP from "@/pages/WeddingRSVP";
 import RegistryPage from "@/pages/RegistryPage";
-import DressCodePage from "@/pages/DressCodePage";
 import { content } from "@/lib/content";
 
 const langs = ["en", "pt", "mx"] as const;
@@ -18,20 +17,16 @@ function Router() {
       </Route>
 
       {langs.map((lang) => (
-        <Route key={`${lang}-home`} path={`/${lang}`}>
-          <WeddingRSVP content={content[lang]} lang={lang} />
-        </Route>
-      ))}
-
-      {langs.map((lang) => (
-        <Route key={`${lang}-gifts`} path={`/${lang}/gifts`}>
+        <Route key={`${lang}-give`} path={`/${lang}/gifts/give`}>
           <RegistryPage lang={lang} />
         </Route>
       ))}
 
       {langs.map((lang) => (
-        <Route key={`${lang}-dress-code`} path={`/${lang}/dress-code`}>
-          <DressCodePage lang={lang} />
+        <Route key={`${lang}-home`} path={`/${lang}/:anchor?`}>
+          {(params: { anchor?: string }) => (
+            <WeddingRSVP content={content[lang]} lang={lang} anchor={params.anchor} />
+          )}
         </Route>
       ))}
 

@@ -97,6 +97,33 @@ export const content = {
         },
       },
       {
+        title: 'Venue and Dresscode',
+        preview: "Zé's childhood home in the heart of Évora — a place filled with family memories.",
+        subsections: [
+          {
+            title: 'The Venue',
+            content: "Our wedding will be held at Zé's childhood home, a place filled with family memories and where many of his favorite moments growing up took place. We're excited to welcome you to a setting we've spent countless memories together with both our families over the years.",
+          },
+        ],
+        dresscode: {
+          title: 'Dresscode',
+          cards: [
+            {
+              title: 'Day 1: Cocktail Reception',
+              content: 'Wear your favorite summer cocktail colorful dresses and shirts to celebrate with us in stylish comfort.',
+              image: '__COCKTAIL__',
+              imagePosition: 'left' as const,
+            },
+            {
+              title: 'Day 2: Wedding Reception',
+              content: 'Think suits, a great tie, and elegant dresses — a step up from the night before. Come dressed for the best night of the year.',
+              image: '__WEDDING__',
+              imagePosition: 'right' as const,
+            },
+          ],
+        },
+      },
+      {
         title: 'Explore Portugal — Our Recommendations',
         preview: 'From Lisbon and Porto to the Algarve and beyond — our favorite spots and must dos.',
         subsections: [
@@ -117,33 +144,6 @@ export const content = {
             content: 'You can drive to Sevilla, Spain (3h from Évora), discover the southern coast of Spain — Marbella, Málaga… (4–5h from Évora) OR take a 1.5h flight to Morocco. We\'ve done all that!',
           },
         ],
-      },
-      {
-        title: 'Venue and Dresscode',
-        preview: "Zé's childhood home in the heart of Évora — a place filled with family memories.",
-        subsections: [
-          {
-            title: 'The Venue',
-            content: "Our wedding will be held at Zé's childhood home, a place filled with family memories and where many of his favorite moments growing up took place. We're excited to welcome you to a setting we've spent countless memories together with both our families over the years.",
-          },
-        ],
-        dresscode: {
-          title: 'Dresscode',
-          cards: [
-            {
-              title: 'Day 1: Cocktail Reception',
-              content: 'Wear your favorite summer cocktail colorful dresses and shirts to celebrate with us in stylish comfort.',
-              image: '__COCKTAIL__',
-              imagePosition: 'left',
-            },
-            {
-              title: 'Day 2: Wedding Reception',
-              content: 'Think suits, a great tie, and elegant dresses — a step up from the night before. Come dressed for the best night of the year.',
-              image: '__WEDDING__',
-              imagePosition: 'right',
-            },
-          ],
-        },
       },
     ],
     formUrl: 'https://airtable.com/embed/app5BN54ZOQHHWwxj/pagDfEkcD13OzncWs/form',
@@ -222,6 +222,33 @@ export const content = {
         ],
       },
       {
+        title: 'Sobre o Local da Festa',
+        preview: 'A casa onde cresceu o Zé no centro de Évora — um lugar cheio de memórias de família.',
+        subsections: [
+          {
+            title: 'O Local da Festa',
+            content: 'O nosso casamento realizará na casa onde o Zé cresceu, um lugar cheio de memórias de família. Mal podemos esperar por vos receber num espaço que nos é profundamente pessoal e significativo.',
+          },
+        ],
+        dresscode: {
+          title: 'Dresscode',
+          cards: [
+            {
+              title: 'Dia 1: Cocktail de Boas-Vindas',
+              content: 'Tragam os vossos vestidos e camisas coloridas de verão para celebrar connosco com estilo e conforto.',
+              image: '__COCKTAIL__',
+              imagePosition: 'left' as const,
+            },
+            {
+              title: 'Dia 2: Casamento',
+              content: 'Pensem em fato e gravata, e vestidos elegantes — um nível acima da noite anterior. Venham vestidos para a melhor noite do ano.',
+              image: '__WEDDING__',
+              imagePosition: 'right' as const,
+            },
+          ],
+        },
+      },
+      {
         title: 'Portugal além de Évora — O que Recomendamos',
         preview: 'De Lisboa e Porto aos Algarves e além — os nossos lugares favoritos por Portugal.',
         subsections: [
@@ -240,16 +267,6 @@ export const content = {
           {
             title: 'Para os verdadeiros aventureiros',
             content: 'Pode conduzir até Sevilha (3h de Évora), descobrir a costa sul de Espanha — Marbella, Málaga… (4–5h de Évora) ou fazer um voo de 1h30 até Marrocos. Já fizemos tudo isso!',
-          },
-        ],
-      },
-      {
-        title: 'Sobre o Local da Festa',
-        preview: 'A casa onde cresceu o Zé no centro de Évora — um lugar cheio de memórias de família.',
-        subsections: [
-          {
-            title: 'O Local da Festa',
-            content: 'O nosso casamento realizará na casa onde o Zé cresceu, um lugar cheio de memórias de família. Mal podemos esperar por vos receber num espaço que nos é profundamente pessoal e significativo.',
           },
         ],
       },
@@ -330,6 +347,33 @@ export const content = {
         ],
       },
       {
+        title: 'Sobre el Lugar',
+        preview: 'La casa de la infancia de Zé en el corazón de Évora — un lugar lleno de recuerdos familiares.',
+        subsections: [
+          {
+            title: 'El Lugar de La Fiesta',
+            content: 'Nuestra boda se celebrará en la casa en donde creció Zé, un lugar lleno de recuerdos familiares. Nos emociona recibirlos en un espacio que tanto disfrutamos y que significa mucho para nosotros.',
+          },
+        ],
+        dresscode: {
+          title: 'Dresscode',
+          cards: [
+            {
+              title: 'Día 1: Recepción con Cocktails',
+              content: 'Usa tus vestidos y camisas coloridas de verano para celebrar con nosotros con estilo y comodidad.',
+              image: '__COCKTAIL__',
+              imagePosition: 'left' as const,
+            },
+            {
+              title: 'Día 2: Recepción de Boda',
+              content: 'Piensa en traje y corbata, y vestidos elegantes — un paso más arriba que la noche anterior. Vengan vestidos para la mejor noche del año.',
+              image: '__WEDDING__',
+              imagePosition: 'right' as const,
+            },
+          ],
+        },
+      },
+      {
         title: 'Explora Portugal más allá de Évora — Nuestras Recomendaciones',
         preview: 'De Lisboa y Porto al Algarve y más allá — nuestros lugares favoritos en Portugal.',
         subsections: [
@@ -348,16 +392,6 @@ export const content = {
           {
             title: 'Para los verdaderos aventureros',
             content: 'Puedes manejar a Sevilla, España (3h de Évora), descubrir la costa sur de España — Marbella, Málaga… (4–5h de Évora) o tomar un vuelo de 1.5h a Marruecos. ¡Hemos hecho todo eso!',
-          },
-        ],
-      },
-      {
-        title: 'Sobre el Lugar',
-        preview: 'La casa de la infancia de Zé en el corazón de Évora — un lugar lleno de recuerdos familiares.',
-        subsections: [
-          {
-            title: 'El Lugar de La Fiesta',
-            content: 'Nuestra boda se celebrará en la casa en donde creció Zé, un lugar lleno de recuerdos familiares. Nos emociona recibirlos en un espacio que tanto disfrutamos y que significa mucho para nosotros.',
           },
         ],
       },
