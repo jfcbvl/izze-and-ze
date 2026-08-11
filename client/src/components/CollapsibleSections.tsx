@@ -88,7 +88,7 @@ function AddressRow({ address, mapUrl }: { address: string; mapUrl: string }) {
         className="font-sans text-muted-foreground text-sm leading-relaxed underline underline-offset-4 transition-all"
         data-testid="link-address-text"
       >
-        {address}<ExternalLink className="inline w-3.5 h-3.5 ml-1 align-[-1px]" aria-hidden="true" />
+        {address}
       </a>
       <button
         onClick={handleCopy}

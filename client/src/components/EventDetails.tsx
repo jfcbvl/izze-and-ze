@@ -47,10 +47,10 @@ export default function EventDetails({
               href="https://www.google.com/maps/place/Évora,+Portugal"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-foreground font-serif text-xl underline underline-offset-4 transition-all"
+              className="text-foreground font-serif text-xl hover:underline underline-offset-4 transition-all"
               data-testid="link-event-location"
             >
-              {location}<ExternalLink className="inline w-4 h-4 ml-1.5 align-[-2px]" aria-hidden="true" />
+              {location}
             </a>
           </div>
         </div>

@@ -385,7 +385,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 style={{ backgroundColor: OLIVE }}
                 data-testid="button-open-venmo"
               >
-                <span className="inline-flex items-center gap-1.5">{t.openVenmo}<ExternalLink className="w-4 h-4" aria-hidden="true" /></span>
+                {t.openVenmo}
               </a>
               <CopyButton value={paymentConfig.venmo.username} label={t.copyUsername} copiedLabel={t.copied} />
             </div>
@@ -424,7 +424,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 style={{ backgroundColor: OLIVE }}
                 data-testid="button-open-revolut"
               >
-                <span className="inline-flex items-center gap-1.5">{t.openRevolut}<ExternalLink className="w-4 h-4" aria-hidden="true" /></span>
+                {t.openRevolut}
               </a>
               <CopyButton value={paymentConfig.revolut.revtag} label={t.copyUsername} copiedLabel={t.copied} />
             </div>
@@ -474,7 +474,9 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <DetailRow label={t.fieldBankAddress} value={paymentConfig.bankIntl.bankAddress} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldCorrespondentBic} value={paymentConfig.bankIntl.correspondentBic} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
-            <BackStep />
+            <div className="pb-24 md:pb-0">
+              <BackStep />
+            </div>
           </div>
         )}
 

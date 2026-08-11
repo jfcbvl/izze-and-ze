@@ -131,10 +131,10 @@ export default function HeroSection({
             href="https://www.google.com/maps/place/Évora,+Portugal"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white text-base md:text-lg tracking-widest uppercase font-sans underline underline-offset-4 transition-all"
+            className="text-white text-base md:text-lg tracking-widest uppercase font-sans hover:underline underline-offset-4 transition-all"
             data-testid="link-hero-location"
           >
-            {location}<ExternalLink className="inline w-4 h-4 ml-1.5 align-[-2px]" aria-hidden="true" />
+            {location}
           </a>
         </div>
 
