@@ -8,7 +8,7 @@ import seattleImg from '@assets/Seattle_1786342608299_cropped.png';
 import portugalImg from '@assets/Portugal_1786342608299_cropped.png';
 import mexicoImg from '@assets/Mexico_1786342608296_cropped.png';
 import newyorkImg from '@assets/New_York_1786342608298_cropped.png';
-import bookImg from '@assets/ChatGPT_Image_Aug_9,_2026,_11_45_06_PM_1786344396263.png';
+import bookImg from '@assets/ChatGPT_Image_Aug_10,_2026,_07_20_40_PM_1786414973643.png';
 import bookMobileImg from '@assets/ChatGPT_Image_Aug_9,_2026,_11_53_12_PM_1786344828943.png';
 
 const giftImages: Record<GiftOption['id'], string> = {
