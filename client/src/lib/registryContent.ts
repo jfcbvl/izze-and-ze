@@ -54,6 +54,8 @@ export interface RegistryStrings {
   navTravel: string;
   navVenue: string;
   navGifts: string;
+  expandAll: string;
+  collapseAll: string;
 
   breadcrumbRegistry: string;
   breadcrumbGift: string;
@@ -143,6 +145,8 @@ const en: RegistryStrings = {
   navTravel: 'Travel to Évora',
   navVenue: 'Venue & Dresscode',
   navGifts: 'Gifts',
+  expandAll: 'Expand all',
+  collapseAll: 'Collapse all',
 
   breadcrumbRegistry: 'Registry',
   breadcrumbGift: 'Gift',
@@ -239,6 +243,8 @@ const pt: RegistryStrings = {
   navTravel: 'Viagem para Évora',
   navVenue: 'Local & Dresscode',
   navGifts: 'Presentes',
+  expandAll: 'Expandir tudo',
+  collapseAll: 'Recolher tudo',
 
   breadcrumbRegistry: 'Presentes',
   breadcrumbGift: 'Presente',
@@ -335,6 +341,8 @@ const mx: RegistryStrings = {
   navTravel: 'Viaje a Évora',
   navVenue: 'Lugar & Dresscode',
   navGifts: 'Regalos',
+  expandAll: 'Expandir todo',
+  collapseAll: 'Colapsar todo',
 
   breadcrumbRegistry: 'Regalos',
   breadcrumbGift: 'Regalo',

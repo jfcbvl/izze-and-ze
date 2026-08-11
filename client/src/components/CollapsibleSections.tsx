@@ -54,6 +54,9 @@ interface CollapsibleSectionsProps {
   ids?: (string | undefined)[];
   /** Index of a card that should be forced open (e.g. from a URL anchor) */
   openIndex?: number | null;
+  /** Labels for the expand/collapse-all text button */
+  expandAllLabel?: string;
+  collapseAllLabel?: string;
 }
 
 function AddressRow({ address, mapUrl }: { address: string; mapUrl: string }) {
@@ -210,18 +213,15 @@ function CollapsibleCard({
   section,
   isLast,
   id,
-  forceOpen,
+  open,
+  onToggle,
 }: {
   section: CollapsibleSection;
   isLast: boolean;
   id?: string;
-  forceOpen?: boolean;
+  open: boolean;
+  onToggle: () => void;
 }) {
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (forceOpen) setOpen(true);
-  }, [forceOpen]);
 
   return (
     <div
@@ -230,7 +230,7 @@ function CollapsibleCard({
       data-testid={`card-collapsible-${section.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}
     >
       <button
-        onClick={() => setOpen((o) => !o)}
+        onClick={onToggle}
         className="w-full text-left px-5 py-5 md:px-10 md:py-8 flex items-start justify-between gap-4 md:gap-6 group"
         data-testid={`button-toggle-${section.title.toLowerCase().replace(/\s+/g, '-').slice(0, 30)}`}
         aria-expanded={open}
@@ -311,19 +311,48 @@ function CollapsibleCard({
   );
 }
 
-export default function CollapsibleSections({ sections, ids, openIndex }: CollapsibleSectionsProps) {
+export default function CollapsibleSections({
+  sections,
+  ids,
+  openIndex,
+  expandAllLabel = 'Expand all',
+  collapseAllLabel = 'Collapse all',
+}: CollapsibleSectionsProps) {
+  const [openStates, setOpenStates] = useState<boolean[]>(() => sections.map(() => false));
+
+  useEffect(() => {
+    if (openIndex != null && openIndex >= 0) {
+      setOpenStates((prev) => prev.map((o, i) => (i === openIndex ? true : o)));
+    }
+  }, [openIndex]);
+
+  const allOpen = openStates.every(Boolean);
+  const toggleAll = () => setOpenStates(sections.map(() => !allOpen));
+
   return (
     <section className="py-16 px-6 bg-background" data-testid="section-collapsible">
-      <div className="max-w-3xl mx-auto rounded-md overflow-hidden border border-black/15">
-        {sections.map((section, i) => (
-          <CollapsibleCard
-            key={i}
-            section={section}
-            isLast={i === sections.length - 1}
-            id={ids?.[i]}
-            forceOpen={openIndex === i}
-          />
-        ))}
+      <div className="max-w-3xl mx-auto">
+        <div className="flex justify-end mb-2">
+          <button
+            onClick={toggleAll}
+            className="font-sans text-xs text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors"
+            data-testid="button-toggle-all"
+          >
+            {allOpen ? collapseAllLabel : expandAllLabel}
+          </button>
+        </div>
+        <div className="rounded-md overflow-hidden border border-black/15">
+          {sections.map((section, i) => (
+            <CollapsibleCard
+              key={i}
+              section={section}
+              isLast={i === sections.length - 1}
+              id={ids?.[i]}
+              open={openStates[i] ?? false}
+              onToggle={() => setOpenStates((prev) => prev.map((o, j) => (j === i ? !o : o)))}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

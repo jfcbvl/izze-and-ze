@@ -6,6 +6,7 @@ import CollapsibleSections, { CollapsibleSection } from '@/components/Collapsibl
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Header from '@/components/Header';
 import GiftsSection from '@/components/GiftsSection';
+import { registryContent } from '@/lib/registryContent';
 import videoSrc from '@assets/Fiesta_-_Horizontal_1766433192319.mp4';
 import videoSrcMobile from '@assets/Fiesta_-_Vertical_1766433192320.mp4';
 import evoraPhoto from '@assets/evora-photo.png';
@@ -134,6 +135,8 @@ export default function WeddingRSVP({ content, lang, anchor }: WeddingRSVPProps)
       <CollapsibleSections
         ids={['travel', 'venue-dresscode', undefined]}
         openIndex={openIndex}
+        expandAllLabel={(registryContent[lang] ?? registryContent.en).expandAll}
+        collapseAllLabel={(registryContent[lang] ?? registryContent.en).collapseAll}
         sections={content.infoSections.map((section, i) => {
           if (i === 0) return { ...section, image: evoraPhoto, imageOrientation: 'vertical' as const };
           if (i === 1) return {
