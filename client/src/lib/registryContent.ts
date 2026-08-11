@@ -1,36 +1,38 @@
 // ---------------------------------------------------------------------------
-// Payment credentials — PLACEHOLDERS. Update these when real details are ready.
+// Payment credentials
 // ---------------------------------------------------------------------------
 export const paymentConfig = {
   venmo: {
-    username: '@izze-life',
-    url: 'https://venmo.com/u/izze-life',
+    username: '@isabel-izek',
+    url: 'https://venmo.com/u/isabel-izek',
   },
   mbway: {
-    phone: '+351 912 345 678',
+    phone: '+351 91 873 5395',
   },
   revolut: {
-    revtag: '@izzelife',
-    url: 'https://revolut.me/izzelife',
+    revtag: '@zevieiralopes',
+    url: 'https://revolut.me/zevieiralopes',
   },
   bankUS: {
-    accountHolder: 'Izzy & Zé',
-    routingNumber: '123456789',
-    accountNumber: '000123456789',
+    accountHolder: 'Isabel Izek',
+    routingNumber: '031176110',
+    accountNumber: '36403436946',
     accountType: 'Checking',
   },
   bankPT: {
-    accountHolder: 'Izzy & Zé',
-    iban: 'PT50 0035 1234 0000 9876 5432 1',
-    bicSwift: 'CGDIPTPL',
-    bankName: 'Caixa Geral de Depósitos',
+    accountHolder: 'Jose Lopes',
+    iban: 'PT50 3560 0001 9001 5451 5340 8',
+    bicSwift: 'REVOPTP2',
+    bankName: 'Revolut Bank UAB - Sucursal em Portugal, Fábrica 390, Rua Heróis de França, nos. 415 and 417, 4450-155, Matosinhos, Portugal',
+    correspondentBic: 'CHASDEFX',
   },
   bankIntl: {
-    accountHolder: 'Izzy & Zé',
-    iban: 'PT50 0035 1234 0000 9876 5432 1',
-    swift: 'CGDIPTPL',
-    bankName: 'Caixa Geral de Depósitos',
-    bankAddress: 'Av. João XXI 63, 1000-300 Lisboa, Portugal',
+    accountHolder: 'Jose Lopes',
+    iban: 'LT24 3250 0066 1002 6225',
+    swift: 'REVOLT21',
+    bankName: 'Revolut Bank UAB',
+    bankAddress: 'Konstitucijos ave. 21B, 08130, Vilnius, Lithuania',
+    correspondentBic: 'CHASDEFX',
   },
 };
 
@@ -127,6 +129,7 @@ export interface RegistryStrings {
   fieldBicSwift: string;
   fieldBankName: string;
   fieldBankAddress: string;
+  fieldCorrespondentBic: string;
   fieldPhoneNumber: string;
 
   thankYouTitle: string;
@@ -225,6 +228,7 @@ const en: RegistryStrings = {
   fieldBicSwift: 'BIC / SWIFT',
   fieldBankName: 'Bank name',
   fieldBankAddress: 'Bank address',
+  fieldCorrespondentBic: 'Correspondent BIC',
   fieldPhoneNumber: 'Phone number',
 
   thankYouTitle: 'Thank you ♡',
@@ -323,6 +327,7 @@ const pt: RegistryStrings = {
   fieldBicSwift: 'BIC / SWIFT',
   fieldBankName: 'Banco',
   fieldBankAddress: 'Morada do banco',
+  fieldCorrespondentBic: 'BIC correspondente',
   fieldPhoneNumber: 'Número de telemóvel',
 
   thankYouTitle: 'Obrigado ♡',
@@ -421,6 +426,7 @@ const mx: RegistryStrings = {
   fieldBicSwift: 'BIC / SWIFT',
   fieldBankName: 'Banco',
   fieldBankAddress: 'Dirección del banco',
+  fieldCorrespondentBic: 'BIC corresponsal',
   fieldPhoneNumber: 'Número de teléfono',
 
   thankYouTitle: 'Gracias ♡',

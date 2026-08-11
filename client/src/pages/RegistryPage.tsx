@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'wouter';
 import { Copy, Check, Landmark } from 'lucide-react';
-import { QRCodeSVG } from 'qrcode.react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Header from '@/components/Header';
 import { registryContent, paymentConfig } from '@/lib/registryContent';
+import venmoQr from '@/assets/venmo-qr.jpeg';
+import revolutQr from '@/assets/revolut-qr.jpeg';
 
 type Step =
   | 'amount'
@@ -373,7 +374,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className={`${cardClass} inline-block p-6 bg-white mb-8`}>
               <div className="font-sans text-lg text-foreground mb-4">{paymentConfig.venmo.username}</div>
-              <QRCodeSVG value={paymentConfig.venmo.url} size={160} className="mx-auto" />
+              <img src={venmoQr} alt="Venmo QR code" className="mx-auto w-40 h-40 object-cover rounded-2xl shadow-md" />
             </div>
             <div className="flex flex-col items-center gap-4">
               <a
@@ -412,7 +413,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
             <p className="font-sans text-sm text-muted-foreground mb-10">{t.detailThanks}</p>
             <div className={`${cardClass} inline-block p-6 bg-white mb-8`}>
               <div className="font-sans text-lg text-foreground mb-4">{paymentConfig.revolut.revtag}</div>
-              <QRCodeSVG value={paymentConfig.revolut.url} size={160} className="mx-auto" />
+              <img src={revolutQr} alt="Revolut QR code" className="mx-auto w-40 h-40 object-cover rounded-2xl shadow-md" />
             </div>
             <div className="flex flex-col items-center gap-4">
               <a
@@ -455,6 +456,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <DetailRow label={t.fieldIban} value={paymentConfig.bankPT.iban} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldBicSwift} value={paymentConfig.bankPT.bicSwift} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldBankName} value={paymentConfig.bankPT.bankName} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldCorrespondentBic} value={paymentConfig.bankPT.correspondentBic} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
             <BackStep />
           </div>
@@ -470,6 +472,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
               <DetailRow label={t.fieldBicSwift} value={paymentConfig.bankIntl.swift} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldBankName} value={paymentConfig.bankIntl.bankName} copyLabel={t.copyLabel} copiedLabel={t.copied} />
               <DetailRow label={t.fieldBankAddress} value={paymentConfig.bankIntl.bankAddress} copyLabel={t.copyLabel} copiedLabel={t.copied} />
+              <DetailRow label={t.fieldCorrespondentBic} value={paymentConfig.bankIntl.correspondentBic} copyLabel={t.copyLabel} copiedLabel={t.copied} />
             </div>
             <BackStep />
           </div>
