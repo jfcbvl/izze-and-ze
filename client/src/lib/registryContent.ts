@@ -211,7 +211,7 @@ const en: RegistryStrings = {
   bankUSTitle: 'US Bank Transfer — {amount}',
   bankPTTitle: 'Portuguese Bank Transfer — {amount}',
   bankIntlTitle: 'International Bank Transfer — {amount}',
-  detailThanks: 'Thank you!',
+  detailThanks: 'Thank you so much for your gift!',
 
   openVenmo: 'Open Venmo',
   openRevolut: 'Open Revolut',
@@ -310,7 +310,7 @@ const pt: RegistryStrings = {
   bankUSTitle: 'Transferência EUA — {amount}',
   bankPTTitle: 'Transferência Portugal — {amount}',
   bankIntlTitle: 'Transferência Internacional — {amount}',
-  detailThanks: 'Obrigado!',
+  detailThanks: 'Muito obrigado pela vossa ajuda!',
 
   openVenmo: 'Abrir Venmo',
   openRevolut: 'Abrir Revolut',
@@ -409,7 +409,7 @@ const mx: RegistryStrings = {
   bankUSTitle: 'Transferencia EE. UU. — {amount}',
   bankPTTitle: 'Transferencia Portugal — {amount}',
   bankIntlTitle: 'Transferencia Internacional — {amount}',
-  detailThanks: '¡Gracias!',
+  detailThanks: '¡Muchisimas gracias por tu aporte!',
 
   openVenmo: 'Abrir Venmo',
   openRevolut: 'Abrir Revolut',
