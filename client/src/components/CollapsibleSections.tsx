@@ -115,7 +115,7 @@ function TipBox({ tip }: { tip: Tip }) {
       {tip.groups && tip.groups.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
           {tip.groups.map((g, i) => (
-            <div key={i} className="border border-black/10 rounded-lg px-4 py-4 space-y-2">
+            <div key={i} className="border border-black/10 rounded-lg px-4 py-4 space-y-2 bg-white">
               <div className="flex items-center gap-2">
                 <span className="font-sans font-semibold text-foreground">{g.name}</span>
                 {g.badge && (
