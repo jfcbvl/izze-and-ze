@@ -240,20 +240,25 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
     <div
       className={
         step === 'thanks'
-          ? 'min-h-screen'
-          : 'h-[100dvh] overflow-hidden overscroll-none'
+          ? 'min-h-screen flex flex-col'
+          : 'h-[100dvh] overflow-hidden overscroll-none flex flex-col'
       }
       style={{ backgroundColor: CREAM }}
     >
       <Header lang={lang} />
       <LanguageSwitcher />
 
+      {/* Breadcrumb — snug under the header */}
+      <div className="max-w-2xl mx-auto w-full px-6 pt-16 md:pt-20">
+        <Breadcrumb />
+      </div>
+
+      {/* Step content — centred in remaining space */}
       <div
         ref={stepContainerRef}
         tabIndex={-1}
-        className="max-w-2xl mx-auto px-6 pt-28 md:pt-32 pb-24 md:pb-16 focus:outline-none"
+        className="flex-1 flex items-center justify-center max-w-2xl mx-auto w-full px-6 pb-20 md:pb-10 focus:outline-none"
       >
-        <Breadcrumb />
 
         {/* ------------------------------------------------ Amount */}
         {step === 'amount' && (
