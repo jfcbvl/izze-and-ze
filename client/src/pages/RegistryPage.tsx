@@ -285,11 +285,13 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
             <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] gap-3 md:gap-8 items-stretch">
               {/* Book request */}
               <div className={`${cardClass} overflow-hidden flex flex-row`}>
-                <img
-                  src={bookImg}
-                  alt=""
-                  className="w-[38%] flex-shrink-0 object-cover"
-                />
+                <div className="w-[38%] flex-shrink-0 flex items-center justify-center overflow-hidden bg-white/40">
+                  <img
+                    src={bookImg}
+                    alt=""
+                    className="w-full h-auto object-contain"
+                  />
+                </div>
                 <div className="px-4 py-4 md:px-7 md:py-8 flex flex-col justify-center text-left min-w-0">
                   <div className="font-sans text-[10px] md:text-xs uppercase tracking-widest text-muted-foreground mb-1 md:mb-2">
                     {t.bookEyebrow}
