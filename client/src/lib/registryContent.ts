@@ -231,7 +231,7 @@ const en: RegistryStrings = {
   fieldCorrespondentBic: 'Correspondent BIC',
   fieldPhoneNumber: 'Phone number',
 
-  thankYouTitle: 'Thank you ♡',
+  thankYouTitle: 'Thank you so much for your gift!',
   thankYouCopy: "We can't wait to celebrate with you in Évora.",
   backToRegistry: '← Back to Registry',
   back: '← Back',
@@ -330,7 +330,7 @@ const pt: RegistryStrings = {
   fieldCorrespondentBic: 'BIC correspondente',
   fieldPhoneNumber: 'Número de telemóvel',
 
-  thankYouTitle: 'Obrigado ♡',
+  thankYouTitle: 'Muito obrigado pela vossa ajuda!',
   thankYouCopy: 'Mal podemos esperar para celebrar convosco em Évora.',
   backToRegistry: '← Voltar aos Presentes',
   back: '← Voltar',
@@ -429,7 +429,7 @@ const mx: RegistryStrings = {
   fieldCorrespondentBic: 'BIC corresponsal',
   fieldPhoneNumber: 'Número de teléfono',
 
-  thankYouTitle: 'Gracias ♡',
+  thankYouTitle: '¡Muchisimas gracias por tu aporte!',
   thankYouCopy: 'No podemos esperar para celebrar con ustedes en Évora.',
   backToRegistry: '← Volver a Regalos',
   back: '← Volver',

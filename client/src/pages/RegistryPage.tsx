@@ -283,7 +283,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 data-testid="input-amount"
               />
             </div>
-            <p className="font-sans text-xs text-muted-foreground mb-10">{t.amountHint}</p>
+            <div className="mb-10" />
 
             <button
               onClick={() => amountValid && setStep('payment')}
