@@ -1,4 +1,4 @@
-import { Clock, MapPin } from 'lucide-react';
+import { Clock, MapPin, ExternalLink } from 'lucide-react';
 import LinkifyEvora from './LinkifyEvora';
 
 interface Event {
@@ -46,9 +46,9 @@ export default function DaySchedule({
                     href={locationUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:underline underline-offset-4 transition-all"
+                    className="underline underline-offset-4 transition-all"
                   >
-                    {location}
+                    {location}<ExternalLink className="inline w-3.5 h-3.5 ml-1 align-[-1px]" aria-hidden="true" />
                   </a>
                 ) : (
                   <LinkifyEvora text={location} />

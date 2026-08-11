@@ -1,3 +1,5 @@
+import { ExternalLink } from "lucide-react";
+
 interface LinkifyEvoraProps {
   text: string;
   className?: string;
@@ -17,9 +19,9 @@ export default function LinkifyEvora({ text, className = "" }: LinkifyEvoraProps
               href={evoraLink}
               target="_blank"
               rel="noopener noreferrer"
-              className={`hover:underline underline-offset-4 transition-all ${className}`}
+              className={`underline underline-offset-4 transition-all ${className}`}
             >
-              {part}
+              {part}<ExternalLink className="inline w-3 h-3 ml-1 align-baseline" aria-hidden="true" />
             </a>
           );
         }

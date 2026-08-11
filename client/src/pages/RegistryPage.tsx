@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'wouter';
-import { Copy, Check, Landmark } from 'lucide-react';
+import { Copy, Check, Landmark, ExternalLink } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import Header from '@/components/Header';
 import { registryContent, paymentConfig } from '@/lib/registryContent';
@@ -385,7 +385,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 style={{ backgroundColor: OLIVE }}
                 data-testid="button-open-venmo"
               >
-                {t.openVenmo}
+                <span className="inline-flex items-center gap-1.5">{t.openVenmo}<ExternalLink className="w-4 h-4" aria-hidden="true" /></span>
               </a>
               <CopyButton value={paymentConfig.venmo.username} label={t.copyUsername} copiedLabel={t.copied} />
             </div>
@@ -424,7 +424,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
                 style={{ backgroundColor: OLIVE }}
                 data-testid="button-open-revolut"
               >
-                {t.openRevolut}
+                <span className="inline-flex items-center gap-1.5">{t.openRevolut}<ExternalLink className="w-4 h-4" aria-hidden="true" /></span>
               </a>
               <CopyButton value={paymentConfig.revolut.revtag} label={t.copyUsername} copiedLabel={t.copied} />
             </div>

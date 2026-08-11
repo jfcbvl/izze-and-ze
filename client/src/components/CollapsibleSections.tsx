@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ChevronDown, MapPin, Copy, Check } from 'lucide-react';
+import { ChevronDown, MapPin, Copy, Check, ExternalLink } from 'lucide-react';
 
 interface SubSection {
   title: string;
@@ -85,10 +85,10 @@ function AddressRow({ address, mapUrl }: { address: string; mapUrl: string }) {
         href={mapUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="font-sans text-muted-foreground text-sm leading-relaxed hover:underline underline-offset-4 transition-all"
+        className="font-sans text-muted-foreground text-sm leading-relaxed underline underline-offset-4 transition-all"
         data-testid="link-address-text"
       >
-        {address}
+        {address}<ExternalLink className="inline w-3.5 h-3.5 ml-1 align-[-1px]" aria-hidden="true" />
       </a>
       <button
         onClick={handleCopy}
@@ -150,7 +150,7 @@ function TipBox({ tip }: { tip: Tip }) {
                   rel="noopener noreferrer"
                   className="block font-sans text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground transition-colors"
                 >
-                  {g.link.label}
+                  {g.link.label}<ExternalLink className="inline w-3.5 h-3.5 ml-1 align-[-1px]" aria-hidden="true" />
                 </a>
               )}
               <div className="space-y-1 pt-1">
