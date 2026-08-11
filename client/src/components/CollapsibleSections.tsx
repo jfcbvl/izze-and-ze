@@ -23,6 +23,7 @@ interface Tip {
   title: string;
   content: string;
   groups?: TipGroup[];
+  note?: { title: string; content: string };
 }
 
 export interface CollapsibleSection {
@@ -144,6 +145,14 @@ function TipBox({ tip }: { tip: Tip }) {
               </div>
             </div>
           ))}
+        </div>
+      )}
+      {tip.note && (
+        <div className="pt-2 space-y-1">
+          <h5 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest">
+            {tip.note.title}
+          </h5>
+          <p className="font-sans text-muted-foreground leading-relaxed">{tip.note.content}</p>
         </div>
       )}
     </div>
