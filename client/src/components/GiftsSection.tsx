@@ -72,7 +72,7 @@ export default function GiftsSection({ lang }: GiftsSectionProps) {
             </p>
             <div>
               <button
-                onClick={() => navigate(`/${lang}/gifts/give`)}
+                onClick={() => navigate(`/gifts/give/${lang}`)}
                 className={primaryBtn}
                 style={{ backgroundColor: OLIVE }}
                 data-testid="button-give-gift"

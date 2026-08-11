@@ -6,13 +6,19 @@ const languages = [
   { code: 'mx', label: 'ES', flag: '🇲🇽' },
 ];
 
+const langCodes = languages.map((l) => l.code);
+
 export default function LanguageSwitcher() {
   const [location, setLocation] = useLocation();
 
+  // Language is always the LAST path segment, e.g. /venue-dresscode/en
   const segments = location.split('/').filter(Boolean);
-  const currentLang = segments[0] || 'en';
-  const rest = segments.slice(1).join('/');
-  const pathFor = (code: string) => `/${code}${rest ? `/${rest}` : ''}`;
+  const last = segments[segments.length - 1];
+  const currentLang = langCodes.includes(last) ? last : 'en';
+  const prefix = langCodes.includes(last)
+    ? segments.slice(0, -1).join('/')
+    : segments.join('/');
+  const pathFor = (code: string) => `/${prefix ? `${prefix}/` : ''}${code}`;
 
   return (
     <>

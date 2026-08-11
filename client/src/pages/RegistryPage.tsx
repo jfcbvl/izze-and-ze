@@ -133,7 +133,7 @@ export default function RegistryPage({ lang }: RegistryPageProps) {
     : '';
 
   const resetAll = () => {
-    navigate(`/${lang}/gifts`);
+    navigate(`/gifts/${lang}`);
   };
 
   // Depth of each step in the linear flow; breadcrumb jumps traverse history

@@ -21,7 +21,7 @@ export default function Header({ lang }: HeaderProps) {
         {links.map((l) => (
           <Link
             key={l.id}
-            href={`/${lang}/${l.id}`}
+            href={`/${l.id}/${lang}`}
             data-testid={`nav-${l.id}`}
             className="font-sans text-xs md:text-sm font-medium text-foreground/70 hover:text-foreground whitespace-nowrap transition-colors"
           >
