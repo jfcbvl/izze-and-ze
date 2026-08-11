@@ -95,8 +95,12 @@ export default function WeddingRSVP({ content, lang, anchor }: WeddingRSVPProps)
         coupleNames={content.hero.coupleNames}
         location={content.hero.location}
         date={content.hero.date}
-        ctaText={content.hero.ctaText}
-        onCtaClick={openForm}
+        navLinks={[
+          { label: (registryContent[lang] ?? registryContent.en).navProgram, href: `/program/${lang}` },
+          { label: (registryContent[lang] ?? registryContent.en).navTravel,  href: `/travel/${lang}` },
+          { label: (registryContent[lang] ?? registryContent.en).navVenue,   href: `/venue-dresscode/${lang}` },
+          { label: (registryContent[lang] ?? registryContent.en).navGifts,   href: `/gifts/${lang}` },
+        ]}
         videoSrc={videoSrc}
         videoSrcMobile={videoSrcMobile}
       />

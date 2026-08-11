@@ -1,13 +1,21 @@
 import { ExternalLink } from 'lucide-react';
 import { useEffect, useRef, useCallback } from 'react';
 
+interface NavLink {
+  label: string;
+  href: string;
+}
+
 interface HeroSectionProps {
   saveTheDate?: string;
   coupleNames: string;
   location: string;
   date: string;
-  ctaText: string;
-  onCtaClick: () => void;
+  navLinks?: NavLink[];
+  /** @deprecated kept for compat, ignored when navLinks is set */
+  ctaText?: string;
+  /** @deprecated kept for compat, ignored when navLinks is set */
+  onCtaClick?: () => void;
   videoSrc?: string;
   videoSrcMobile?: string;
 }
@@ -17,6 +25,7 @@ export default function HeroSection({
   coupleNames,
   location,
   date,
+  navLinks,
   ctaText,
   onCtaClick,
   videoSrc,
@@ -138,13 +147,27 @@ export default function HeroSection({
           </a>
         </div>
 
-        <button
-          onClick={onCtaClick}
-          data-testid="button-scroll-to-rsvp"
-          className="px-8 py-4 rounded-full text-foreground bg-white font-sans font-medium text-lg hover-elevate active-elevate-2 transition-all"
-        >
-          {ctaText}
-        </button>
+        {navLinks && navLinks.length > 0 ? (
+          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 md:gap-x-10">
+            {navLinks.map((link, i) => (
+              <a
+                key={i}
+                href={link.href}
+                className="font-sans text-sm md:text-base font-medium text-white/80 hover:text-white uppercase tracking-widest transition-colors border-b border-white/30 hover:border-white/80 pb-0.5"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+        ) : (
+          <button
+            onClick={onCtaClick}
+            data-testid="button-scroll-to-rsvp"
+            className="px-8 py-4 rounded-full text-foreground bg-white font-sans font-medium text-lg hover-elevate active-elevate-2 transition-all"
+          >
+            {ctaText}
+          </button>
+        )}
 
       </div>
 

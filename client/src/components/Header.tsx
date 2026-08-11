@@ -1,5 +1,6 @@
 import { Link } from 'wouter';
 import { registryContent } from '@/lib/registryContent';
+import { useEffect, useState } from 'react';
 
 interface HeaderProps {
   lang: string;
@@ -7,6 +8,14 @@ interface HeaderProps {
 
 export default function Header({ lang }: HeaderProps) {
   const t = registryContent[lang] ?? registryContent.en;
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const check = () => setVisible(window.scrollY > window.innerHeight * 0.75);
+    check();
+    window.addEventListener('scroll', check, { passive: true });
+    return () => window.removeEventListener('scroll', check);
+  }, []);
 
   const links = [
     { id: 'program', label: t.navProgram },
@@ -16,7 +25,11 @@ export default function Header({ lang }: HeaderProps) {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-sm border-b border-black/10">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 bg-white/85 backdrop-blur-sm border-b border-black/10 transition-all duration-300 ease-in-out ${
+        visible ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
+      }`}
+    >
       <nav className="flex items-center gap-4 md:gap-7 px-4 md:px-8 h-12 overflow-x-auto no-scrollbar pr-32 md:pr-64">
         {links.map((l) => (
           <Link
