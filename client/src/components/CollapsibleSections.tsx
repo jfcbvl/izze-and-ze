@@ -6,6 +6,19 @@ interface SubSection {
   content: string;
 }
 
+interface TipDetail {
+  label: string;
+  value: string;
+  href?: string;
+}
+
+interface Tip {
+  eyebrow?: string;
+  title: string;
+  content: string;
+  details?: TipDetail[];
+}
+
 export interface CollapsibleSection {
   title: string;
   preview: string;
@@ -14,6 +27,7 @@ export interface CollapsibleSection {
   imageOrientation?: 'vertical' | 'horizontal';
   address?: string;
   addressMapUrl?: string;
+  tip?: Tip;
 }
 
 interface CollapsibleSectionsProps {
@@ -76,6 +90,43 @@ function SubSectionList({ subsections }: { subsections: SubSection[] }) {
           </p>
         </div>
       ))}
+    </div>
+  );
+}
+
+function TipBox({ tip }: { tip: Tip }) {
+  return (
+    <div className="border-t border-black/10 pt-6 space-y-3">
+      {tip.eyebrow && (
+        <div className="font-sans text-xs uppercase tracking-widest text-muted-foreground">
+          {tip.eyebrow}
+        </div>
+      )}
+      <h4 className="font-sans font-semibold text-foreground text-sm uppercase tracking-widest">
+        {tip.title}
+      </h4>
+      <p className="font-sans text-muted-foreground leading-relaxed">{tip.content}</p>
+      {tip.details && tip.details.length > 0 && (
+        <div className="space-y-1 pt-1">
+          {tip.details.map((d, i) => (
+            <p key={i} className="font-sans text-muted-foreground leading-relaxed">
+              <span className="font-medium text-foreground">{d.label}:</span>{' '}
+              {d.href ? (
+                <a
+                  href={d.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-4 hover:text-foreground transition-colors"
+                >
+                  {d.value}
+                </a>
+              ) : (
+                d.value
+              )}
+            </p>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -161,6 +212,7 @@ function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isL
             {section.address && section.addressMapUrl && !section.image && (
               <AddressRow address={section.address} mapUrl={section.addressMapUrl} />
             )}
+            {section.tip && <TipBox tip={section.tip} />}
           </div>
         </div>
       </div>

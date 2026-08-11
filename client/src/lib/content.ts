@@ -59,7 +59,7 @@ export const content = {
             content: 'Évora is a UNESCO World Heritage city in the heart of the Alentejo region, known for its Roman ruins, medieval streets, and excellent food and wine.',
           },
           {
-            title: 'Getting There',
+            title: 'Getting To Évora',
             content: 'Évora is 1.5 hours from Lisbon by car, bus, or train. We recommend flying into Lisbon Airport (LIS) and either renting a car or taking the direct train.',
           },
           {
@@ -71,6 +71,15 @@ export const content = {
             content: 'Visit the Roman Temple, Chapel of Bones, and Cathedral, wander the historic streets, and enjoy Alentejo cuisine and wines. The city is compact, walkable, and easy to experience in just a few hours.',
           },
         ],
+        tip: {
+          eyebrow: 'Tips',
+          title: 'Train and bus from Lisbon',
+          content: 'There are two main stations for both: Oriente and Sete Rios. If you\'re going to Sete Rios by metro, the stop is called Jardim Zoológico.',
+          details: [
+            { label: 'Preferred method', value: 'Train — book via cp.pt/en', href: 'https://cp.pt/en' },
+            { label: 'Duration', value: '1h25 min' },
+          ],
+        },
       },
       {
         title: 'Explore Portugal — Our Recommendations',
