@@ -182,7 +182,7 @@ function CollapsibleCard({ section, isLast }: { section: CollapsibleSection; isL
       <div
         className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}
       >
-        <div className="px-6 pb-8 md:px-10 md:pb-10">
+        <div className="px-6 pb-8 md:px-10 md:pb-10" style={{ backgroundColor: '#faf8f2' }}>
           <div className="border-t border-black/10 pt-6 space-y-6">
             {section.image && section.imageOrientation === 'horizontal' ? (
               <>
