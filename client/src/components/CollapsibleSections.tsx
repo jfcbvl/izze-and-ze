@@ -180,12 +180,12 @@ function DresscodeBlock({ dresscode }: { dresscode: NonNullable<CollapsibleSecti
         {dresscode.cards.map((card, i) => (
           <div
             key={i}
-            className={`flex gap-4 items-start ${card.imagePosition === 'right' ? 'flex-row-reverse' : 'flex-row'}`}
+            className={`flex gap-4 items-start flex-row ${card.imagePosition === 'right' ? 'md:flex-row-reverse' : ''}`}
           >
             <img
               src={card.image}
               alt=""
-              className="w-24 md:w-28 flex-shrink-0 object-contain object-bottom self-end"
+              className="w-28 flex-shrink-0 object-contain object-bottom self-end"
             />
             <div className="flex-1 pt-1 space-y-2">
               <h5 className="font-sans font-semibold text-foreground text-sm leading-snug">
