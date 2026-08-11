@@ -9,8 +9,8 @@ import videoSrcMobile from '@assets/Fiesta_-_Vertical_1766433192320.mp4';
 import evoraPhoto from '@assets/evora-photo.png';
 import explorePortugalPhoto from '@assets/explore-portugal.jpg';
 import venuePhoto from '@assets/venue-photo.png';
-import cocktailDresscode from '@assets/Cocktail_Dresscode_1786424638448.png';
-import weddingDresscode from '@assets/Wedding_Dresscode_1786424638450.png';
+import cocktailDresscode from '@assets/Cocktail_Dresscode_1786425211682.png';
+import weddingDresscode from '@assets/Wedding_Dresscode_1786425211684.png';
 
 interface Event {
   time: string;
