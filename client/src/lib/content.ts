@@ -43,7 +43,7 @@ export const content = {
           description: 'Witness our short ceremony as we officially tie the knot.',
         },
         {
-          time: '7:00 PM',
+          time: '8:00 PM',
           name: 'Dinner & Fiesta',
           description: 'Sit for dinner and taste the local Alentejo flavors, followed by music, dancing, and celebration.',
         },
@@ -200,7 +200,7 @@ export const content = {
           description: 'Acompanhe a nossa breve cerimónia enquanto oficializamos o casamento perante amigos e família.',
         },
         {
-          time: '19:00',
+          time: '20:00',
           name: 'Jantar e Fiesta',
           description: 'Sente-se para jantar e prove os sabores locais do Alentejo, seguido de música, dança e celebração.',
         },
@@ -357,7 +357,7 @@ export const content = {
           description: 'Sé testigo de nuestra breve ceremonia mientras hacemos oficial el matrimonio frente a familia y amigos.',
         },
         {
-          time: '19:00',
+          time: '20:00',
           name: 'Cena y Fiesta',
           description: 'Siéntate a disfrutar de una cena con sabores locales del Alentejo, seguida de música, baile y celebración.',
         },
