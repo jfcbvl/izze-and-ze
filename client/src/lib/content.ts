@@ -87,7 +87,7 @@ export const content = {
             {
               name: 'Train',
               badge: 'BEST',
-              link: { href: 'https://cp.pt/en', label: 'Book via CP' },
+              link: { href: 'https://www.cp.pt/en', label: 'Book via CP' },
               rows: [
                 { label: 'Duration', value: '1h25' },
                 { label: 'How often', value: '5x / day' },
@@ -244,7 +244,7 @@ export const content = {
             {
               name: 'Comboio',
               badge: 'MELHOR',
-              link: { href: 'https://cp.pt', label: 'Reservar na CP' },
+              link: { href: 'https://www.cp.pt', label: 'Reservar na CP' },
               rows: [
                 { label: 'Duração', value: '1h25' },
                 { label: 'Frequência', value: '5x / dia' },
@@ -401,7 +401,7 @@ export const content = {
             {
               name: 'Tren',
               badge: 'MEJOR',
-              link: { href: 'https://cp.pt/en', label: 'Reservar en CP' },
+              link: { href: 'https://www.cp.pt/en', label: 'Reservar en CP' },
               rows: [
                 { label: 'Duración', value: '1h25' },
                 { label: 'Frecuencia', value: '5x / día' },
