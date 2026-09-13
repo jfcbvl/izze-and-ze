@@ -197,7 +197,12 @@ export default function ThankYouPage() {
       </section>
 
       <section className="bg-[#211012] px-6 py-24 text-center text-white md:py-32">
-        <h2 className="font-serif text-4xl md:text-6xl">Obrigado · Gracias · Thank you</h2>
+        <h2 className="font-serif text-4xl leading-tight md:hidden">
+          <span className="block">Obrigado</span>
+          <span className="block">Thank you</span>
+          <span className="block">Gracias</span>
+        </h2>
+        <h2 className="hidden font-serif text-6xl md:block">Obrigado · Gracias · Thank you</h2>
         <div className="mx-auto mt-8 max-w-xl space-y-2 font-sans leading-relaxed text-white/60">
           <p>For coming from near and far.</p>
           <p>For celebrating with us.</p>
