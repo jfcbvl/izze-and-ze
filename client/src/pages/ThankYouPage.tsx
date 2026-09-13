@@ -98,10 +98,16 @@ export default function ThankYouPage() {
               )}
             </div>
           </div>
+          <a
+            href="#share-photos"
+            className="mt-6 font-serif text-xl text-white/80 underline decoration-white/40 underline-offset-8 transition hover:text-white hover:decoration-white"
+          >
+            Photos and Videos Below
+          </a>
         </div>
       </section>
 
-      <section className="bg-[#2b1517] px-6 py-20 text-white md:py-28">
+      <section id="share-photos" className="scroll-mt-8 bg-[#2b1517] px-6 py-20 text-white md:py-28">
         <div className="mx-auto max-w-4xl text-center">
           <p className="font-sans text-xs uppercase tracking-[0.3em] text-[#efb27b]">Our shared album</p>
           <h2 className="mt-4 font-serif text-4xl md:text-6xl">Share your memories</h2>
