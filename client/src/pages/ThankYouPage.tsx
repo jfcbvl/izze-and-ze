@@ -29,7 +29,11 @@ export default function ThankYouPage() {
   const [filmPlaying, setFilmPlaying] = useState(false);
 
   const playFilm = () => {
-    filmRef.current?.play();
+    if (!filmRef.current) return;
+    filmRef.current.muted = false;
+    filmRef.current.defaultMuted = false;
+    filmRef.current.volume = 1;
+    filmRef.current.play();
   };
 
   return (
@@ -67,6 +71,12 @@ export default function ThankYouPage() {
                 playsInline
                 preload="metadata"
                 src={weddingFilm}
+                muted={false}
+                onLoadedMetadata={(event) => {
+                  event.currentTarget.muted = false;
+                  event.currentTarget.defaultMuted = false;
+                  event.currentTarget.volume = 1;
+                }}
                 onPlay={() => setFilmPlaying(true)}
                 onPause={() => setFilmPlaying(false)}
                 onEnded={() => setFilmPlaying(false)}
@@ -79,7 +89,7 @@ export default function ThankYouPage() {
                   type="button"
                   onClick={playFilm}
                   aria-label="Play a message from Izzy and Zé"
-                  className="absolute inset-0 flex items-center justify-center bg-black/10 transition hover:bg-black/20"
+                  className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full"
                 >
                   <span className="flex h-20 w-20 items-center justify-center rounded-full border border-white/50 bg-black/30 text-white shadow-xl backdrop-blur-sm transition hover:scale-105 md:h-24 md:w-24">
                     <Play className="ml-1 h-9 w-9 fill-white/85 md:h-11 md:w-11" />
