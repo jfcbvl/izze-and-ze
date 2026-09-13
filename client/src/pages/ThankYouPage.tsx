@@ -53,7 +53,7 @@ export default function ThankYouPage() {
           <h1 className="font-serif text-6xl font-light md:text-8xl">Izzy & Zé</h1>
           <p className="mt-3 font-sans text-sm uppercase tracking-[0.3em] text-white/85">September 5 · 2026</p>
           <p className="mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/85 md:mt-10 md:text-lg">
-            To everyone who crossed cities, countries and oceans to celebrate with us — thank you.
+            To everyone who crossed streets, countries and oceans to join us - thank you!
           </p>
 
           <div className="mt-10 w-full max-w-3xl overflow-hidden rounded-2xl border border-white/20 bg-black/25 p-2 shadow-2xl backdrop-blur-sm">
