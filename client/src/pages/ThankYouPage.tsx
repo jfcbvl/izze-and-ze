@@ -38,6 +38,9 @@ const creditInstagram: Record<string, Array<{ handle: string; url: string }>> = 
   Photography: [
     { handle: '@meninoconhecemenina', url: 'https://www.instagram.com/meninoconhecemenina' },
   ],
+  'Hair & Makeup': [
+    { handle: '@mariaserrano_makeupartist', url: 'https://www.instagram.com/mariaserrano_makeupartist' },
+  ],
 };
 
 export default function ThankYouPage() {
