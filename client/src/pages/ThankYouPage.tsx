@@ -57,7 +57,7 @@ export default function ThankYouPage() {
 
   return (
     <main className="min-h-screen bg-[#211012] text-white">
-      <div className="fixed left-4 top-4 z-50 md:left-8 md:top-6">
+      <div className="fixed left-4 top-4 z-50 hidden md:left-8 md:top-6 md:block">
         <Link
           href="/en"
           className="inline-flex rounded-full border border-white/30 bg-black/25 px-4 py-2 font-sans text-xs font-medium uppercase tracking-widest text-white backdrop-blur-md transition hover:bg-black/40"
