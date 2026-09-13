@@ -93,14 +93,6 @@ export default function ThankYouPage() {
             </span>
           </a>
 
-          <a
-            href={albumUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#565b48] px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-white shadow-md transition hover:bg-[#464b3a]"
-          >
-            Add photos on Google Photos <ExternalLink className="h-4 w-4" />
-          </a>
         </div>
       </section>
 
