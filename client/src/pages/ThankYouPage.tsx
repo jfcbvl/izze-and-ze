@@ -73,7 +73,7 @@ export default function ThankYouPage() {
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/40 to-black/75" />
 
-        <div className="relative z-10 mx-auto flex min-h-[80svh] max-w-5xl -translate-y-16 flex-col items-center justify-center px-5 py-8 text-center text-white md:min-h-screen md:py-24">
+        <div className="relative z-10 mx-auto flex min-h-[80svh] max-w-5xl -translate-y-12 flex-col items-center justify-center px-5 py-8 text-center text-white md:min-h-screen md:-translate-y-16 md:py-24">
           <p className="mb-4 font-sans text-xs uppercase tracking-[0.35em] text-white/80">Évora · Portugal</p>
           <h1 className="font-serif text-6xl font-light md:text-8xl">Izzy & Zé</h1>
           <p className="mt-3 font-sans text-sm uppercase tracking-[0.3em] text-white/85">September 5 · 2026</p>
