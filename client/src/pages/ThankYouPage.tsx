@@ -24,6 +24,22 @@ const credits = [
   ['Additional Thanks', 'Fátima, the Izek parents, Sanchez tios & Castelo Branco cousins'],
 ];
 
+const creditInstagram: Record<string, Array<{ handle: string; url: string }>> = {
+  Music: [
+    { handle: '@hangoverband.oficial', url: 'https://www.instagram.com/hangoverband.oficial/' },
+    { handle: '@mariachisoldelisboa', url: 'https://www.instagram.com/mariachisoldelisboa/' },
+  ],
+  Dinner: [
+    { handle: '@taberna_tipica_quarta_feira', url: 'https://www.instagram.com/taberna_tipica_quarta_feira' },
+  ],
+  Bar: [
+    { handle: '@as_de_copos', url: 'https://www.instagram.com/as_de_copos/' },
+  ],
+  Photography: [
+    { handle: '@meninoconhecemenina', url: 'https://www.instagram.com/meninoconhecemenina' },
+  ],
+};
+
 export default function ThankYouPage() {
   const filmRef = useRef<HTMLVideoElement>(null);
   const [filmPlaying, setFilmPlaying] = useState(false);
@@ -156,6 +172,21 @@ export default function ThankYouPage() {
               <div key={role}>
                 <h3 className="font-sans text-[11px] font-semibold uppercase tracking-[0.24em] text-[#efb27b]">{role}</h3>
                 <p className="mx-auto mt-2 max-w-xl font-serif text-xl leading-snug text-white/95 md:text-2xl">{names}</p>
+                {creditInstagram[role] && (
+                  <div className="mt-2 flex flex-wrap justify-center gap-x-4 gap-y-1">
+                    {creditInstagram[role].map(({ handle, url }) => (
+                      <a
+                        key={handle}
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-sans text-xs text-white/55 underline decoration-white/25 underline-offset-4 transition hover:text-white"
+                      >
+                        {handle}
+                      </a>
+                    ))}
+                  </div>
+                )}
               </div>
             ))}
           </div>
