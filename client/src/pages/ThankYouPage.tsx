@@ -135,11 +135,11 @@ export default function ThankYouPage() {
             <h2 className="mt-4 font-serif text-4xl md:text-6xl">It took a village</h2>
             <p className="mt-4 font-sans text-white/60">And ours is pretty incredible.</p>
           </div>
-          <div className="mt-12 grid gap-x-12 gap-y-6 md:grid-cols-2">
+          <div className="mx-auto mt-14 max-w-2xl space-y-8 text-center">
             {credits.map(([role, names]) => (
-              <div key={role} className="border-t border-white/15 pt-4">
-                <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[#efb27b]">{role}</h3>
-                <p className="mt-2 font-serif text-xl leading-snug">{names}</p>
+              <div key={role}>
+                <h3 className="font-sans text-[11px] font-semibold uppercase tracking-[0.24em] text-[#efb27b]">{role}</h3>
+                <p className="mx-auto mt-2 max-w-xl font-serif text-xl leading-snug text-white/95 md:text-2xl">{names}</p>
               </div>
             ))}
           </div>
