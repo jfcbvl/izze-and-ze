@@ -3,6 +3,7 @@ import { ExternalLink, Images, Play } from 'lucide-react';
 import backgroundVideo from '@assets/thank-you-background-desktop-web.mp4';
 import backgroundVideoMobile from '@assets/thank-you-background-mobile-web.mp4';
 import weddingFilm from '@assets/wedding-thank-you-film.mp4';
+import albumThumbnail from '@assets/1456411d-0460-4eb4-be1b-5a9469f5a53f_1789331094787.jpg';
 
 const albumUrl = 'https://photos.app.goo.gl/WpfJhpvSDdDh46gb9';
 
@@ -70,16 +71,26 @@ export default function ThankYouPage() {
             href={albumUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mx-auto mt-10 flex max-w-2xl items-center gap-5 rounded-2xl border border-black/10 bg-white/70 p-5 text-left shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl md:p-7"
+            className="group mx-auto mt-10 block max-w-2xl overflow-hidden rounded-2xl border border-black/10 bg-white/70 text-left shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
           >
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#565b48] text-white">
-              <Images className="h-6 w-6" />
+            <img
+              src={albumThumbnail}
+              alt="Izzy and Zé on their wedding day"
+              className="h-56 w-full object-cover object-[center_42%] md:h-72"
+            />
+            <span className="flex items-center gap-4 p-5 md:p-7">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#565b48] text-white">
+                <Images className="h-5 w-5" />
+              </span>
+              <span className="min-w-0 flex-1">
+                <span className="mb-1 block font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-[#565b48]">
+                  Google Photos shared album
+                </span>
+                <span className="block font-serif text-2xl">Izzy & Zé’s wedding photos</span>
+                <span className="mt-1 block font-sans text-sm text-black/55">Add yours and see what everyone else captured along the way.</span>
+              </span>
+              <ExternalLink className="h-5 w-5 shrink-0 text-black/45 transition group-hover:text-black" />
             </span>
-            <span className="min-w-0 flex-1">
-              <span className="block font-serif text-2xl">Izzy & Zé’s shared album</span>
-              <span className="mt-1 block font-sans text-sm text-black/55">Add yours and see what everyone else captured along the way.</span>
-            </span>
-            <ExternalLink className="h-5 w-5 shrink-0 text-black/45 transition group-hover:text-black" />
           </a>
 
           <a
@@ -88,7 +99,7 @@ export default function ThankYouPage() {
             rel="noopener noreferrer"
             className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#565b48] px-8 py-4 font-sans text-sm font-semibold uppercase tracking-widest text-white shadow-md transition hover:bg-[#464b3a]"
           >
-            Add your photos <ExternalLink className="h-4 w-4" />
+            Add photos on Google Photos <ExternalLink className="h-4 w-4" />
           </a>
         </div>
       </section>
