@@ -106,11 +106,11 @@ export default function ThankYouPage() {
         </div>
       </section>
 
-      <section id="share-photos" className="scroll-mt-8 bg-[#2b1517] px-6 py-20 text-white md:py-28">
+      <section id="share-photos" className="scroll-mt-8 bg-[#2b1517] px-6 py-12 text-white md:py-16">
         <div className="mx-auto max-w-4xl text-center">
           <p className="font-sans text-xs uppercase tracking-[0.3em] text-[#efb27b]">Our shared album</p>
-          <h2 className="mt-4 font-serif text-4xl md:text-6xl">Share your memories</h2>
-          <p className="mx-auto mt-6 max-w-2xl font-sans leading-relaxed text-white/65">
+          <h2 className="mt-2 font-serif text-4xl md:text-5xl">Share your memories</h2>
+          <p className="mx-auto mt-3 max-w-2xl font-sans leading-relaxed text-white/65">
             If you captured a favorite moment, a blurry dance floor photo, a video, or something we might have missed, add it to our shared album.
           </p>
 
@@ -118,14 +118,14 @@ export default function ThankYouPage() {
             href={albumUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mx-auto mt-10 block max-w-2xl overflow-hidden rounded-2xl border border-white/15 bg-[#43211f] text-left shadow-2xl transition hover:-translate-y-0.5 hover:bg-[#4b2523]"
+            className="group mx-auto mt-6 block max-w-2xl overflow-hidden rounded-2xl border border-white/15 bg-[#43211f] text-left shadow-2xl transition hover:-translate-y-0.5 hover:bg-[#4b2523]"
           >
             <img
               src={albumThumbnail}
               alt="Izzy and Zé on their wedding day"
-              className="h-56 w-full object-cover object-[center_42%] md:h-72"
+              className="h-44 w-full object-cover object-[center_42%] md:h-56"
             />
-            <span className="flex items-center gap-4 p-5 md:p-7">
+            <span className="flex items-center gap-4 p-4 md:p-5">
               <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#76503d] text-white">
                 <Images className="h-5 w-5" />
               </span>
