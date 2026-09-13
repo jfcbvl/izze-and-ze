@@ -33,7 +33,7 @@ export default function ThankYouPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#faf8f2] text-[#1b1b18]">
+    <main className="min-h-screen bg-[#211012] text-white">
       <div className="fixed left-4 top-4 z-50 md:left-8 md:top-6">
         <Link
           href="/en"
@@ -91,11 +91,11 @@ export default function ThankYouPage() {
         </div>
       </section>
 
-      <section className="px-6 py-20 md:py-28">
+      <section className="bg-[#2b1517] px-6 py-20 text-white md:py-28">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="font-sans text-xs uppercase tracking-[0.3em] text-[#565b48]">Our shared album</p>
+          <p className="font-sans text-xs uppercase tracking-[0.3em] text-[#efb27b]">Our shared album</p>
           <h2 className="mt-4 font-serif text-4xl md:text-6xl">Share your memories</h2>
-          <p className="mx-auto mt-6 max-w-2xl font-sans leading-relaxed text-black/60">
+          <p className="mx-auto mt-6 max-w-2xl font-sans leading-relaxed text-white/65">
             If you captured a favorite moment, a blurry dance floor photo, a video, or something we might have missed, add it to our shared album.
           </p>
 
@@ -103,7 +103,7 @@ export default function ThankYouPage() {
             href={albumUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group mx-auto mt-10 block max-w-2xl overflow-hidden rounded-2xl border border-black/10 bg-white/70 text-left shadow-lg transition hover:-translate-y-0.5 hover:shadow-xl"
+            className="group mx-auto mt-10 block max-w-2xl overflow-hidden rounded-2xl border border-white/15 bg-[#43211f] text-left shadow-2xl transition hover:-translate-y-0.5 hover:bg-[#4b2523]"
           >
             <img
               src={albumThumbnail}
@@ -111,34 +111,34 @@ export default function ThankYouPage() {
               className="h-56 w-full object-cover object-[center_42%] md:h-72"
             />
             <span className="flex items-center gap-4 p-5 md:p-7">
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#565b48] text-white">
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#76503d] text-white">
                 <Images className="h-5 w-5" />
               </span>
               <span className="min-w-0 flex-1">
-                <span className="mb-1 block font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-[#565b48]">
+                <span className="mb-1 block font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-[#efb27b]">
                   Google Photos shared album
                 </span>
                 <span className="block font-serif text-2xl">Izzy & Zé’s wedding photos</span>
-                <span className="mt-1 block font-sans text-sm text-black/55">Add yours and see what everyone else captured along the way.</span>
+                <span className="mt-1 block font-sans text-sm text-white/60">Add yours and see what everyone else captured along the way.</span>
               </span>
-              <ExternalLink className="h-5 w-5 shrink-0 text-black/45 transition group-hover:text-black" />
+              <ExternalLink className="h-5 w-5 shrink-0 text-white/50 transition group-hover:text-white" />
             </span>
           </a>
 
         </div>
       </section>
 
-      <section className="border-y border-black/10 bg-[#f3efe3] px-6 py-20 md:py-28">
+      <section className="border-y border-white/10 bg-[#3a1b1b] px-6 py-20 text-white md:py-28">
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
-            <p className="font-sans text-xs uppercase tracking-[0.3em] text-[#565b48]">With love & thanks</p>
+            <p className="font-sans text-xs uppercase tracking-[0.3em] text-[#efb27b]">With love & thanks</p>
             <h2 className="mt-4 font-serif text-4xl md:text-6xl">It took a village</h2>
-            <p className="mt-4 font-sans text-black/60">And ours is pretty incredible.</p>
+            <p className="mt-4 font-sans text-white/60">And ours is pretty incredible.</p>
           </div>
           <div className="mt-12 grid gap-x-12 gap-y-6 md:grid-cols-2">
             {credits.map(([role, names]) => (
-              <div key={role} className="border-t border-black/10 pt-4">
-                <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[#565b48]">{role}</h3>
+              <div key={role} className="border-t border-white/15 pt-4">
+                <h3 className="font-sans text-xs font-semibold uppercase tracking-widest text-[#efb27b]">{role}</h3>
                 <p className="mt-2 font-serif text-xl leading-snug">{names}</p>
               </div>
             ))}
@@ -146,17 +146,17 @@ export default function ThankYouPage() {
         </div>
       </section>
 
-      <section className="px-6 py-24 text-center md:py-32">
+      <section className="bg-[#211012] px-6 py-24 text-center text-white md:py-32">
         <h2 className="font-serif text-4xl md:text-6xl">Obrigado · Gracias · Thank you</h2>
-        <div className="mx-auto mt-8 max-w-xl space-y-2 font-sans leading-relaxed text-black/60">
+        <div className="mx-auto mt-8 max-w-xl space-y-2 font-sans leading-relaxed text-white/60">
           <p>For coming from near and far.</p>
           <p>For celebrating with us.</p>
           <p>For being part of our story.</p>
         </div>
-        <p className="mt-10 font-sans text-xs uppercase tracking-[0.3em] text-[#565b48]">Évora, Portugal · 05.09.26</p>
+        <p className="mt-10 font-sans text-xs uppercase tracking-[0.3em] text-[#efb27b]">Évora, Portugal · 05.09.26</p>
         <p className="mt-8 font-serif text-4xl">♡</p>
         <p className="mt-2 font-serif text-3xl">Izzy & Zé</p>
-        <Link href="/en" className="mt-12 inline-block font-sans text-sm text-black/55 underline underline-offset-4 hover:text-black">
+        <Link href="/en" className="mt-12 inline-block font-sans text-sm text-white/55 underline underline-offset-4 hover:text-white">
           Return to wedding details
         </Link>
       </section>
