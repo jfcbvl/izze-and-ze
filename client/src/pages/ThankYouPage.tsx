@@ -52,10 +52,9 @@ export default function ThankYouPage() {
         <video autoPlay muted loop playsInline src={backgroundVideo} className="absolute inset-0 hidden h-full w-full object-cover md:block" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/40 to-black/75" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl -translate-y-16 flex-col items-center justify-center px-5 py-24 text-center text-white">
-          <p className="mb-4 font-sans text-xs uppercase tracking-[0.35em] text-white/80">Évora · Portugal</p>
+        <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl -translate-y-20 flex-col items-center justify-center px-5 py-24 text-center text-white">
           <h1 className="font-serif text-6xl font-light md:text-8xl">Izzy & Zé</h1>
-          <p className="mt-3 font-sans text-sm uppercase tracking-[0.3em] text-white/85">September 5 · 2026</p>
+          <p className="mt-3 font-sans text-sm uppercase tracking-[0.3em] text-white/85">Évora · Portugal · September 5 · 2026</p>
           <p className="mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/85 md:mt-10 md:text-lg">
             To everyone who crossed streets, countries and oceans to join us - thank you!
           </p>
@@ -64,7 +63,7 @@ export default function ThankYouPage() {
             <div className="mb-2 flex items-center justify-center gap-2 py-1 font-sans text-xs uppercase tracking-widest text-white/75">
               <Play className="h-3.5 w-3.5" /> A message from Izzy and Zé
             </div>
-            <div className="relative aspect-video overflow-hidden rounded-xl bg-black">
+            <div className="relative aspect-video overflow-hidden rounded-xl bg-black md:aspect-[11/5]">
               <video
                 ref={filmRef}
                 controls
@@ -100,7 +99,7 @@ export default function ThankYouPage() {
           </div>
           <a
             href="#share-photos"
-            className="mt-6 font-serif text-xl text-white/80 underline decoration-white/40 underline-offset-8 transition hover:text-white hover:decoration-white"
+            className="mt-3 font-serif text-xl text-white/80 underline decoration-white/40 underline-offset-8 transition hover:text-white hover:decoration-white"
           >
             Photos and Videos Below
           </a>
