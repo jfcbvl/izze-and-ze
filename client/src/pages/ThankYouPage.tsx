@@ -1,7 +1,7 @@
 import { Link } from 'wouter';
 import { ExternalLink, Images, Play } from 'lucide-react';
-import backgroundVideo from '@assets/thank_you_horizontal-desktop_1789330892435.mp4';
-import backgroundVideoMobile from '@assets/thankyouvertical-mobile_1789330892436.mp4';
+import backgroundVideo from '@assets/thank-you-background-desktop-web.mp4';
+import backgroundVideoMobile from '@assets/thank-you-background-mobile-web.mp4';
 import weddingFilm from '@assets/wedding-thank-you-film.mp4';
 
 const albumUrl = 'https://photos.app.goo.gl/WpfJhpvSDdDh46gb9';
