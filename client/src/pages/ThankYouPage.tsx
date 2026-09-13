@@ -126,8 +126,8 @@ export default function ThankYouPage() {
         </div>
       </section>
 
-      <section id="share-photos" className="relative z-20 -mt-16 min-h-[90svh] scroll-mt-8 bg-[#2b1517] px-6 py-20 text-white md:mt-0 md:min-h-0 md:py-16">
-        <div className="mx-auto max-w-4xl text-center">
+      <section id="share-photos" className="relative z-20 -mt-16 flex min-h-[72svh] scroll-mt-8 items-center bg-[#2b1517] px-6 py-12 text-white md:mt-0 md:block md:min-h-0 md:py-16">
+        <div className="mx-auto w-full max-w-4xl text-center">
           <p className="font-sans text-xs uppercase tracking-[0.3em] text-[#efb27b]">Our shared album</p>
           <h2 className="mt-2 font-serif text-4xl md:text-5xl">Share your memories</h2>
           <p className="mx-auto mt-3 max-w-2xl font-sans leading-relaxed text-white/65">
