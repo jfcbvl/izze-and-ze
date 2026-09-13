@@ -1,5 +1,6 @@
 import { Link } from 'wouter';
 import { ExternalLink, Images, Play } from 'lucide-react';
+import { useRef, useState } from 'react';
 import backgroundVideo from '@assets/thank-you-background-desktop-web.mp4';
 import backgroundVideoMobile from '@assets/thank-you-background-mobile-web.mp4';
 import weddingFilm from '@assets/wedding-thank-you-film.mp4';
@@ -24,6 +25,13 @@ const credits = [
 ];
 
 export default function ThankYouPage() {
+  const filmRef = useRef<HTMLVideoElement>(null);
+  const [filmPlaying, setFilmPlaying] = useState(false);
+
+  const playFilm = () => {
+    filmRef.current?.play();
+  };
+
   return (
     <main className="min-h-screen bg-[#faf8f2] text-[#1b1b18]">
       <div className="fixed left-4 top-4 z-50 md:left-8 md:top-6">
@@ -50,11 +58,35 @@ export default function ThankYouPage() {
 
           <div className="mt-10 w-full max-w-3xl overflow-hidden rounded-2xl border border-white/20 bg-black/25 p-2 shadow-2xl backdrop-blur-sm">
             <div className="mb-2 flex items-center justify-center gap-2 py-1 font-sans text-xs uppercase tracking-widest text-white/75">
-              <Play className="h-3.5 w-3.5" /> Our wedding film
+              <Play className="h-3.5 w-3.5" /> A message from Izzy and Zé
             </div>
-            <video controls playsInline preload="metadata" src={weddingFilm} className="aspect-video w-full rounded-xl bg-black object-contain">
-              Your browser does not support video playback.
-            </video>
+            <div className="relative aspect-video overflow-hidden rounded-xl bg-black">
+              <video
+                ref={filmRef}
+                controls
+                playsInline
+                preload="metadata"
+                src={weddingFilm}
+                onPlay={() => setFilmPlaying(true)}
+                onPause={() => setFilmPlaying(false)}
+                onEnded={() => setFilmPlaying(false)}
+                className="h-full w-full scale-[1.08] object-cover"
+              >
+                Your browser does not support video playback.
+              </video>
+              {!filmPlaying && (
+                <button
+                  type="button"
+                  onClick={playFilm}
+                  aria-label="Play a message from Izzy and Zé"
+                  className="absolute inset-0 flex items-center justify-center bg-black/10 transition hover:bg-black/20"
+                >
+                  <span className="flex h-20 w-20 items-center justify-center rounded-full border border-white/50 bg-black/30 text-white shadow-xl backdrop-blur-sm transition hover:scale-105 md:h-24 md:w-24">
+                    <Play className="ml-1 h-9 w-9 fill-white/85 md:h-11 md:w-11" />
+                  </span>
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </section>
