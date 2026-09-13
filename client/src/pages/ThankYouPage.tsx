@@ -66,12 +66,12 @@ export default function ThankYouPage() {
         </Link>
       </div>
 
-      <section className="relative min-h-screen overflow-hidden bg-black">
+      <section className="relative min-h-[80svh] overflow-hidden bg-black md:min-h-screen">
         <video autoPlay muted loop playsInline src={backgroundVideoMobile} className="absolute inset-0 h-full w-full object-cover md:hidden" />
         <video autoPlay muted loop playsInline src={backgroundVideo} className="absolute inset-0 hidden h-full w-full object-cover md:block" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/40 to-black/75" />
 
-        <div className="relative z-10 mx-auto flex min-h-screen max-w-5xl -translate-y-16 flex-col items-center justify-center px-5 py-24 text-center text-white">
+        <div className="relative z-10 mx-auto flex min-h-[80svh] max-w-5xl -translate-y-16 flex-col items-center justify-center px-5 py-8 text-center text-white md:min-h-screen md:py-24">
           <p className="mb-4 font-sans text-xs uppercase tracking-[0.35em] text-white/80">Évora · Portugal</p>
           <h1 className="font-serif text-6xl font-light md:text-8xl">Izzy & Zé</h1>
           <p className="mt-3 font-sans text-sm uppercase tracking-[0.3em] text-white/85">September 5 · 2026</p>
@@ -126,7 +126,7 @@ export default function ThankYouPage() {
         </div>
       </section>
 
-      <section id="share-photos" className="scroll-mt-8 bg-[#2b1517] px-6 py-12 text-white md:py-16">
+      <section id="share-photos" className="min-h-[90svh] scroll-mt-8 bg-[#2b1517] px-6 py-20 text-white md:min-h-0 md:py-16">
         <div className="mx-auto max-w-4xl text-center">
           <p className="font-sans text-xs uppercase tracking-[0.3em] text-[#efb27b]">Our shared album</p>
           <h2 className="mt-2 font-serif text-4xl md:text-5xl">Share your memories</h2>
