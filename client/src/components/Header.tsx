@@ -22,6 +22,7 @@ export default function Header({ lang }: HeaderProps) {
     { id: 'travel', label: t.navTravel },
     { id: 'venue-dresscode', label: t.navVenue },
     { id: 'gifts', label: t.navGifts },
+    { id: 'thankyou', label: lang === 'pt' ? 'Obrigado' : lang === 'mx' ? 'Gracias' : 'Thank You' },
   ];
 
   return (
@@ -34,7 +35,7 @@ export default function Header({ lang }: HeaderProps) {
         {links.map((l) => (
           <Link
             key={l.id}
-            href={`/${l.id}/${lang}`}
+            href={l.id === 'thankyou' ? '/thankyou' : `/${l.id}/${lang}`}
             data-testid={`nav-${l.id}`}
             className="font-sans text-xs md:text-sm font-medium text-foreground/70 hover:text-foreground whitespace-nowrap transition-colors"
           >

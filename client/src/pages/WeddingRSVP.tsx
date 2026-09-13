@@ -105,6 +105,7 @@ export default function WeddingRSVP({ content, lang, anchor }: WeddingRSVPProps)
           { label: (registryContent[lang] ?? registryContent.en).navTravel,  href: `/travel/${lang}` },
           { label: (registryContent[lang] ?? registryContent.en).navVenue,   href: `/venue-dresscode/${lang}` },
           { label: (registryContent[lang] ?? registryContent.en).navGifts,   href: `/gifts/${lang}` },
+          { label: lang === 'pt' ? 'Obrigado' : lang === 'mx' ? 'Gracias' : 'Thank You', href: '/thankyou' },
         ]}
         videoSrc={videoSrc}
         videoSrcMobile={videoSrcMobile}

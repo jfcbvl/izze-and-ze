@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import WeddingRSVP from "@/pages/WeddingRSVP";
 import RegistryPage from "@/pages/RegistryPage";
+import ThankYouPage from "@/pages/ThankYouPage";
 import { content } from "@/lib/content";
 
 const langs = ["en", "pt", "mx"] as const;
@@ -21,6 +22,8 @@ function Router() {
       <Route path="/">
         <Redirect to="/en" />
       </Route>
+
+      <Route path="/thankyou" component={ThankYouPage} />
 
       {/* Full-screen gift flow: /gifts/give/:lang */}
       <Route path="/gifts/give/:lang">
