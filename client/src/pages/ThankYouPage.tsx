@@ -43,8 +43,7 @@ export default function ThankYouPage() {
           <p className="mb-4 font-sans text-xs uppercase tracking-[0.35em] text-white/80">Évora · Portugal</p>
           <h1 className="font-serif text-6xl font-light md:text-8xl">Izzy & Zé</h1>
           <p className="mt-3 font-sans text-sm uppercase tracking-[0.3em] text-white/85">September 5 · 2026</p>
-          <h2 className="mt-12 font-serif text-4xl md:text-6xl">We did it!</h2>
-          <p className="mt-4 max-w-2xl font-sans text-base leading-relaxed text-white/85 md:text-lg">
+          <p className="mt-8 max-w-2xl font-sans text-base leading-relaxed text-white/85 md:mt-10 md:text-lg">
             To everyone who crossed cities, countries and oceans to celebrate with us — thank you.
           </p>
 
