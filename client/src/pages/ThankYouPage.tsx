@@ -67,8 +67,10 @@ export default function ThankYouPage() {
       </div>
 
       <section className="relative min-h-[80svh] overflow-hidden bg-black md:min-h-screen">
-        <video autoPlay muted loop playsInline src={backgroundVideoMobile} className="absolute inset-0 h-full w-full object-cover md:hidden" />
-        <video autoPlay muted loop playsInline src={backgroundVideo} className="absolute inset-0 hidden h-full w-full object-cover md:block" />
+        <video autoPlay muted loop playsInline className="absolute inset-0 h-full w-full object-cover">
+          <source media="(max-width: 767px)" src={backgroundVideoMobile} type="video/mp4" />
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/40 to-black/75" />
 
         <div className="relative z-10 mx-auto flex min-h-[80svh] max-w-5xl -translate-y-16 flex-col items-center justify-center px-5 py-8 text-center text-white md:min-h-screen md:py-24">
@@ -88,7 +90,7 @@ export default function ThankYouPage() {
                 ref={filmRef}
                 controls
                 playsInline
-                preload="metadata"
+                preload="auto"
                 src={weddingFilm}
                 muted={false}
                 onLoadedMetadata={(event) => {
