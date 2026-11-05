@@ -1,4 +1,4 @@
-import { Switch, Route, Redirect } from "wouter";
+import { Switch, Route, Redirect, Router as WouterRouter } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -25,7 +25,6 @@ function Router() {
 
       <Route path="/thankyou" component={ThankYouPage} />
 
-      {/* Full-screen gift flow: /gifts/give/:lang */}
       <Route path="/gifts/give/:lang">
         {(params: { lang: string }) =>
           isLang(params.lang) ? (
@@ -36,7 +35,6 @@ function Router() {
         }
       </Route>
 
-      {/* Section anchors: /:anchor/:lang */}
       <Route path="/:anchor/:lang">
         {(params: { anchor: string; lang: string }) =>
           isLang(params.lang) && anchors.includes(params.anchor) ? (
@@ -51,7 +49,6 @@ function Router() {
         }
       </Route>
 
-      {/* Home: /:lang */}
       <Route path="/:lang">
         {(params: { lang: string }) =>
           isLang(params.lang) ? (
@@ -71,12 +68,14 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
-    </QueryClientProvider>
+    <WouterRouter base="/izze-and-ze">
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+        </TooltipProvider>
+      </QueryClientProvider>
+    </WouterRouter>
   );
 }
 
